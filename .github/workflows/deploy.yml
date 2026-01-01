@@ -1,0 +1,61 @@
+name: Build & Deploy (Docker)
+
+on:
+  push:
+    branches: [main, test]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Choose env (dev/prod)
+        run: |
+          if [ "${GITHUB_REF_NAME}" = "main" ]; then
+            echo "TAG=prod" >> $GITHUB_ENV
+            echo "PROJECT=pixelinventor-prod" >> $GITHUB_ENV
+            echo "COMPOSE=compose/prod.yml" >> $GITHUB_ENV
+          else
+            echo "TAG=dev" >> $GITHUB_ENV
+            echo "PROJECT=pixelinventor-dev" >> $GITHUB_ENV
+            echo "COMPOSE=compose/dev.yml" >> $GITHUB_ENV
+          fi
+
+      - name: Login to GHCR (push)
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & Push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ env.TAG }}
+
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Add VPS to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p ${{ secrets.VPS_PORT }} -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy on VPS (pull + up)
+        run: |
+          ssh -p ${{ secrets.VPS_PORT }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "\
+            cd /opt/pixelinventor && \
+            docker compose -p ${PROJECT} -f ${COMPOSE} --env-file .env pull && \
+            docker compose -p ${PROJECT} -f ${COMPOSE} --env-file .env up -d --remove-orphans \
+          "
