@@ -29,8 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
 /**
  * Ładuje wybrane projekty na stronę główną
  */
+
+/**
+ * Normalizuje ścieżkę do wersji "od root" (np. "img/x.jpg" -> "/img/x.jpg")
+ * Dzięki temu linki i miniaturki z JSON działają też na podstronach (/blog/...).
+ */
+function normalizePath(path) {
+    if (!path) return '';
+    const cleaned = path.replace(/^(\.\/)+/, '').replace(/^(\.\.\/)+/, '');
+    return cleaned.startsWith('/') ? cleaned : '/' + cleaned;
+}
+
 function loadFeaturedProjects() {
-    fetch('data/projects.json')
+    fetch('/data/projects.json')
         .then(response => response.json())
         .then(projects => {
             // Sortowanie projektów od najnowszych
@@ -48,14 +59,14 @@ function loadFeaturedProjects() {
                 
                 html += `
                 <div class="project-card pixel-border">
-                    <div class="project-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${project.thumbnail}'); background-size: cover;"></div>
+                    <div class="project-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${normalizePath(project.thumbnail)}'); background-size: cover;"></div>
                     <div class="project-info">
                         <h3>${project.title}</h3>
                         <p>${project.description}</p>
                         <div class="project-tags">
                             ${tagsHtml}
                         </div>
-                        <a href="${project.url}" class="pixel-button small">Zobacz więcej</a>
+                        <a href="${normalizePath(project.url)}" class="pixel-button small">Zobacz więcej</a>
                     </div>
                 </div>
                 `;
@@ -78,7 +89,7 @@ function loadFeaturedProjects() {
  * Ładuje wszystkie projekty na stronę projektów
  */
 function loadAllProjects() {
-    fetch('data/projects.json')
+    fetch('/data/projects.json')
         .then(response => response.json())
         .then(projects => {
             // Sortowanie projektów od najnowszych
@@ -93,14 +104,14 @@ function loadAllProjects() {
                 
                 html += `
                 <div class="project-card pixel-border" data-category="${project.category}">
-                    <div class="project-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${project.thumbnail}'); background-size: cover;"></div>
+                    <div class="project-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${normalizePath(project.thumbnail)}'); background-size: cover;"></div>
                     <div class="project-info">
                         <h3>${project.title}</h3>
                         <p>${project.description}</p>
                         <div class="project-tags">
                             ${tagsHtml}
                         </div>
-                        <a href="${project.url}" class="pixel-button small">Zobacz więcej</a>
+                        <a href="${normalizePath(project.url)}" class="pixel-button small">Zobacz więcej</a>
                     </div>
                 </div>
                 `;
@@ -126,7 +137,7 @@ function loadAllProjects() {
  * Ładuje wybrane wpisy bloga na stronę główną
  */
 function loadFeaturedBlogPosts() {
-    fetch('data/blog-posts.json')
+    fetch('/data/blog-posts.json')
         .then(response => response.json())
         .then(posts => {
             // Sortowanie wpisów od najnowszych
@@ -150,12 +161,12 @@ function loadFeaturedBlogPosts() {
                 
                 html += `
                 <div class="blog-card pixel-border">
-                    <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${post.thumbnail}'); background-size: cover;"></div>
+                    <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${normalizePath(post.thumbnail)}'); background-size: cover;"></div>
                     <div class="blog-content">
                         <div class="blog-date">${formattedDate}</div>
                         <h3>${post.title}</h3>
                         <p>${post.excerpt}</p>
-                        <a href="${post.url}" class="pixel-button small">Czytaj więcej</a>
+                        <a href="${normalizePath(post.url)}" class="pixel-button small">Czytaj więcej</a>
                     </div>
                 </div>
                 `;
@@ -178,7 +189,7 @@ function loadFeaturedBlogPosts() {
  * Ładuje wszystkie wpisy bloga na stronę bloga
  */
 function loadAllBlogPosts() {
-    fetch('data/blog-posts.json')
+    fetch('/data/blog-posts.json')
         .then(response => response.json())
         .then(posts => {
             // Sortowanie wpisów od najnowszych
@@ -201,7 +212,7 @@ function loadAllBlogPosts() {
                 
                 html += `
                 <div class="blog-card pixel-border">
-                    <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${post.thumbnail}'); background-size: cover;"></div>
+                    <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${normalizePath(post.thumbnail)}'); background-size: cover;"></div>
                     <div class="blog-content">
                         <div class="blog-date">${formattedDate}</div>
                         <h3>${post.title}</h3>
@@ -209,7 +220,7 @@ function loadAllBlogPosts() {
                         <div class="blog-tags">
                             ${tagsHtml}
                         </div>
-                        <a href="${post.url}" class="pixel-button small">Czytaj więcej</a>
+                        <a href="${normalizePath(post.url)}" class="pixel-button small">Czytaj więcej</a>
                     </div>
                 </div>
                 `;

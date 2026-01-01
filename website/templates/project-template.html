@@ -1,220 +1,127 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TYTUŁ PROJEKTU - PixelInventor</title>
-    
-    <!-- SEO Meta Tagi -->
-    <meta name="description" content="KRÓTKI OPIS PROJEKTU">
-    <meta name="keywords" content="SŁOWA KLUCZOWE, ODDZIELONE, PRZECINKAMI">
-    <meta name="author" content="PixelInventor">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pixelinventor.com/projects/LINK-DO-PROJEKTU.html">
-    <meta property="og:title" content="TYTUŁ PROJEKTU - PixelInventor">
-    <meta property="og:description" content="KRÓTKI OPIS PROJEKTU">
-    <meta property="og:image" content="https://pixelinventor.com/img/projects/NAZWA-OBRAZKA-OG.jpg">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://pixelinventor.com/projects/LINK-DO-PROJEKTU.html">
-    <meta name="twitter:title" content="TYTUŁ PROJEKTU - PixelInventor">
-    <meta name="twitter:description" content="KRÓTKI OPIS PROJEKTU">
-    <meta name="twitter:image" content="https://pixelinventor.com/img/projects/NAZWA-OBRAZKA-TWITTER.jpg">
-    
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://pixelinventor.com/projects/LINK-DO-PROJEKTU.html">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    
-    <!-- Dodanie pixelowego fontu -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome dla ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Highlight.js dla wyróżniania składni kodu -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-    
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/project.css">
-    
-    <!-- Główny skrypt strony -->
-    <script src="../js/main.js" defer></script>
-    
-    <!-- Skrypt ładujący komponenty -->
-    <script src="../js/components.js" defer></script>
-</head>
-<body>
-    <div class="game-container">
-        <!-- Nagłówek strony - wczytywany jako komponent -->
-        <header data-component="header"></header>
-        
-        <!-- Menu nawigacyjne - wczytywane jako komponent -->
-        <nav data-component="navigation2"></nav>
-        
-        <!-- Sekcja główna -->
-        <main>
-            <!-- Strona projektu -->
-            <article class="project-page pixel-border">
-                <header class="project-header">
-                    <h2 class="project-title">TYTUŁ PROJEKTU</h2>
-                    <div class="project-metadata">
-                        <div class="project-date">Data: DD MIESIĄC RRRR</div>
-                        <div class="project-tags">
-                            <span class="tag">TAG1</span>
-                            <span class="tag">TAG2</span>
-                            <span class="tag">TAG3</span>
-                        </div>
-                    </div>
-                </header>
-                
-                <div class="project-featured-image">
-                    <!-- Główny obraz projektu -->
-                    <img src="../img/projects/nazwa-obrazka.jpg" alt="TYTUŁ PROJEKTU">
-                </div>
-                
-                <div class="project-description">
-                    <h3>O Projekcie</h3>
-                    <p>
-                        W tym miejscu wpisz szczegółowy opis projektu. Możesz wyjaśnić, czym jest projekt,
-                        jaki problem rozwiązuje, jak działa, co było inspiracją do jego stworzenia itp.
-                        Daj czytelnikom pełny obraz tego, co stworzyłeś.
-                    </p>
-                    
-                    <p>
-                        To drugi akapit opisu projektu. Tutaj możesz kontynuować opis, dodać więcej
-                        szczegółów technicznych, wyjaśnić funkcjonalności, lub podzielić się wyzwaniami,
-                        jakie napotkałeś podczas tworzenia projektu.
-                    </p>
-                    
-                    <h3>Główne Cechy</h3>
-                    <ul>
-                        <li>Pierwsza ważna cecha projektu - dodaj krótki opis</li>
-                        <li>Druga ważna cecha - wyjaśnij, co sprawia, że jest wartościowa</li>
-                        <li>Trzecia cecha - podkreśl unikalność i innowacyjność</li>
-                        <li>Czwarta cecha - pokaż, jak użytkownicy mogą z niej korzystać</li>
-                    </ul>
-                    
-                    <h3>Technologie</h3>
-                    <ul class="tech-list">
-                        <li><i class="fas fa-code"></i> TECHNOLOGIA 1</li>
-                        <li><i class="fas fa-database"></i> TECHNOLOGIA 2</li>
-                        <li><i class="fas fa-paint-brush"></i> TECHNOLOGIA 3</li>
-                        <li><i class="fas fa-server"></i> TECHNOLOGIA 4</li>
-                        <li><i class="fas fa-mobile-alt"></i> TECHNOLOGIA 5</li>
-                    </ul>
-                    
-                    <h3>Proces Tworzenia</h3>
-                    <p>
-                        Tu opisz, jak powstawał projekt. Możesz napisać o fazach rozwoju, wyzwaniach, 
-                        które napotkałeś, jak je rozwiązałeś, co było najtrudniejsze i czego się nauczyłeś. 
-                        Ten osobisty wgląd w proces twórczy często najbardziej interesuje czytelników.
-                    </p>
-                    
-                    <p>
-                        Kontynuacja opisu procesu tworzenia. Możesz podzielić się decyzjami, które podjąłeś,
-                        alternatywami, które rozważałeś, i uzasadnić swoje wybory. To świetne miejsce, aby
-                        pokazać swój proces myślowy i umiejętność rozwiązywania problemów.
-                    </p>
-                    
-                    <div class="project-gallery">
-                        <h3>Galeria</h3>
-                        <div class="gallery-grid">
-                            <!-- Dodatkowe obrazy projektu -->
-                            <div class="gallery-item">
-                                <img src="../img/projects/nazwa-obrazka-2.jpg" alt="Widok interfejsu">
-                            </div>
-                            <div class="gallery-item">
-                                <img src="../img/projects/nazwa-obrazka-3.jpg" alt="Funkcja specjalna">
-                            </div>
-                            <div class="gallery-item">
-                                <img src="../img/projects/nazwa-obrazka-4.jpg" alt="Proces tworzenia">
-                            </div>
-                            <div class="gallery-item">
-                                <img src="../img/projects/nazwa-obrazka-5.jpg" alt="Szczegół projektu">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Jeśli projekt ma kod, możesz dodać sekcję z kodem -->
-                    <div class="code-section">
-                        <h3>Przykładowy Kod</h3>
-                        <p>
-                            Poniżej znajduje się fragment kodu, który pokazuje kluczową funkcjonalność projektu.
-                            Warto wyjaśnić, co dokładnie robi ten kod i dlaczego jest ważny.
-                        </p>
-                        <pre><code class="language-javascript">
-// Przykładowy kod JavaScript
-function init() {
-    // Inicjalizacja głównych komponentów
-    const app = document.getElementById('app');
-    const config = {
-        theme: 'pixel',
-        animations: true,
-        soundEffects: true
-    };
-    
-    // Ustawienie konfiguracji
-    setupEnvironment(app, config);
-    
-    // Uruchomienie aplikacji
-    startApplication();
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-// Wywołanie po załadowaniu dokumentu
-document.addEventListener('DOMContentLoaded', init);
-                        </code></pre>
-                    </div>
-                    
-                    <h3>Wnioski i Plany na Przyszłość</h3>
-                    <p>
-                        W tej sekcji możesz opisać, czego nauczyłeś się podczas tworzenia projektu,
-                        co zrobiłbyś inaczej, gdybyś zaczynał od nowa, oraz jakie masz plany dotyczące
-                        rozwijania projektu w przyszłości. To dobry sposób na pokazanie, że myślisz
-                        o projekcie długoterminowo.
-                    </p>
-                    
-                    <!-- Jeśli projekt jest dostępny online lub na GitHubie -->
-                    <div class="project-links">
-                        <h3>Linki</h3>
-                        <a href="#" class="pixel-button" target="_blank"><i class="fas fa-play"></i> Demo Projektu</a>
-                        <a href="#" class="pixel-button" target="_blank"><i class="fab fa-github"></i> Kod na GitHubie</a>
-                        <a href="#" class="pixel-button" target="_blank"><i class="fas fa-download"></i> Pobierz</a>
-                    </div>
-                </div>
-                
-                <!-- Nawigacja między projektami -->
-                <nav class="project-navigation">
-                    <div class="prev-project">
-                        <a href="inny-projekt.html" class="nav-link">
-                            <i class="fas fa-chevron-left"></i> Poprzedni Projekt
-                        </a>
-                    </div>
-                    <div class="back-to-projects">
-                        <a href="../projects.html" class="nav-link">
-                            <i class="fas fa-th"></i> Wszystkie Projekty
-                        </a>
-                    </div>
-                    <div class="next-project">
-                        <a href="jeszcze-inny-projekt.html" class="nav-link">
-                            Następny Projekt <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </nav>
-            </article>
-        </main>
-        
-        <!-- Stopka - wczytywana jako komponent -->
-        <footer class="pixel-border" data-component="footer"></footer>
-    </div>
+  <title>TYTUŁ PROJEKTU - PixelInventor</title>
+
+  <!-- SEO -->
+  <meta name="description" content="KRÓTKI OPIS PROJEKTU (1-2 zdania)" />
+  <meta name="keywords" content="SŁOWA KLUCZOWE, ODDZIELONE, PRZECINKAMI" />
+  <meta name="author" content="PixelInventor" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pixelinventor.com/projects/NAZWA-PLIKU.html" />
+  <meta property="og:title" content="TYTUŁ PROJEKTU - PixelInventor" />
+  <meta property="og:description" content="KRÓTKI OPIS PROJEKTU (1-2 zdania)" />
+  <meta property="og:image" content="https://pixelinventor.com/img/projects/OG-IMAGE.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TYTUŁ PROJEKTU - PixelInventor" />
+  <meta name="twitter:description" content="KRÓTKI OPIS PROJEKTU (1-2 zdania)" />
+  <meta name="twitter:image" content="https://pixelinventor.com/img/projects/OG-IMAGE.jpg" />
+
+  <link rel="canonical" href="https://pixelinventor.com/projects/NAZWA-PLIKU.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Fonts / Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- (Opcjonalnie) highlight.js do kodu -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/project.css" />
+</head>
+
+<body>
+  <header data-component="header"></header>
+  <nav data-component="navigation"></nav>
+
+  <main>
+    <section class="pixel-border" style="margin: 24px auto; max-width: 980px; padding: 18px;">
+      <h1 style="margin-bottom: 10px;">TYTUŁ PROJEKTU</h1>
+
+      <p style="opacity:.85; margin-bottom: 14px;">
+        <strong>Data:</strong> YYYY-MM-DD
+      </p>
+
+      <div style="margin-bottom: 14px;">
+        <!-- TAGI -->
+        <span class="tag">Python</span>
+        <span class="tag">Scratch</span>
+        <span class="tag">Muzyka</span>
+      </div>
+
+      <!-- Linki projektu -->
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin: 12px 0 18px;">
+        <a class="pixel-button small" href="LINK_DO_DEMO" target="_blank" rel="noopener">Demo</a>
+        <a class="pixel-button small" href="LINK_DO_REPO" target="_blank" rel="noopener">Kod</a>
+        <a class="pixel-button small" href="LINK_DO_YT" target="_blank" rel="noopener">YouTube</a>
+      </div>
+
+      <article class="project-content">
+        <p>Tu opisz projekt: co robi, jak powstał, co było trudne, co planujesz dalej.</p>
+
+        <h2>Media / demo</h2>
+
+        <!-- YouTube -->
+        <!--
+        <div style="position:relative; padding-top:56.25%; margin: 14px 0;">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+            title="YouTube video"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        -->
+
+        <!-- Scratch embed -->
+        <!--
+        <div style="position:relative; padding-top:56.25%; margin: 14px 0;">
+          <iframe
+            src="https://scratch.mit.edu/projects/PROJECT_ID/embed"
+            title="Scratch project"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+            allowtransparency="true"
+            scrolling="no"
+            allowfullscreen></iframe>
+        </div>
+        -->
+
+        <!-- Audio -->
+        <!--
+        <audio controls style="width:100%; margin: 10px 0;">
+          <source src="/assets/projects/SLUG/track1.mp3" type="audio/mpeg" />
+        </audio>
+        -->
+
+        <!-- Kod (highlight.js) -->
+        <!--
+        <pre><code class="language-python">print("Hello!")</code></pre>
+        -->
+      </article>
+
+      <hr style="margin: 18px 0; opacity: .2;" />
+
+      <a class="pixel-button small" href="/projects.html">← Wróć do projektów</a>
+    </section>
+  </main>
+
+  <footer data-component="footer"></footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>try{hljs.highlightAll();}catch(e){}</script>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/components.js" defer></script>
 </body>
 </html>
