@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - PixelInventor | Artykuły o Programowaniu i Technologii</title>
+
+    <!-- SEO Meta Tagi -->
+    <meta name="description" content="Blog młodego programisty o pixel art, programowaniu, grach i najnowszych technologiach. Poznaj moje spostrzeżenia, porady i doświadczenia.">
+    <meta name="keywords" content="blog programistyczny, pixel art, sztuczna inteligencja, porady programowania, technologia">
+    <meta name="author" content="PixelInventor">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pixelinventor.com/blog.html">
+    <meta property="og:title" content="Blog - PixelInventor | Artykuły o Programowaniu i Technologii">
+    <meta property="og:description" content="Blog młodego programisty o pixel art, programowaniu, grach i najnowszych technologiach.">
+    <meta property="og:image" content="https://pixelinventor.com/img/blog-og.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pixelinventor.com/blog.html">
+    <meta name="twitter:title" content="Blog - PixelInventor | Artykuły o Programowaniu i Technologii">
+    <meta name="twitter:description" content="Blog młodego programisty o pixel art, programowaniu, grach i najnowszych technologiach.">
+    <meta name="twitter:image" content="https://pixelinventor.com/img/blog-twitter.jpg">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://pixelinventor.com/blog.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Dodanie pixelowego fontu -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome dla ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Główny skrypt strony -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Skrypt ładujący zawartość -->
+    <script src="js/content-loader.js" defer></script>
+    
+    <!-- Skrypt ładujący komponenty -->
+    <script src="js/components.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Nagłówek strony - wczytywany jako komponent -->
+        <header data-component="header"></header>
+        
+        <!-- Menu nawigacyjne - wczytywane jako komponent -->
+        <nav data-component="navigation"></nav>
+        
+        <!-- Sekcja główna -->
+        <main>
+            <!-- Strona bloga -->
+            <section id="blog" class="pixel-border">
+                <h2 class="section-title">Mój Blog</h2>
+                
+                <div class="blog-posts-container" id="all-blog-posts-container">
+                    <!-- Tu będą dynamicznie wczytane wpisy z bloga -->
+                    <div class="loading">Ładowanie wpisów...</div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Stopka - wczytywana jako komponent -->
+        <footer class="pixel-border" data-component="footer"></footer>
+    </div>
+</body>
+</html>

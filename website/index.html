@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelInventor - Twórca Pikselowych Światów</title>
+
+    <!-- SEO Meta Tagi -->
+    <meta name="description" content="Portfolio młodego twórcy pixel art, programisty i pasjonata technologii. Odkryj moje projekty z zakresu programowania, gier i sztucznej inteligencji.">
+    <meta name="keywords" content="pixel art, programowanie, gry, sztuczna inteligencja, projekty programistyczne, pixel inventor">
+    <meta name="author" content="PixelInventor">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pixelinventor.com/">
+    <meta property="og:title" content="PixelInventor - Twórca Pikselowych Światów">
+    <meta property="og:description" content="Portfolio młodego twórcy pixel art, programisty i pasjonata technologii. Odkryj moje projekty z zakresu programowania, gier i sztucznej inteligencji.">
+    <meta property="og:image" content="https://pixelinventor.com/img/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pixelinventor.com/">
+    <meta name="twitter:title" content="PixelInventor - Twórca Pikselowych Światów">
+    <meta name="twitter:description" content="Portfolio młodego twórcy pixel art, programisty i pasjonata technologii. Odkryj moje projekty z zakresu programowania, gier i sztucznej inteligencji.">
+    <meta name="twitter:image" content="https://pixelinventor.com/img/twitter-image.jpg">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://pixelinventor.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Dodanie pixelowego fontu -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome dla ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Główny skrypt strony -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Skrypt ładujący zawartość -->
+    <script src="js/content-loader.js" defer></script>
+    
+    <!-- Skrypt ładujący komponenty -->
+    <script src="js/components.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Nagłówek strony - wczytywany jako komponent -->
+        <header data-component="header"></header>
+        
+        <!-- Menu nawigacyjne - wczytywane jako komponent -->
+        <nav data-component="navigation"></nav>
+        
+        <!-- Sekcja główna -->
+        <main>
+            <!-- Sekcja powitalna -->
+            <section id="home" class="pixel-border">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h2>Cześć, jestem PixelInventor!</h2>
+                        <p>Młody twórca z pasją do programowania, sztucznej inteligencji i pixel artu. Witaj w moim cyfrowym świecie!</p>
+                    </div>
+                    <div class="hero-image">
+                        <div class="pixel-avatar"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Skrót najnowszych projektów - dynamicznie ładowane z JSON -->
+            <section id="featured-projects" class="pixel-border">
+                <h2 class="section-title">Wybrane Projekty</h2>
+                <div class="projects-grid" id="featured-projects-container">
+                    <!-- Tu będą dynamicznie wczytane projekty -->
+                    <div class="loading">Ładowanie projektów...</div>
+                </div>
+                <div class="center-button">
+                    <a href="projects.html" class="pixel-button">Wszystkie projekty</a>
+                </div>
+            </section>
+            
+            <!-- Skrót najnowszych wpisów z bloga - dynamicznie ładowane z JSON -->
+            <section id="latest-blog" class="pixel-border">
+                <h2 class="section-title">Najnowsze Wpisy</h2>
+                <div class="blog-posts" id="featured-posts-container">
+                    <!-- Tu będą dynamicznie wczytane wpisy z bloga -->
+                    <div class="loading">Ładowanie wpisów...</div>
+                </div>
+                <div class="center-button">
+                    <a href="blog.html" class="pixel-button">Wszystkie wpisy</a>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Stopka - wczytywana jako komponent -->
+        <footer class="pixel-border" data-component="footer"></footer>
+    </div>
+    
+    <!-- Przełącznik motywów (opcjonalnie) -->
+    <div id="theme-switcher">
+        <button class="theme-button" title="Zmień styl">
+        <i class="fas fa-paint-brush"></i>
+        </button>
+    </div>
+</body>
+</html>

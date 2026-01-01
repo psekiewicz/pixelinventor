@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pixelinventor.com/sitemap.xml
+
+# Crawl-delay to prevent overwhelming the server
+Crawl-delay: 10

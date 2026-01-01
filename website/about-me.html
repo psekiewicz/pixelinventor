@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Mnie - PixelInventor | Młody Programista i Twórca Pixel Art</title>
+
+    <!-- SEO Meta Tagi -->
+    <meta name="description" content="Poznaj mnie - młodego programistę, twórcę pixel art i pasjonata technologii. Dowiedz się więcej o moich umiejętnościach, zainteresowaniach i dotychczasowej drodze rozwoju.">
+    <meta name="keywords" content="pixel art, programowanie, młody programista, twórca gier, pixel inventor, portfolio">
+    <meta name="author" content="PixelInventor">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://pixelinventor.com/about-me.html">
+    <meta property="og:title" content="O Mnie - PixelInventor | Młody Programista i Twórca Pixel Art">
+    <meta property="og:description" content="Poznaj mnie - młodego programistę, twórcę pixel art i pasjonata technologii.">
+    <meta property="og:image" content="https://pixelinventor.com/img/about-me-og.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://pixelinventor.com/about-me.html">
+    <meta name="twitter:title" content="O Mnie - PixelInventor | Młody Programista i Twórca Pixel Art">
+    <meta name="twitter:description" content="Poznaj mnie - młodego programistę, twórcę pixel art i pasjonata technologii.">
+    <meta name="twitter:image" content="https://pixelinventor.com/img/about-me-twitter.jpg">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://pixelinventor.com/about-me.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Dodanie pixelowego fontu -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome dla ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Główny skrypt strony -->
+    <script src="js/main.js" defer></script>
+    
+    <!-- Skrypt ładujący komponenty -->
+    <script src="js/components.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Nagłówek strony - wczytywany jako komponent -->
+        <header data-component="header"></header>
+        
+        <!-- Menu nawigacyjne - wczytywane jako komponent -->
+        <nav data-component="navigation"></nav>
+        
+        <!-- Sekcja główna -->
+        <main>
+            <!-- Strona o mnie -->
+            <section id="about" class="pixel-border">
+                <h2 class="section-title">Kim Jestem?</h2>
+                
+                <div class="about-container">
+                    <div class="about-image">
+                        <div class="pixel-character"></div>
+                    </div>
+                    <div class="about-content">
+                        <h3>Cześć, jestem PixelInventor!</h3>
+                        <p>Mam 11 lat i jestem pasjonatem programowania, gier i pixel artu. Moja przygoda z komputerami zaczęła się, gdy miałem 7 lat i wziąłem udział w konkursie programistyczno-analitycznym.</p>
+                        <p>Zacząłem od tworzenia prostych projektów w Scratch, a potem zacząłem uczyć się HTML, CSS i JavaScript. Obecnie uczę się Pythona i eksperymentuję z AI.</p>
+                        <p>W wolnym czasie lubię tworzyć pixel art, komponować muzykę 8-bitową i oczywiście grać w gry. Moim marzeniem jest zostać twórcą gier lub programistą AI, a ta strona to moje pierwsze prawdziwe portfolio.</p>
+                        
+                        <h3>Moje Umiejętności</h3>
+                        <div class="skills-container">
+                            <div class="skill-category">
+                                <h4><i class="fas fa-code"></i> Programowanie</h4>
+                                <div class="skill-bars">
+                                    <div class="skill">
+                                        <span>MIT App Inventor</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill">
+                                        <span>HTML/CSS</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill">
+                                        <span>JavaScript</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 10%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill">
+                                        <span>Python</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill">
+                                        <span>Scratch</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h4><i class="fas fa-paint-brush"></i> Grafika</h4>
+                                <div class="skill-bars">
+                                    <div class="skill">
+                                        <span>GIMP</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 5%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h4><i class="fas fa-gamepad"></i> Tworzenie Gier</h4>
+                                <div class="skill-bars">
+                                    <div class="skill">
+                                        <span>Game Design</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 99%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill">
+                                        <span>GDevelop</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 11%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill">
+                                        <span>Unity (podstawy)</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-level" style="width: 30%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Moja Historia</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2017</div>
+                                <div class="timeline-content">
+                                    <h4>Pierwszy kontakt z komputerem</h4>
+                                    <p>W wieku 2-3 lat grałem w minecrafta :) (tak na serio to tylko patrzyłem)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2020</div>
+                                <div class="timeline-content">
+                                    <h4>Nauka Scratch</h4>
+                                    <p>Stworzyłem pierwszą animację w Scratch.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2021</div>
+                                <div class="timeline-content">
+                                    <h4>HTML, CSS i JavaScript</h4>
+                                    <p>Rozpocząłem naukę "prawdziwego" programowania.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2022</div>
+                                <div class="timeline-content">
+                                    <h4>Pixel Art</h4>
+                                    <p>Odkryłem pasję do tworzenia grafiki pikselowej.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2023</div>
+                                <div class="timeline-content">
+                                    <h4>Python i AI</h4>
+                                    <p>Zacząłem eksperymentować z Pythonem i sztuczną inteligencją.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2024</div>
+                                <div class="timeline-content">
+                                    <h4>Pierwsza własna strona</h4>
+                                    <p>Stworzyłem tę stronę jako moje portfolio!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Stopka - wczytywana jako komponent -->
+        <footer class="pixel-border" data-component="footer"></footer>
+    </div>
+</body>
+</html>

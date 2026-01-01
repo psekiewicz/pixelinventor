@@ -1,0 +1,576 @@
+/* ========== MAIN SITE STYLES ========== */
+
+/* Global Layout */
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header.pixel-border {
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+header.pixel-border > * {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pixel-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 36px;
+    color: var(--pixel-purple-light);
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.pixel-text span {
+    color: var(--pixel-blue);
+}
+
+.tagline {
+    font-size: 16px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Navigation Styles */
+nav.pixel-border {
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin-bottom: 10px;
+}
+
+.nav-button {
+    font-family: 'Press Start 2P', cursive;
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.nav-button:hover, .nav-button.active {
+    background-color: var(--pixel-purple);
+    color: white;
+    border-color: var(--pixel-purple-light);
+}
+
+/* Footer Styles */
+footer.pixel-border {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--pixel-blue);
+    border-radius: 50%;
+    font-size: 20px;
+    transition: all 0.2s;
+}
+
+.social-link:hover {
+    background-color: var(--pixel-purple);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.footer-note {
+    font-size: 14px;
+    color: var(--pixel-purple-light);
+}
+
+footer.pixel-border p:last-child {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.hero-content {
+    flex: 2;
+    min-width: 300px;
+}
+
+.hero-content h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    color: var(--pixel-purple-light);
+    margin-bottom: 15px;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.pixel-avatar {
+    width: 200px;
+    height: 200px;
+    background-color: var(--card-bg);
+    border: 4px solid var(--pixel-border-color);
+    position: relative;
+}
+
+/* Section Styles */
+.section-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    color: var(--pixel-purple);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Projects Grid for Home */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    height: 180px;
+    background-position: center !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-info h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    color: var(--pixel-purple-light);
+    margin-bottom: 10px;
+}
+
+.project-tags {
+    margin-top: auto;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Blog Posts for Home */
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-image {
+    height: 180px;
+    background-position: center !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.blog-date {
+    font-size: 12px;
+    color: var(--pixel-blue);
+    margin-bottom: 10px;
+}
+
+.blog-content h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    color: var(--pixel-purple-light);
+    margin-bottom: 10px;
+}
+
+.blog-tags {
+    margin-top: auto;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Center Button */
+.center-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* About Me Styles */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pixel-character {
+    width: 250px;
+    height: 250px;
+    background-color: var(--card-bg);
+    border: 4px solid var(--pixel-border-color);
+    position: relative;
+}
+
+.about-content {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-content h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: var(--pixel-purple-light);
+    margin: 40px 0 20px; /* Increased top margin from 20px to 40px */
+}
+
+.about-content h3:first-of-type {
+    margin-top: 10px;
+}
+
+/* Skills */
+.skills-container {
+    margin-top: 20px;
+}
+
+.skill-category {
+    margin-bottom: 20px;
+}
+
+.skill-category h4 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    color: var(--pixel-yellow);
+    margin-bottom: 15px;
+}
+
+.skill-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.skill span {
+    font-size: 14px;
+}
+
+.skill-bar {
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: var(--pixel-blue);
+    border-radius: 10px;
+}
+
+/* Timeline */
+.timeline {
+    margin-top: 20px;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--pixel-purple);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 30px;
+}
+
+.timeline-date {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--pixel-purple);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.timeline-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.timeline-content h4 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: var(--pixel-blue);
+    margin-bottom: 10px;
+}
+
+/* Loading indicator */
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: var(--pixel-blue);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Error message */
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 2px solid var(--pixel-red);
+    padding: 15px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Theme Switcher */
+#theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.theme-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--pixel-purple);
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+}
+
+.theme-button:hover {
+    background-color: var(--pixel-purple-light);
+    transform: translateY(-2px);
+}
+
+/* Category tabs for project filtering */
+.category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.tab-button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border: none;
+    padding: 8px 15px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-button:hover, .tab-button.active {
+    background-color: var(--pixel-purple);
+    color: white;
+}
+
+/* Main content uniformity fixes */
+main {
+    width: 100%;
+}
+
+main > section.pixel-border,
+main > article.pixel-border,
+.blog-post.pixel-border,
+.project-page.pixel-border {
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Fix for blog post and project page container sizing */
+.blog-post,
+.project-page {
+    width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .pixel-text {
+        font-size: 28px;
+    }
+    
+    .hero, .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .projects-grid, .blog-posts {
+        grid-template-columns: 1fr;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 5px; /* Reduced gap between mobile menu items */
+    }
+    
+    nav li {
+        width: 100%;
+        margin-bottom: 5px; /* Reduced space between nav items */
+    }
+    
+    .nav-button {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .timeline::before {
+        left: 15px;
+    }
+    
+    .timeline-item {
+        padding-left: 40px;
+    }
+    
+    .timeline-date {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pixel-text {
+        font-size: 22px;
+    }
+}

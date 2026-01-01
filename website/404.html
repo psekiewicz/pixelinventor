@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona nie znaleziona - PixelInventor</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Dodanie pixelowego fontu -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome dla ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Główny skrypt strony -->
+    <script src="/js/main.js" defer></script>
+
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .error-code {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 48px;
+            color: var(--pixel-blue);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        .error-message {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .error-image {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 30px;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--card-bg);
+            border: 4px solid var(--pixel-border-color);
+        }
+        
+        .error-image::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background-color: var(--pixel-blue);
+            border-radius: 50%;
+        }
+        
+        .error-image::after {
+            content: '?';
+            position: absolute;
+            top: 120px;
+            left: 0;
+            right: 0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 60px;
+            text-align: center;
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .search-container {
+            max-width: 500px;
+            margin: 30px auto;
+        }
+        
+        .search-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 2px solid var(--pixel-border-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 16px;
+        }
+        
+        .search-button {
+            background-color: var(--pixel-purple);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+        }
+        
+        .suggestions {
+            margin-top: 30px;
+        }
+        
+        .suggestion-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .suggestion-item {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .suggestion-item a {
+            color: var(--pixel-blue);
+            text-decoration: none;
+        }
+        
+        .suggestion-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-button {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Sekcja główna -->
+        <main>
+            <section class="pixel-border error-container">
+                <div class="error-code">404</div>
+                <div class="error-image"></div>
+                <h2>Strona nie znaleziona</h2>
+                <div class="error-message">
+                    <p>Ojej! Wygląda na to, że zabłądziłeś w cyfrowej przestrzeni.</p>
+                    <p>Strona, której szukasz, nie istnieje lub została przeniesiona do innego wymiaru.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

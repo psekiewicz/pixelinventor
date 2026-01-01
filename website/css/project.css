@@ -1,0 +1,230 @@
+/* ========== PROJECT PAGE STYLES ========== */
+
+/* Project Page Container */
+.project-page {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Project Header */
+.project-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.project-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    color: var(--pixel-purple-light);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.project-metadata {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.project-date {
+    font-size: 14px;
+    color: var(--pixel-blue);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Featured Image */
+.project-featured-image {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 3px solid var(--pixel-border-color);
+}
+
+.project-featured-image img {
+    width: 100%;
+    display: block;
+}
+
+/* Project Description */
+.project-description {
+    line-height: 1.8;
+}
+
+.project-description h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: var(--pixel-purple-light);
+    margin: 40px 0 20px;
+}
+
+.project-description h4 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    color: var(--pixel-yellow);
+    margin: 30px 0 15px;
+}
+
+.project-description p {
+    margin-bottom: 20px;
+}
+
+/* Technologies List */
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.tech-list li {
+    background-color: rgba(124, 77, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.tech-list li i {
+    margin-right: 8px;
+    color: var(--pixel-blue);
+}
+
+/* Project Gallery */
+.project-gallery {
+    margin: 40px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--pixel-border-color);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Code Section */
+.code-section {
+    margin: 40px 0;
+}
+
+.code-section pre {
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #282c34;
+    overflow: auto;
+}
+
+.code-section code {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
+}
+
+/* Project Links */
+.project-links {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-links a {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+/* Navigation */
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(124, 77, 255, 0.3);
+}
+
+.prev-project, .next-project, .back-to-projects {
+    flex: 1;
+    text-align: center;
+}
+
+.prev-project {
+    text-align: left;
+}
+
+.next-project {
+    text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-title {
+        font-size: 20px;
+    }
+    
+    .project-description h3 {
+        font-size: 18px;
+    }
+    
+    .project-description h4 {
+        font-size: 14px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .project-navigation {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .prev-project, .next-project, .back-to-projects {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-title {
+        font-size: 18px;
+    }
+    
+    .project-metadata {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

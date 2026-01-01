@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekty - PixelInventor | Pixel Art, Gry, Programowanie</title>
+
+    <!-- SEO Meta Tagi -->
+    <meta name="description" content="Odkryj moje projekty z zakresu pixel art, programowania, gier i sztucznej inteligencji. Portfolio młodego twórcy pasjonującego się nowymi technologiami.">
+    <meta name="keywords" content="projekty programistyczne, pixel art, gry, sztuczna inteligencja, portfolio projektów">
+    <meta name="author" content="PixelInventor">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pixelinventor.com/projects.html">
+    <meta property="og:title" content="Projekty - PixelInventor | Pixel Art, Gry, Programowanie">
+    <meta property="og:description" content="Odkryj moje projekty z zakresu pixel art, programowania, gier i sztucznej inteligencji.">
+    <meta property="og:image" content="https://pixelinventor.com/img/projects-og.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pixelinventor.com/projects.html">
+    <meta name="twitter:title" content="Projekty - PixelInventor | Pixel Art, Gry, Programowanie">
+    <meta name="twitter:description" content="Odkryj moje projekty z zakresu pixel art, programowania, gier i sztucznej inteligencji.">
+    <meta name="twitter:image" content="https://pixelinventor.com/img/projects-twitter.jpg">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://pixelinventor.com/projects.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Dodanie pixelowego fontu -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome dla ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Główny skrypt strony -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Skrypt ładujący zawartość -->
+    <script src="js/content-loader.js" defer></script>
+
+    <!-- Skrypt ładujący komponenty -->
+    <script src="js/components.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Nagłówek strony - wczytywany jako komponent -->
+        <header data-component="header"></header>
+
+        <!-- Menu nawigacyjne - wczytywane jako komponent -->
+        <nav data-component="navigation"></nav>
+        
+        <!-- Sekcja główna -->
+        <main>
+            <!-- Strona projektów -->
+            <section id="projects" class="pixel-border">
+                <h2 class="section-title">Moje Projekty</h2>
+                
+                <div class="category-tabs">
+                    <button class="tab-button active" data-category="all">Wszystko</button>
+                    <button class="tab-button" data-category="code">Kod</button>
+                    <button class="tab-button" data-category="games">Gry</button>
+                    <button class="tab-button" data-category="art">Grafika</button>
+                    <button class="tab-button" data-category="music">Muzyka</button>
+                </div>
+                
+                <div class="projects-grid" id="all-projects-container">
+                    <!-- Tu będą dynamicznie wczytane projekty -->
+                    <div class="loading">Ładowanie projektów...</div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Stopka - wczytywana jako komponent -->
+        <footer class="pixel-border" data-component="footer"></footer>
+    </div>
+</body>
+</html>

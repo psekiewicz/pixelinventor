@@ -1,0 +1,40 @@
+# --- secrets / env ---
+.env
+.env.*
+!.env.example
+
+# --- OS / editors ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- logs / temp ---
+*.log
+logs/
+tmp/
+temp/
+.cache/
+
+# --- Docker / runtime ---
+**/letsencrypt/
+**/acme.json
+**/data/
+**/volumes/
+
+# --- Node (jeśli kiedyś dojdzie build tooling) ---
+node_modules/
+dist/
+build/
+.out/
+.next/
+
+# --- Python (na wszelki wypadek) ---
+__pycache__/
+*.pyc
+
+# --- misc ---
+*.bak
+*.orig

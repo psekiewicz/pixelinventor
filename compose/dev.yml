@@ -1,0 +1,22 @@
+services:
+  pixelinventor:
+    image: ${IMAGE}:dev
+    restart: unless-stopped
+    networks: [web]
+    labels:
+      - traefik.enable=true
+
+      - traefik.http.routers.pixelinventor-dev.rule=Host(`${DEV_DOMAIN}`)
+      - traefik.http.routers.pixelinventor-dev.entrypoints=websecure
+      - traefik.http.routers.pixelinventor-dev.tls.certresolver=le
+      - traefik.http.services.pixelinventor-dev.loadbalancer.server.port=80
+
+      - traefik.http.routers.pixelinventor-dev-http.rule=Host(`${DEV_DOMAIN}`)
+      - traefik.http.routers.pixelinventor-dev-http.entrypoints=web
+      - traefik.http.routers.pixelinventor-dev-http.middlewares=redirect-to-https
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+
+networks:
+  web:
+    external: true
+    name: web

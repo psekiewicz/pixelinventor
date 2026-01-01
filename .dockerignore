@@ -1,0 +1,7 @@
+.git
+.github
+compose
+**/.DS_Store
+**/node_modules
+README.md
+.env
