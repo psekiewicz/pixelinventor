@@ -278,15 +278,15 @@ function renderProjectCard(project) {
 
   const links = asArray(project.links).slice(0, 3).map(l => {
     if (!l || !l.url) return '';
-    return `<a class="mini-link" href="${escapeAttr(l.url)}" target="_blank" rel="noopener noreferrer">${safeText(l.label || 'Link')}</a>`;
+    return `<a class="mini-link" href="${safeText(l.url)}" target="_blank" rel="noopener noreferrer">${safeText(l.label || 'Link')}</a>`;
   }).join(' ');
 
   const haystack = (title + ' ' + desc + ' ' + tags.join(' ')).toLowerCase();
 
   return `
-    <div class="project-card pixel-border" data-category="${escapeAttr(category)}" data-tags="${escapeAttr(tags.join(','))}" data-haystack="${escapeAttr(haystack)}">
-      <a class="card-link" href="${escapeAttr(url || '#')}">
-        <div class="project-image" style="background-image:url('${escapeAttr(thumbnail)}');"></div>
+    <div class="project-card pixel-border" data-category="${category}" data-tags="${tags.join(',')}" data-haystack="${safeText(haystack)}">
+      <a class="card-link" href="${url || '#'}">
+        <div class="project-image" style="background-image:url('${thumbnail}');"></div>
         <div class="project-content">
           <div class="project-date">${date}</div>
           <h3>${title}</h3>
@@ -312,9 +312,9 @@ function renderBlogCard(post) {
   const haystack = (title + ' ' + excerpt + ' ' + tags.join(' ')).toLowerCase();
 
   return `
-    <div class="blog-card pixel-border" data-tags="${escapeAttr(tags.join(','))}" data-haystack="${escapeAttr(haystack)}">
-      <a class="card-link" href="${escapeAttr(url || '#')}">
-        <div class="blog-image" style="background-image:url('${escapeAttr(thumbnail)}');"></div>
+    <div class="blog-card pixel-border" data-tags="${tags.join(',')}" data-haystack="${safeText(haystack)}">
+      <a class="card-link" href="${url || '#'}">
+        <div class="blog-image" style="background-image:url('${thumbnail}');"></div>
         <div class="blog-content">
           <div class="blog-date">${date}</div>
           <h3>${title}</h3>
