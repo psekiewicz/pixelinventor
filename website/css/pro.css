@@ -1,0 +1,73 @@
+:root {
+  /* jeśli masz już zmienne w base.css, to te reguły tylko dopasują nowe elementy */
+}
+
+/* Link na całą kartę (żeby łatwiej klikać) */
+.card-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+/* Prosty pasek filtrów */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 18px 0 22px;
+}
+
+.search-input {
+  flex: 1 1 280px;
+  min-width: 240px;
+  padding: 12px 14px;
+  border: 4px solid var(--pixel-border-color, #ffffff);
+  background: var(--card-bg, rgba(0,0,0,0.2));
+  color: var(--text-color, #ffffff);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  opacity: 0.75;
+}
+
+/* Tag chips */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  border: 4px solid var(--pixel-border-color, #ffffff);
+  background: transparent;
+  color: var(--text-color, #ffffff);
+  padding: 10px 12px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.chip.active {
+  background: var(--pixel-purple, #7a3cff);
+}
+
+/* Małe linki w kartach */
+.card-links {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mini-link {
+  border: 2px solid var(--pixel-border-color, #ffffff);
+  padding: 6px 8px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 10px;
+}
+.brand-link { color: inherit; text-decoration: none; }

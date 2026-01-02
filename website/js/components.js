@@ -1,12 +1,12 @@
 /**
  * components.js
  *
- * Ładuje komponenty HTML (header, navigation, footer) do elementów z atrybutem:
+ * Ładuje komponenty HTML do elementów z atrybutem:
  *   data-component="nazwa"
  *
- * Wersja uproszczona:
- * - zawsze pobiera komponenty spod /components/<name>.html (ścieżki absolutne)
- * - działa zarówno na /, jak i na /blog/... oraz /projects/...
+ * Zasady:
+ * - komponenty są w /components/<name>.html (ścieżki absolutne)
+ * - "navigation2" jest aliasem do "navigation" (żeby docelowo mieć tylko 1 nawigację)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,42 +18,53 @@ async function loadComponents() {
   if (!componentElements.length) return;
 
   for (const element of componentElements) {
-    const componentName = element.getAttribute('data-component');
-    if (!componentName) continue;
+    let name = element.getAttribute('data-component');
+    if (!name) continue;
 
-    const url = `/components/${componentName}.html`;
+    // kompatybilność: navigation2 -> navigation
+    if (name === 'navigation2') name = 'navigation';
+
+    const url = `/components/${name}.html`;
 
     try {
-      const response = await fetch(url, { cache: 'no-cache' });
+      const response = await fetch(url, { cache: 'no-store' });
       if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
 
       element.innerHTML = await response.text();
+
+      // jeśli w komponencie są <script>, uruchom je ponownie
       activateScripts(element);
-    } catch (error) {
-      console.error(`Error loading component "${componentName}" from ${url}:`, error);
+
+      // podświetl aktywny element menu po wstrzyknięciu nawigacji
+      if (name === 'navigation') highlightActiveMenuItem();
+    } catch (err) {
+      console.error(`Error loading component: ${name}`, err);
       element.innerHTML = `
-        <div class="error-message" style="padding:12px;border:2px solid #ff3e3e;">
-          Nie udało się załadować komponentu: <strong>${componentName}</strong>
+        <div class="pixel-border" style="padding:16px;">
+          <strong>Nie udało się załadować komponentu:</strong> ${name}
         </div>
       `;
     }
   }
-
-  highlightActiveMenuItem();
 }
 
-function activateScripts(container) {
-  const scripts = container.querySelectorAll('script');
+function activateScripts(root) {
+  const scripts = root.querySelectorAll('script');
   scripts.forEach(oldScript => {
     const newScript = document.createElement('script');
-
-    for (const attr of oldScript.attributes) {
-      newScript.setAttribute(attr.name, attr.value);
-    }
-    if (oldScript.textContent) newScript.textContent = oldScript.textContent;
-
+    [...oldScript.attributes].forEach(attr => newScript.setAttribute(attr.name, attr.value));
+    newScript.textContent = oldScript.textContent || '';
     oldScript.replaceWith(newScript);
   });
+}
+
+function normalizePathname(pathname) {
+  // /index.html -> /
+  let p = pathname.replace(/\/index\.html$/i, '/');
+  // usuń podwójne slashe i trailing slash (poza rootem)
+  p = p.replace(/\/+/g, '/');
+  if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+  return p;
 }
 
 function highlightActiveMenuItem() {
@@ -63,7 +74,7 @@ function highlightActiveMenuItem() {
   const links = nav.querySelectorAll('a[href]');
   if (!links.length) return;
 
-  const currentPath = (window.location.pathname.replace(/\/index\.html$/, '/') || '/');
+  const currentPath = normalizePathname(window.location.pathname);
 
   links.forEach(link => link.classList.remove('active'));
 
@@ -71,28 +82,20 @@ function highlightActiveMenuItem() {
     const href = link.getAttribute('href');
     if (!href) return;
 
-    if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:')) return;
+    // zewnętrzne linki pomijamy
+    if (/^(https?:\/\/|mailto:)/i.test(href)) return;
 
-    const linkPath = new URL(href, window.location.origin).pathname.replace(/\/index\.html$/, '/');
+    const linkPath = normalizePathname(new URL(href, window.location.origin).pathname);
 
+    // root
     if (linkPath === '/' && currentPath === '/') {
       link.classList.add('active');
       return;
     }
 
-    if (linkPath === '/blog.html' && (currentPath === '/blog.html' || currentPath.startsWith('/blog/'))) {
+    // dokładne dopasowanie, albo jesteśmy "pod" tą sekcją (np. /blog/... dla /blog.html)
+    if (linkPath !== '/' && (currentPath === linkPath || currentPath.startsWith(linkPath + '/'))) {
       link.classList.add('active');
-      return;
-    }
-
-    if (linkPath === '/projects.html' && (currentPath === '/projects.html' || currentPath.startsWith('/projects/'))) {
-      link.classList.add('active');
-      return;
-    }
-
-    if (currentPath === linkPath) {
-      link.classList.add('active');
-      return;
     }
   });
 }

@@ -38,17 +38,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/pro.css">
 
     <!-- Główny skrypt strony -->
-    <script src="js/main.js" defer></script>
+    <script src="/js/main.js" defer></script>
 
     <!-- Skrypt ładujący zawartość -->
-    <script src="js/content-loader.js" defer></script>
+    <script src="/js/content-loader.js" defer></script>
 
     <!-- Skrypt ładujący komponenty -->
-    <script src="js/components.js" defer></script>
+    <script src="/js/components.js" defer></script>
 </head>
 <body>
     <div class="game-container">
@@ -71,7 +72,13 @@
                     <button class="tab-button" data-category="art">Grafika</button>
                     <button class="tab-button" data-category="music">Muzyka</button>
                 </div>
-                
+
+
+                <div class="filter-bar">
+                    <input id="project-search" class="search-input" type="search" placeholder="Szukaj projektu (np. scratch, python, muzyka)..." autocomplete="off">
+                    <div id="project-tag-filters" class="chip-row" aria-label="Filtry tagów"></div>
+                </div>
+
                 <div class="projects-grid" id="all-projects-container">
                     <!-- Tu będą dynamicznie wczytane projekty -->
                     <div class="loading">Ładowanie projektów...</div>
