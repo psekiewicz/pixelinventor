@@ -1,258 +1,342 @@
 /**
  * content-loader.js
- * 
- * Skrypt do dynamicznego ładowania treści z plików JSON.
- * Automatycznie wypełnia sekcje z projektami i wpisami na blogu.
+ *
+ * Ładuje projekty i wpisy bloga z JSON:
+ * - /data/projects.json
+ * - /data/blog-posts.json
+ *
+ * Wspiera (jeśli elementy istnieją na stronie):
+ * - filtrowanie po kategoriach (tab-button[data-category])
+ * - wyszukiwanie (input#project-search, input#blog-search)
+ * - filtrowanie po tagach (div#project-tag-filters, div#blog-tag-filters)
  */
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Sprawdź, na jakiej stronie jesteśmy
-    const isHomePage = document.querySelector('#featured-projects-container') !== null;
-    const isProjectsPage = document.querySelector('#all-projects-container') !== null;
-    const isBlogPage = document.querySelector('#all-blog-posts-container') !== null;
-    
-    // Ładuj odpowiednie treści dla każdej strony
-    if (isHomePage) {
-        loadFeaturedProjects();
-        loadFeaturedBlogPosts();
-    }
-    
-    if (isProjectsPage) {
-        loadAllProjects();
-    }
-    
-    if (isBlogPage) {
-        loadAllBlogPosts();
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  const isHomePage = document.querySelector('#featured-projects-container') !== null;
+  const isProjectsPage = document.querySelector('#all-projects-container') !== null;
+  const isBlogPage = document.querySelector('#all-blog-posts-container') !== null;
+
+  if (isHomePage) {
+    loadFeaturedProjects();
+    loadFeaturedBlogPosts();
+  }
+
+  if (isProjectsPage) loadAllProjects();
+  if (isBlogPage) loadAllBlogPosts();
 });
 
-/**
- * Ładuje wybrane projekty na stronę główną
- */
-function loadFeaturedProjects() {
-    fetch('data/projects.json')
-        .then(response => response.json())
-        .then(projects => {
-            // Sortowanie projektów od najnowszych
-            projects.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // Wybierz 3 najnowsze projekty
-            const featuredProjects = projects.slice(0, 3);
-            
-            // Generuj HTML
-            const container = document.getElementById('featured-projects-container');
-            let html = '';
-            
-            featuredProjects.forEach(project => {
-                const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-                
-                html += `
-                <div class="project-card pixel-border">
-                    <div class="project-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${project.thumbnail}'); background-size: cover;"></div>
-                    <div class="project-info">
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <div class="project-tags">
-                            ${tagsHtml}
-                        </div>
-                        <a href="${project.url}" class="pixel-button small">Zobacz więcej</a>
-                    </div>
-                </div>
-                `;
-            });
-            
-            // Aktualizuj zawartość kontenera
-            container.innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Błąd podczas ładowania projektów:', error);
-            document.getElementById('featured-projects-container').innerHTML = `
-                <div class="error-message">
-                    <p>Nie udało się załadować projektów. Spróbuj odświeżyć stronę.</p>
-                </div>
-            `;
-        });
+// ---------- helpers ----------
+function normalizePath(path) {
+  if (!path) return '';
+  const cleaned = String(path).replace(/^([.\/])+/, '').replace(/^(\.\.\/)+/, '');
+  return cleaned.startsWith('/') ? cleaned : '/' + cleaned;
 }
 
-/**
- * Ładuje wszystkie projekty na stronę projektów
- */
-function loadAllProjects() {
-    fetch('data/projects.json')
-        .then(response => response.json())
-        .then(projects => {
-            // Sortowanie projektów od najnowszych
-            projects.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // Generuj HTML
-            const container = document.getElementById('all-projects-container');
-            let html = '';
-            
-            projects.forEach(project => {
-                const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-                
-                html += `
-                <div class="project-card pixel-border" data-category="${project.category}">
-                    <div class="project-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${project.thumbnail}'); background-size: cover;"></div>
-                    <div class="project-info">
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <div class="project-tags">
-                            ${tagsHtml}
-                        </div>
-                        <a href="${project.url}" class="pixel-button small">Zobacz więcej</a>
-                    </div>
-                </div>
-                `;
-            });
-            
-            // Aktualizuj zawartość kontenera
-            container.innerHTML = html;
-            
-            // Inicjalizuj filtrowanie projektów
-            initializeProjectFilters();
-        })
-        .catch(error => {
-            console.error('Błąd podczas ładowania projektów:', error);
-            document.getElementById('all-projects-container').innerHTML = `
-                <div class="error-message">
-                    <p>Nie udało się załadować projektów. Spróbuj odświeżyć stronę.</p>
-                </div>
-            `;
-        });
+function asArray(v) {
+  if (Array.isArray(v)) return v.filter(Boolean);
+  if (v === null || v === undefined || v === '') return [];
+  return [v];
 }
 
-/**
- * Ładuje wybrane wpisy bloga na stronę główną
- */
-function loadFeaturedBlogPosts() {
-    fetch('data/blog-posts.json')
-        .then(response => response.json())
-        .then(posts => {
-            // Sortowanie wpisów od najnowszych
-            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // Wybierz 2 najnowsze wpisy
-            const featuredPosts = posts.slice(0, 2);
-            
-            // Generuj HTML
-            const container = document.getElementById('featured-posts-container');
-            let html = '';
-            
-            featuredPosts.forEach(post => {
-                // Formatowanie daty
-                const postDate = new Date(post.date);
-                const formattedDate = postDate.toLocaleDateString('pl-PL', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric'
-                });
-                
-                html += `
-                <div class="blog-card pixel-border">
-                    <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${post.thumbnail}'); background-size: cover;"></div>
-                    <div class="blog-content">
-                        <div class="blog-date">${formattedDate}</div>
-                        <h3>${post.title}</h3>
-                        <p>${post.excerpt}</p>
-                        <a href="${post.url}" class="pixel-button small">Czytaj więcej</a>
-                    </div>
-                </div>
-                `;
-            });
-            
-            // Aktualizuj zawartość kontenera
-            container.innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Błąd podczas ładowania wpisów bloga:', error);
-            document.getElementById('featured-posts-container').innerHTML = `
-                <div class="error-message">
-                    <p>Nie udało się załadować wpisów bloga. Spróbuj odświeżyć stronę.</p>
-                </div>
-            `;
-        });
+async function fetchJson(url) {
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) {
+    const err = new Error(`HTTP ${res.status} for ${url}`);
+    err.status = res.status;
+    throw err;
+  }
+  return res.json();
 }
 
-/**
- * Ładuje wszystkie wpisy bloga na stronę bloga
- */
-function loadAllBlogPosts() {
-    fetch('data/blog-posts.json')
-        .then(response => response.json())
-        .then(posts => {
-            // Sortowanie wpisów od najnowszych
-            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // Generuj HTML
-            const container = document.getElementById('all-blog-posts-container');
-            let html = '';
-            
-            posts.forEach(post => {
-                // Formatowanie daty
-                const postDate = new Date(post.date);
-                const formattedDate = postDate.toLocaleDateString('pl-PL', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric'
-                });
-                
-                const tagsHtml = post.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-                
-                html += `
-                <div class="blog-card pixel-border">
-                    <div class="blog-image" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${post.thumbnail}'); background-size: cover;"></div>
-                    <div class="blog-content">
-                        <div class="blog-date">${formattedDate}</div>
-                        <h3>${post.title}</h3>
-                        <p>${post.excerpt}</p>
-                        <div class="blog-tags">
-                            ${tagsHtml}
-                        </div>
-                        <a href="${post.url}" class="pixel-button small">Czytaj więcej</a>
-                    </div>
-                </div>
-                `;
-            });
-            
-            // Aktualizuj zawartość kontenera
-            container.innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Błąd podczas ładowania wpisów bloga:', error);
-            document.getElementById('all-blog-posts-container').innerHTML = `
-                <div class="error-message">
-                    <p>Nie udało się załadować wpisów bloga. Spróbuj odświeżyć stronę.</p>
-                </div>
-            `;
-        });
+function formatDatePL(dateStr) {
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return dateStr || '';
+  return d.toLocaleDateString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-/**
- * Inicjalizuje funkcjonalność filtrowania projektów
- */
-function initializeProjectFilters() {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    if (!tabButtons.length || !projectCards.length) return;
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Aktywacja przycisku
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            // Filtrowanie projektów
-            const category = button.getAttribute('data-category');
-            
-            projectCards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
+function safeText(s) {
+  return String(s ?? '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// ---------- HOME ----------
+async function loadFeaturedProjects() {
+  const container = document.getElementById('featured-projects-container');
+  if (!container) return;
+
+  try {
+    const projects = await fetchJson('/data/projects.json');
+
+    // Sort: newest first
+    projects.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // Prefer featured if available
+    const featured = projects.filter(p => p.featured === true);
+    const picked = (featured.length >= 3 ? featured : projects).slice(0, 3);
+
+    container.innerHTML = picked.map(renderProjectCard).join('');
+  } catch (err) {
+    console.error('loadFeaturedProjects error', err);
+    container.innerHTML = renderDataError('projektów', err);
+  }
+}
+
+async function loadFeaturedBlogPosts() {
+  const container = document.getElementById('featured-posts-container');
+  if (!container) return;
+
+  try {
+    const posts = await fetchJson('/data/blog-posts.json');
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const picked = posts.slice(0, 3);
+
+    container.innerHTML = picked.map(renderBlogCard).join('');
+  } catch (err) {
+    console.error('loadFeaturedBlogPosts error', err);
+    container.innerHTML = renderDataError('wpisów bloga', err);
+  }
+}
+
+// ---------- PROJECTS PAGE ----------
+async function loadAllProjects() {
+  const container = document.getElementById('all-projects-container');
+  if (!container) return;
+
+  try {
+    const projects = await fetchJson('/data/projects.json');
+    projects.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    container.innerHTML = projects.map(renderProjectCard).join('');
+
+    initializeProjectFilters(projects);
+  } catch (err) {
+    console.error('loadAllProjects error', err);
+    container.innerHTML = renderDataError('projektów', err);
+  }
+}
+
+function initializeProjectFilters(projects) {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const searchInput = document.getElementById('project-search');
+  const tagWrap = document.getElementById('project-tag-filters');
+
+  let selectedCategory = 'all';
+  let selectedTag = 'all';
+  let query = '';
+
+  // tag chips (optional)
+  if (tagWrap) {
+    const tags = new Set();
+    projects.forEach(p => asArray(p.tags).forEach(t => tags.add(String(t).toLowerCase())));
+    const sorted = Array.from(tags).sort((a, b) => a.localeCompare(b, 'pl'));
+
+    const makeChip = (label, value) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'chip';
+      btn.dataset.value = value;
+      btn.textContent = label;
+      btn.addEventListener('click', () => {
+        selectedTag = value;
+        tagWrap.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.value === value));
+        apply();
+      });
+      return btn;
+    };
+
+    tagWrap.innerHTML = '';
+    tagWrap.appendChild(makeChip('Wszystkie', 'all'));
+    sorted.forEach(t => tagWrap.appendChild(makeChip('#' + t, t)));
+
+    // default active
+    tagWrap.querySelector('.chip')?.classList.add('active');
+  }
+
+  // category tabs
+  if (tabButtons.length) {
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedCategory = btn.getAttribute('data-category') || 'all';
+        apply();
+      });
     });
+  }
+
+  // search
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      query = (searchInput.value || '').trim().toLowerCase();
+      apply();
+    });
+  }
+
+  function apply() {
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+      const catOk = selectedCategory === 'all' || card.dataset.category === selectedCategory;
+
+      const tags = (card.dataset.tags || '').split(',').filter(Boolean);
+      const tagOk = selectedTag === 'all' || tags.includes(selectedTag);
+
+      const hay = (card.dataset.haystack || '');
+      const qOk = !query || hay.includes(query);
+
+      card.style.display = (catOk && tagOk && qOk) ? 'block' : 'none';
+    });
+  }
+
+  // initial apply (in case HTML has default active tab)
+  apply();
+}
+
+// ---------- BLOG PAGE ----------
+async function loadAllBlogPosts() {
+  const container = document.getElementById('all-blog-posts-container');
+  if (!container) return;
+
+  try {
+    const posts = await fetchJson('/data/blog-posts.json');
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    container.innerHTML = posts.map(renderBlogCard).join('');
+
+    initializeBlogFilters(posts);
+  } catch (err) {
+    console.error('loadAllBlogPosts error', err);
+    container.innerHTML = renderDataError('wpisów bloga', err);
+  }
+}
+
+function initializeBlogFilters(posts) {
+  const searchInput = document.getElementById('blog-search');
+  const tagWrap = document.getElementById('blog-tag-filters');
+
+  let selectedTag = 'all';
+  let query = '';
+
+  if (tagWrap) {
+    const tags = new Set();
+    posts.forEach(p => asArray(p.tags).forEach(t => tags.add(String(t).toLowerCase())));
+    const sorted = Array.from(tags).sort((a, b) => a.localeCompare(b, 'pl'));
+
+    const makeChip = (label, value) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'chip';
+      btn.dataset.value = value;
+      btn.textContent = label;
+      btn.addEventListener('click', () => {
+        selectedTag = value;
+        tagWrap.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.value === value));
+        apply();
+      });
+      return btn;
+    };
+
+    tagWrap.innerHTML = '';
+    tagWrap.appendChild(makeChip('Wszystkie', 'all'));
+    sorted.forEach(t => tagWrap.appendChild(makeChip('#' + t, t)));
+    tagWrap.querySelector('.chip')?.classList.add('active');
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      query = (searchInput.value || '').trim().toLowerCase();
+      apply();
+    });
+  }
+
+  function apply() {
+    const cards = document.querySelectorAll('.blog-card');
+    cards.forEach(card => {
+      const tags = (card.dataset.tags || '').split(',').filter(Boolean);
+      const tagOk = selectedTag === 'all' || tags.includes(selectedTag);
+
+      const hay = (card.dataset.haystack || '');
+      const qOk = !query || hay.includes(query);
+
+      card.style.display = (tagOk && qOk) ? 'block' : 'none';
+    });
+  }
+
+  apply();
+}
+
+// ---------- renderers ----------
+function renderProjectCard(project) {
+  const title = safeText(project.title);
+  const desc = safeText(project.description || '');
+  const date = formatDatePL(project.date);
+  const thumbnail = normalizePath(project.thumbnail || '/img/project-placeholder.png');
+
+  const tags = asArray(project.tags).map(t => String(t).toLowerCase());
+  const tagsHtml = tags.map(tag => `<span class="tag">#${safeText(tag)}</span>`).join('');
+
+  const category = safeText(project.category || 'other');
+  const url = normalizePath(project.url || project.link || project.page || '');
+
+  const links = asArray(project.links).slice(0, 3).map(l => {
+    if (!l || !l.url) return '';
+    return `<a class="mini-link" href="${safeText(l.url)}" target="_blank" rel="noopener noreferrer">${safeText(l.label || 'Link')}</a>`;
+  }).join(' ');
+
+  const haystack = (title + ' ' + desc + ' ' + tags.join(' ')).toLowerCase();
+
+  return `
+    <div class="project-card pixel-border" data-category="${category}" data-tags="${tags.join(',')}" data-haystack="${safeText(haystack)}">
+      <a class="card-link" href="${url || '#'}">
+        <div class="project-image" style="background-image:url('${thumbnail}');"></div>
+        <div class="project-content">
+          <div class="project-date">${date}</div>
+          <h3>${title}</h3>
+          <p>${desc}</p>
+          <div class="project-tags">${tagsHtml}</div>
+          ${links ? `<div class="card-links">${links}</div>` : ''}
+        </div>
+      </a>
+    </div>
+  `;
+}
+
+function renderBlogCard(post) {
+  const title = safeText(post.title);
+  const excerpt = safeText(post.excerpt || '');
+  const date = formatDatePL(post.date);
+  const thumbnail = normalizePath(post.thumbnail || '/img/blog-placeholder.png');
+  const url = normalizePath(post.url || post.link || post.page || '');
+
+  const tags = asArray(post.tags).map(t => String(t).toLowerCase());
+  const tagsHtml = tags.map(tag => `<span class="tag">#${safeText(tag)}</span>`).join('');
+
+  const haystack = (title + ' ' + excerpt + ' ' + tags.join(' ')).toLowerCase();
+
+  return `
+    <div class="blog-card pixel-border" data-tags="${tags.join(',')}" data-haystack="${safeText(haystack)}">
+      <a class="card-link" href="${url || '#'}">
+        <div class="blog-image" style="background-image:url('${thumbnail}');"></div>
+        <div class="blog-content">
+          <div class="blog-date">${date}</div>
+          <h3>${title}</h3>
+          <p>${excerpt}</p>
+          <div class="blog-tags">${tagsHtml}</div>
+        </div>
+      </a>
+    </div>
+  `;
+}
+
+function renderDataError(what, err) {
+  const status = err?.status ? ` (HTTP ${err.status})` : '';
+  // hint if 404
+  const hint = err?.status === 404
+    ? `<p style="margin-top:10px;opacity:.9">Sprawdź czy plik istnieje: <code>/data/projects.json</code> / <code>/data/blog-posts.json</code> (oraz czy nie jest ignorowany przez .gitignore/.dockerignore).</p>`
+    : '';
+  return `
+    <div class="pixel-border" style="padding:18px;">
+      <h3 style="margin:0 0 8px 0;">Nie udało się załadować ${what}${status}.</h3>
+      <p style="margin:0;">Odśwież stronę lub spróbuj ponownie za chwilę.</p>
+      ${hint}
+    </div>
+  `;
 }

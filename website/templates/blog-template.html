@@ -1,205 +1,139 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TYTUŁ WPISU - Blog PixelInventor</title>
-    
-    <!-- SEO Meta Tagi -->
-    <meta name="description" content="KRÓTKI OPIS WPISU">
-    <meta name="keywords" content="SŁOWA KLUCZOWE, ODDZIELONE, PRZECINKAMI">
-    <meta name="author" content="PixelInventor">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://pixelinventor.com/blog/LINK-DO-WPISU.html">
-    <meta property="og:title" content="TYTUŁ WPISU - Blog PixelInventor">
-    <meta property="og:description" content="KRÓTKI OPIS WPISU">
-    <meta property="og:image" content="https://pixelinventor.com/img/blog/NAZWA-OBRAZKA-OG.jpg">
-    <meta property="article:published_time" content="YYYY-MM-DDT00:00:00+01:00">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://pixelinventor.com/blog/LINK-DO-WPISU.html">
-    <meta name="twitter:title" content="TYTUŁ WPISU - Blog PixelInventor">
-    <meta name="twitter:description" content="KRÓTKI OPIS WPISU">
-    <meta name="twitter:image" content="https://pixelinventor.com/img/blog/NAZWA-OBRAZKA-TWITTER.jpg">
-    
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://pixelinventor.com/blog/LINK-DO-WPISU.html">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    
-    <!-- Dodanie pixelowego fontu -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome dla ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Highlight.js dla wyróżniania składni kodu -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-    
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/blog.css">
-    
-    <!-- Główny skrypt strony -->
-    <script src="../js/main.js" defer></script>
-    
-    <!-- Skrypt ładujący komponenty -->
-    <script src="../js/components.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TYTUŁ WPISU - Blog PixelInventor</title>
+
+  <!-- SEO -->
+  <meta name="description" content="KRÓTKI OPIS WPISU (1-2 zdania)" />
+  <meta name="keywords" content="SŁOWA KLUCZOWE, ODDZIELONE, PRZECINKAMI" />
+  <meta name="author" content="PixelInventor" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pixelinventor.com/blog/NAZWA-PLIKU.html" />
+  <meta property="og:title" content="TYTUŁ WPISU - Blog PixelInventor" />
+  <meta property="og:description" content="KRÓTKI OPIS WPISU (1-2 zdania)" />
+  <meta property="og:image" content="https://pixelinventor.com/img/blog/OG-IMAGE.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TYTUŁ WPISU - Blog PixelInventor" />
+  <meta name="twitter:description" content="KRÓTKI OPIS WPISU (1-2 zdania)" />
+  <meta name="twitter:image" content="https://pixelinventor.com/img/blog/OG-IMAGE.jpg" />
+
+  <link rel="canonical" href="https://pixelinventor.com/blog/NAZWA-PLIKU.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <!-- Fonts / Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- (Opcjonalnie) highlight.js do kodu -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css" />
+
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/pro.css">
+  <link rel="stylesheet" href="/css/boost.css">
 </head>
+
 <body>
-    <div class="game-container">
-        <!-- Nagłówek strony - wczytywany jako komponent -->
-        <header data-component="header"></header>
-        
-        <!-- Menu nawigacyjne - wczytywane jako komponent -->
-        <nav data-component="navigation2"></nav>
-        
-        <!-- Sekcja główna -->
-        <main>
-            <!-- Artykuł na blogu -->
-            <article class="blog-post pixel-border">
-                <header class="post-header">
-                    <h2 class="post-title">TYTUŁ WPISU</h2>
-                    <div class="post-metadata">
-                        <div class="post-date">DD MIESIĄC RRRR</div>
-                        <div class="post-tags">
-                            <span class="tag">TAG1</span>
-                            <span class="tag">TAG2</span>
-                            <span class="tag">TAG3</span>
-                        </div>
-                    </div>
-                </header>
-                
-                <div class="post-featured-image">
-                    <!-- Główny obraz wpisu -->
-                    <img src="../img/blog/nazwa-obrazka.jpg" alt="TYTUŁ WPISU">
-                </div>
-                
-                <div class="post-content">
-                    <!-- Wstęp -->
-                    <p class="post-intro">
-                        Tutaj wpisz wstęp do artykułu. Zwykle jest to krótkie wprowadzenie do tematu,
-                        które daje czytelnikowi ogólny zarys tego, o czym będzie artykuł. Wstęp powinien
-                        przyciągnąć uwagę czytelnika i zachęcić go do przeczytania całego wpisu.
-                    </p>
-                    
-                    <!-- Treść artykułu -->
-                    <h3>Pierwszy nagłówek</h3>
-                    <p>
-                        Pierwszy akapit treści artykułu. Tutaj możesz zacząć rozwijać temat.
-                        Możesz dodać tyle akapitów, ile potrzebujesz, aby dokładnie omówić temat.
-                        Pamiętaj, żeby dzielić tekst na mniejsze części, co ułatwi jego czytanie.
-                    </p>
-                    
-                    <p>
-                        Drugi akapit treści. Kontynuuj rozwijanie tematu, dodając kolejne informacje,
-                        analizy, przykłady, itp. Staraj się pisać w sposób zrozumiały i angażujący.
-                    </p>
-                    
-                    <h3>Drugi nagłówek</h3>
-                    <p>
-                        Kolejny akapit dotyczący nowego aspektu tematu. Możesz strukturyzować swój
-                        artykuł za pomocą nagłówków, aby był bardziej czytelny i zorganizowany.
-                    </p>
-                    
-                    <!-- Można dodać listę -->
-                    <h4>Lista punktów</h4>
-                    <ul>
-                        <li>Pierwszy punkt listy - dodaj szczegóły lub przykłady</li>
-                        <li>Drugi punkt listy - możesz rozwinąć każdy punkt</li>
-                        <li>Trzeci punkt listy - listy są świetne do prezentowania wielu elementów</li>
-                        <li>Czwarty punkt listy - pamiętaj o zachowaniu spójności w punktach listy</li>
-                    </ul>
-                    
-                    <!-- Możesz użyć kodu, jeśli to wpis techniczny -->
-                    <h4>Przykładowy kod</h4>
-                    <pre><code class="language-python">
-# Przykładowy kod w Pythonie
-def hello_world():
-    print("Hello, Pixel World!")
-    
-# Wywołanie funkcji
-hello_world()
-                    </code></pre>
-                    
-                    <p>
-                        Wyjaśnienie kodu - tutaj możesz opisać, co robi powyższy kod, wyjaśnić
-                        jego działanie lub omówić konkretne linie.
-                    </p>
-                    
-                    <h3>Trzeci nagłówek</h3>
-                    <p>
-                        Kolejny akapit treści. Możesz dodać tyle sekcji, ile potrzebujesz, aby
-                        kompleksowo omówić temat. Pamiętaj o zachowaniu logicznej struktury artykułu.
-                    </p>
-                    
-                    <!-- Możesz dodać cytat -->
-                    <blockquote>
-                        <p>To jest przykładowy cytat, który możesz wykorzystać, aby podkreślić ważną myśl lub zacytować kogoś. Cytaty dodają autorytet i różnorodność do tekstu.</p>
-                        <cite>— Autor cytatu</cite>
-                    </blockquote>
-                    
-                    <p>
-                        Komentarz do cytatu. Możesz wyjaśnić znaczenie cytatu lub rozwinąć myśl w nim zawartą.
-                    </p>
-                    
-                    <!-- Możesz dodać obrazek w treści -->
-                    <figure class="post-image">
-                        <img src="../img/blog/nazwa-obrazka-2.jpg" alt="Opis obrazka">
-                        <figcaption>Podpis pod obrazkiem, wyjaśniający co przedstawia</figcaption>
-                    </figure>
-                    
-                    <p>
-                        Komentarz do obrazka. Możesz opisać, co pokazuje obrazek, dlaczego jest istotny
-                        dla tematu artykułu, lub podać dodatkowe informacje związane z obrazkiem.
-                    </p>
-                    
-                    <h3>Podsumowanie</h3>
-                    <p>
-                        W tym miejscu możesz podsumować swój artykuł. Przypomnij główne punkty,
-                        podkreśl wnioski i ewentualnie zasugeruj dalsze kroki lub działania.
-                        Dobrej jakości podsumowanie pomaga czytelnikom zapamiętać najważniejsze
-                        informacje z artykułu.
-                    </p>
-                    
-                    <!-- Pytanie do czytelników na koniec, zachęcające do komentowania -->
-                    <p class="post-question">
-                        A Ty co sądzisz o tym temacie? Jakie są Twoje doświadczenia?
-                        Podziel się swoją opinią w komentarzach!
-                    </p>
-                </div>
-                
-                <!-- Nawigacja pomiędzy wpisami -->
-                <div class="post-navigation">
-                    <div class="post-nav-prev">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-chevron-left"></i> Poprzedni wpis
-                        </a>
-                    </div>
-                    <div class="post-nav-back">
-                        <a href="../blog.html" class="nav-link">
-                            <i class="fas fa-th"></i> Wszystkie wpisy
-                        </a>
-                    </div>
-                    <div class="post-nav-next">
-                        <a href="#" class="nav-link">
-                            Następny wpis <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
-        </main>
-        
-        <!-- Stopka - wczytywana jako komponent -->
-        <footer class="pixel-border" data-component="footer"></footer>
-    </div>
+  <header data-component="header"></header>
+  <nav data-component="navigation"></nav>
+
+  <main>
+    <section class="pixel-border" style="margin: 24px auto; max-width: 980px; padding: 18px;">
+      <h1 style="margin-bottom: 10px;">TYTUŁ WPISU</h1>
+
+      <p style="opacity:.85; margin-bottom: 14px;">
+        <strong>Data:</strong> YYYY-MM-DD
+      </p>
+
+      <div style="margin-bottom: 14px;">
+        <!-- TAGI -->
+        <span class="tag">AI</span>
+        <span class="tag">Muzyka</span>
+        <span class="tag">Pixel Art</span>
+      </div>
+
+      <!-- Obrazek główny (opcjonalnie) -->
+      <!--
+      <img src="/img/blog/OBRAZEK.jpg" alt="Opis obrazka"
+           style="width:100%; height:auto; margin: 12px 0; border: 2px solid var(--pixel-border-color);" />
+      -->
+
+      <article class="post-content">
+        <p>Napisz swój tekst tutaj. Krótkie akapity = lepiej się czyta.</p>
+
+        <h2>Wstawki multimediów (YouTube / Scratch / muzyka)</h2>
+
+        <!-- YouTube (wstaw ID filmiku) -->
+        <!--
+        <div style="position:relative; padding-top:56.25%; margin: 14px 0;">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+            title="YouTube video"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        -->
+
+        <!-- Scratch embed -->
+        <!--
+        <div style="position:relative; padding-top:56.25%; margin: 14px 0;">
+          <iframe
+            src="https://scratch.mit.edu/projects/PROJECT_ID/embed"
+            title="Scratch project"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+            allowtransparency="true"
+            scrolling="no"
+            allowfullscreen></iframe>
+        </div>
+        -->
+
+        <!-- Audio -->
+        <!--
+        <audio controls style="width:100%; margin: 10px 0;">
+          <source src="/assets/blog/SLUG/track1.mp3" type="audio/mpeg" />
+        </audio>
+        -->
+
+        <!-- Pixel art / grafika (galeria) -->
+        <!--
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin: 12px 0;">
+          <img src="/assets/blog/SLUG/1.png" alt="Pixel art 1"
+               style="width:100%; height:auto; border:2px solid var(--pixel-border-color);" />
+          <img src="/assets/blog/SLUG/2.png" alt="Pixel art 2"
+               style="width:100%; height:auto; border:2px solid var(--pixel-border-color);" />
+          <img src="/assets/blog/SLUG/3.png" alt="Pixel art 3"
+               style="width:100%; height:auto; border:2px solid var(--pixel-border-color);" />
+        </div>
+        -->
+
+        <!-- Kod (highlight.js) -->
+        <!--
+        <pre><code class="language-python">print("Hello!")</code></pre>
+        -->
+      </article>
+
+      <hr style="margin: 18px 0; opacity: .2;" />
+
+      <a class="pixel-button small" href="/blog.html">← Wróć do bloga</a>
+    </section>
+  </main>
+
+  <footer data-component="footer"></footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>try{hljs.highlightAll();}catch(e){}</script>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/components.js" defer></script>
 </body>
 </html>
