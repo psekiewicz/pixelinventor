@@ -6,7 +6,6 @@
  *
  * Zasady:
  * - komponenty są w /components/<name>.html (ścieżki absolutne)
- * - "navigation2" jest aliasem do "navigation" (żeby docelowo mieć tylko 1 nawigację)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,9 +19,6 @@ async function loadComponents() {
   for (const element of componentElements) {
     let name = element.getAttribute('data-component');
     if (!name) continue;
-
-    // kompatybilność: navigation2 -> navigation
-    if (name === 'navigation2') name = 'navigation';
 
     const url = `/components/${name}.html`;
 
