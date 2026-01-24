@@ -24,7 +24,7 @@ services:
 
 networks:
   web:
-    name: web
+    external: web
 
 volumes:
   letsencrypt:
