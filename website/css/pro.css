@@ -22,16 +22,28 @@
   flex: 1 1 280px;
   min-width: 240px;
   padding: 12px 14px;
+  min-height: 44px;
   border: 4px solid var(--pixel-border-color, #ffffff);
   background: var(--card-bg, rgba(0,0,0,0.2));
   color: var(--text-color, #ffffff);
   font-family: 'Press Start 2P', cursive;
   font-size: 12px;
   outline: none;
+  transition: border-color 0.2s;
 }
 
 .search-input::placeholder {
   opacity: 0.75;
+}
+
+.search-input:focus-visible {
+  border-color: var(--pixel-yellow, #ffcc00);
+  box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.3);
+}
+
+.search-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Tag chips */
@@ -45,14 +57,28 @@
   border: 4px solid var(--pixel-border-color, #ffffff);
   background: transparent;
   color: var(--text-color, #ffffff);
-  padding: 10px 12px;
+  padding: 10px 14px;
+  min-height: 44px;
   font-family: 'Press Start 2P', cursive;
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.chip:hover {
+  background: rgba(124, 77, 255, 0.3);
+  transform: translateY(-1px);
 }
 
 .chip.active {
   background: var(--pixel-purple, #7a3cff);
+}
+
+.chip:focus-visible {
+  outline: 3px solid var(--pixel-yellow, #ffcc00);
+  outline-offset: 2px;
 }
 
 /* Małe linki w kartach */
@@ -65,9 +91,85 @@
 
 .mini-link {
   border: 2px solid var(--pixel-border-color, #ffffff);
-  padding: 6px 8px;
+  padding: 10px 14px;
+  min-height: 36px;
   text-decoration: none;
   color: inherit;
-  font-size: 10px;
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s;
 }
+
+.mini-link:hover {
+  background: rgba(124, 77, 255, 0.2);
+}
+
+.mini-link:focus-visible {
+  outline: 3px solid var(--pixel-yellow, #ffcc00);
+  outline-offset: 2px;
+}
+
 .brand-link { color: inherit; text-decoration: none; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .filter-bar {
+    gap: 10px;
+    margin: 14px 0 18px;
+  }
+
+  .search-input {
+    flex: 1 1 100%;
+    min-width: 100%;
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+
+  .chip-row {
+    gap: 8px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .chip {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+
+  .mini-link {
+    padding: 10px 12px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-input {
+    font-size: 10px;
+    padding: 12px 10px;
+  }
+
+  .chip-row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .chip {
+    flex-shrink: 0;
+    font-size: 10px;
+    padding: 12px 14px;
+    min-height: 48px;
+  }
+
+  .mini-link {
+    padding: 12px 14px;
+    min-height: 44px;
+  }
+}

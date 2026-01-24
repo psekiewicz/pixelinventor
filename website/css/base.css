@@ -4,6 +4,7 @@
     --main-bg-color: #0a0a1a;
     --pixel-purple: #5e2ca5;
     --pixel-purple-light: #7c4dff;
+    --pixel-purple-dark: #3a1a65;
     --pixel-red: #ff3e3e;
     --pixel-green: #00cc66;
     --pixel-blue: #4da6ff;
@@ -52,6 +53,11 @@ a:hover {
     color: var(--pixel-purple-light);
 }
 
+a:focus-visible {
+    outline: 3px solid var(--pixel-yellow);
+    outline-offset: 2px;
+}
+
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -68,14 +74,16 @@ ul, ol {
 
 /* Common shared classes */
 .tag {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     background-color: rgba(124, 77, 255, 0.2);
     color: var(--pixel-blue);
-    padding: 3px 8px;
+    padding: 6px 12px;
+    min-height: 32px;
     margin-right: 5px;
     margin-bottom: 5px;
     border-radius: 3px;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .nav-link {
@@ -120,8 +128,8 @@ ul, ol {
     color: white;
     text-decoration: none;
     border: none;
-    border-bottom: 4px solid #3a1a65;
-    border-right: 4px solid #3a1a65;
+    border-bottom: 4px solid var(--pixel-purple-dark);
+    border-right: 4px solid var(--pixel-purple-dark);
     font-size: 14px;
     text-align: center;
     transition: all 0.1s;
@@ -131,8 +139,8 @@ ul, ol {
 
 .pixel-button:hover {
     transform: translate(2px, 2px);
-    border-bottom: 2px solid #3a1a65;
-    border-right: 2px solid #3a1a65;
+    border-bottom: 2px solid var(--pixel-purple-dark);
+    border-right: 2px solid var(--pixel-purple-dark);
 }
 
 .pixel-button:active {
@@ -141,9 +149,15 @@ ul, ol {
     border-right: 0;
 }
 
+.pixel-button:focus-visible {
+    outline: 3px solid var(--pixel-yellow);
+    outline-offset: 2px;
+}
+
 .pixel-button.small {
-    padding: 8px 16px;
-    font-size: 10px;
+    padding: 10px 18px;
+    font-size: 12px;
+    min-height: 44px;
 }
 
 /* Responsive media queries for base elements */
@@ -167,9 +181,14 @@ ul, ol {
     html {
         font-size: 12px;
     }
-    
+
     .pixel-button.small {
-        padding: 6px 12px;
-        font-size: 9px;
+        padding: 12px 16px;
+        font-size: 11px;
+    }
+
+    .tag {
+        min-height: 44px;
+        padding: 8px 14px;
     }
 }

@@ -38,6 +38,7 @@ __pycache__/
 # --- misc ---
 *.bak
 *.orig
+CLAUDE.md
 
 # NIE ignoruj danych strony (JSONy do bloga/projektów)
 !website/data/

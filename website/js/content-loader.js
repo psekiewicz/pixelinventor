@@ -38,14 +38,20 @@ function asArray(v) {
   return [v];
 }
 
-async function fetchJson(url) {
-  const res = await fetch(url, { cache: 'no-store' });
-  if (!res.ok) {
-    const err = new Error(`HTTP ${res.status} for ${url}`);
-    err.status = res.status;
-    throw err;
+async function fetchJson(url, timeout = 10000) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+  try {
+    const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
+    if (!res.ok) {
+      const err = new Error(`HTTP ${res.status} for ${url}`);
+      err.status = res.status;
+      throw err;
+    }
+    return res.json();
+  } finally {
+    clearTimeout(timeoutId);
   }
-  return res.json();
 }
 
 function formatDatePL(dateStr) {
@@ -73,7 +79,7 @@ async function loadFeaturedProjects() {
     const featured = projects.filter(p => p.featured === true);
     const picked = (featured.length >= 3 ? featured : projects).slice(0, 3);
 
-    container.innerHTML = picked.map(renderProjectCard).join('');
+    renderCards(container, picked, renderProjectCard);
   } catch (err) {
     console.error('loadFeaturedProjects error', err);
     container.innerHTML = renderDataError('projektów', err);
@@ -89,7 +95,7 @@ async function loadFeaturedBlogPosts() {
     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
     const picked = posts.slice(0, 3);
 
-    container.innerHTML = picked.map(renderBlogCard).join('');
+    renderCards(container, picked, renderBlogCard);
   } catch (err) {
     console.error('loadFeaturedBlogPosts error', err);
     container.innerHTML = renderDataError('wpisów bloga', err);
@@ -105,7 +111,7 @@ async function loadAllProjects() {
     const projects = await fetchJson('/data/projects.json');
     projects.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    container.innerHTML = projects.map(renderProjectCard).join('');
+    renderCards(container, projects, renderProjectCard);
 
     initializeProjectFilters(projects);
   } catch (err) {
@@ -166,7 +172,9 @@ function initializeProjectFilters(projects) {
   // search
   if (searchInput) {
     searchInput.addEventListener('input', () => {
-      query = (searchInput.value || '').trim().toLowerCase();
+      const val = (searchInput.value || '').trim();
+      if (val.length > 200) return; // limit search length for performance
+      query = val.toLowerCase();
       apply();
     });
   }
@@ -199,7 +207,7 @@ async function loadAllBlogPosts() {
     const posts = await fetchJson('/data/blog-posts.json');
     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    container.innerHTML = posts.map(renderBlogCard).join('');
+    renderCards(container, posts, renderBlogCard);
 
     initializeBlogFilters(posts);
   } catch (err) {
@@ -242,7 +250,9 @@ function initializeBlogFilters(posts) {
 
   if (searchInput) {
     searchInput.addEventListener('input', () => {
-      query = (searchInput.value || '').trim().toLowerCase();
+      const val = (searchInput.value || '').trim();
+      if (val.length > 200) return; // limit search length for performance
+      query = val.toLowerCase();
       apply();
     });
   }
@@ -264,6 +274,17 @@ function initializeBlogFilters(posts) {
 }
 
 // ---------- renderers ----------
+function renderCards(container, items, renderFn) {
+  const parser = new DOMParser();
+  container.textContent = '';
+  items.forEach(item => {
+    const html = renderFn(item);
+    const doc = parser.parseFromString(html, 'text/html');
+    const card = doc.body.firstChild;
+    if (card) container.appendChild(card);
+  });
+}
+
 function renderProjectCard(project) {
   const title = safeText(project.title);
   const desc = safeText(project.description || '');

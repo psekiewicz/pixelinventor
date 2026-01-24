@@ -65,8 +65,11 @@ nav li {
 
 .nav-button {
     font-family: 'Press Start 2P', cursive;
-    display: inline-block;
-    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    min-height: 44px;
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--text-color);
     text-decoration: none;
@@ -79,6 +82,11 @@ nav li {
     background-color: var(--pixel-purple);
     color: white;
     border-color: var(--pixel-purple-light);
+}
+
+.nav-button:focus-visible {
+    outline: 3px solid var(--pixel-yellow);
+    outline-offset: 2px;
 }
 
 /* Footer Styles */
@@ -106,8 +114,8 @@ footer.pixel-border {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--pixel-blue);
     border-radius: 50%;
@@ -121,13 +129,18 @@ footer.pixel-border {
     transform: translateY(-2px);
 }
 
+.social-link:focus-visible {
+    outline: 3px solid var(--pixel-yellow);
+    outline-offset: 2px;
+}
+
 .footer-note {
     font-size: 14px;
     color: var(--pixel-purple-light);
 }
 
 footer.pixel-border p:last-child {
-    font-size: 10px;
+    font-size: 12px;
     opacity: 0.7;
     margin-top: 5px;
 }
@@ -180,7 +193,7 @@ footer.pixel-border p:last-child {
 /* Projects Grid for Home */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -189,10 +202,16 @@ footer.pixel-border p:last-child {
     flex-direction: column;
     height: 100%;
     transition: transform 0.2s;
+    will-change: transform;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+}
+
+.project-card:focus-within {
+    outline: 3px solid var(--pixel-yellow);
+    outline-offset: 4px;
 }
 
 .project-image {
@@ -228,7 +247,7 @@ footer.pixel-border p:last-child {
 /* Blog Posts for Home */
 .blog-posts {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -237,10 +256,16 @@ footer.pixel-border p:last-child {
     flex-direction: column;
     height: 100%;
     transition: transform 0.2s;
+    will-change: transform;
 }
 
 .blog-card:hover {
     transform: translateY(-5px);
+}
+
+.blog-card:focus-within {
+    outline: 3px solid var(--pixel-yellow);
+    outline-offset: 4px;
 }
 
 .blog-image {
@@ -437,6 +462,20 @@ footer.pixel-border p:last-child {
     100% { opacity: 0.5; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .loading {
+        animation: none;
+        opacity: 1;
+    }
+
+    .project-card,
+    .blog-card,
+    .social-link,
+    .theme-button {
+        transition: none;
+    }
+}
+
 /* Error message */
 .error-message {
     background-color: rgba(255, 0, 0, 0.1);
@@ -489,7 +528,8 @@ footer.pixel-border p:last-child {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--text-color);
     border: none;
-    padding: 8px 15px;
+    padding: 12px 18px;
+    min-height: 44px;
     font-size: 12px;
     cursor: pointer;
     transition: all 0.2s;
@@ -498,6 +538,11 @@ footer.pixel-border p:last-child {
 .tab-button:hover, .tab-button.active {
     background-color: var(--pixel-purple);
     color: white;
+}
+
+.tab-button:focus-visible {
+    outline: 3px solid var(--pixel-yellow);
+    outline-offset: 2px;
 }
 
 /* Main content uniformity fixes */

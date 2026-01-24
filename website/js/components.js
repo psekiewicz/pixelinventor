@@ -26,7 +26,17 @@ async function loadComponents() {
       const response = await fetch(url, { cache: 'no-store' });
       if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
 
-      element.innerHTML = await response.text();
+      const html = await response.text();
+
+      // Bezpieczne parsowanie HTML przez DOMParser zamiast innerHTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+
+      // Wyczyść element i dodaj sparsowaną zawartość
+      element.textContent = '';
+      while (doc.body.firstChild) {
+        element.appendChild(doc.body.firstChild);
+      }
 
       // jeśli w komponencie są <script>, uruchom je ponownie
       activateScripts(element);
@@ -35,11 +45,15 @@ async function loadComponents() {
       if (name === 'navigation') highlightActiveMenuItem();
     } catch (err) {
       console.error(`Error loading component: ${name}`, err);
-      element.innerHTML = `
-        <div class="pixel-border" style="padding:16px;">
-          <strong>Nie udało się załadować komponentu:</strong> ${name}
-        </div>
-      `;
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'pixel-border';
+      errorDiv.style.padding = '16px';
+      const strong = document.createElement('strong');
+      strong.textContent = 'Nie udało się załadować komponentu: ';
+      errorDiv.appendChild(strong);
+      errorDiv.appendChild(document.createTextNode(name));
+      element.textContent = '';
+      element.appendChild(errorDiv);
     }
   }
 }
