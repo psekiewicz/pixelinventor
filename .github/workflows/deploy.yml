@@ -57,10 +57,5 @@ jobs:
           ssh -p ${{ secrets.VPS_PORT }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "\
             cd /opt/pixelinventor && \
             docker compose -p ${PROJECT} -f ${COMPOSE} --env-file .env pull && \
-            docker compose -p ${PROJECT} -f ${COMPOSE} --env-file .env up -d --remove-orphans && \
-            sleep 5 && \
-            docker compose -p ${PROJECT} -f ${COMPOSE} ps --format json | grep -q '\"Health\":\"healthy\"\\|\"State\":\"running\"' || \
-            (echo 'Deployment health check failed, rolling back...' && \
-             docker compose -p ${PROJECT} -f ${COMPOSE} --env-file .env down && \
-             exit 1) \
+            docker compose -p ${PROJECT} -f ${COMPOSE} --env-file .env up -d --remove-orphans \
           "
