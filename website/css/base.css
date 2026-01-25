@@ -60,7 +60,8 @@ a:focus-visible {
 
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
 }
 
 p {
@@ -76,14 +77,15 @@ ul, ol {
 .tag {
     display: inline-flex;
     align-items: center;
-    background-color: rgba(124, 77, 255, 0.2);
-    color: var(--pixel-blue);
+    background-color: rgba(124, 77, 255, 0.25);
+    color: #e0e0ff;
     padding: 6px 12px;
     min-height: 32px;
     margin-right: 5px;
     margin-bottom: 5px;
-    border-radius: 3px;
+    border-radius: 4px;
     font-size: 12px;
+    border: 1px solid rgba(124, 77, 255, 0.4);
 }
 
 .nav-link {
@@ -109,15 +111,15 @@ ul, ol {
 }
 
 .pixel-border {
-    border: 4px solid var(--pixel-border-color);
-    border-radius: 4px;
+    border: 3px solid var(--pixel-border-color);
+    border-radius: 8px;
     position: relative;
-    padding: 20px;
-    margin-bottom: 30px;
+    padding: 24px;
+    margin-bottom: 24px;
     background-color: var(--card-bg);
-    box-shadow: 
-        0px 4px 0px 0px rgba(0, 0, 0, 0.2),
-        inset 0 0 10px rgba(124, 77, 255, 0.1);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .pixel-button {
