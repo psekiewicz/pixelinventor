@@ -166,14 +166,9 @@ select:focus-visible{
 /* --- Filter/search UI (if present) --- */
 .filter-bar{
   background: rgba(255,255,255,0.02);
-  border: 2px solid rgba(124, 77, 255, 0.2);
+  border: 2px solid rgba(124, 77, 255, 0.15);
   border-radius: var(--radius-2);
-  padding: 16px;
-}
-
-.search-input{
-  border-radius: var(--radius-1);
-  border-width: 2px;
+  padding: 18px;
 }
 
 .chip{

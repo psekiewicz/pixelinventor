@@ -9,27 +9,26 @@
   display: block;
 }
 
-/* Prosty pasek filtrów */
+/* Prosty pasek filtrów - stacked layout */
 .filter-bar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  margin: 18px 0 22px;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0 24px;
 }
 
 .search-input {
-  flex: 1 1 280px;
-  min-width: 240px;
-  padding: 12px 14px;
+  width: 100%;
+  padding: 14px 16px;
   min-height: 44px;
-  border: 4px solid var(--pixel-border-color, #ffffff);
-  background: var(--card-bg, rgba(0,0,0,0.2));
+  border: 2px solid rgba(124, 77, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
   color: var(--text-color, #ffffff);
   font-family: 'Press Start 2P', cursive;
-  font-size: 12px;
+  font-size: 11px;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.15s ease;
 }
 
 .search-input::placeholder {
@@ -50,7 +49,8 @@
 .chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  width: 100%;
 }
 
 .chip {
@@ -116,25 +116,21 @@
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .filter-bar {
-    gap: 10px;
-    margin: 14px 0 18px;
+    gap: 14px;
+    margin: 16px 0 20px;
   }
 
   .search-input {
-    flex: 1 1 100%;
-    min-width: 100%;
-    font-size: 11px;
-    padding: 10px 12px;
+    font-size: 10px;
+    padding: 12px 14px;
   }
 
   .chip-row {
-    gap: 8px;
-    width: 100%;
-    justify-content: flex-start;
+    gap: 6px;
   }
 
   .chip {
-    font-size: 11px;
+    font-size: 10px;
     padding: 10px 12px;
   }
 
@@ -146,13 +142,12 @@
 
 @media (max-width: 480px) {
   .filter-bar {
-    flex-direction: column;
     gap: 12px;
   }
 
   .search-input {
-    font-size: 12px;
-    padding: 12px 10px;
+    font-size: 10px;
+    padding: 12px;
   }
 
   .chip-row {
@@ -164,14 +159,14 @@
 
   .chip {
     flex-shrink: 0;
-    font-size: 11px;
-    padding: 12px 14px;
-    min-height: 48px;
+    font-size: 10px;
+    padding: 10px 14px;
+    min-height: 44px;
   }
 
   .mini-link {
     padding: 12px 14px;
     min-height: 44px;
-    font-size: 11px;
+    font-size: 10px;
   }
 }

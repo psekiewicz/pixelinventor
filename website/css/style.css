@@ -543,8 +543,8 @@ footer.pixel-border p:last-child {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .tab-button {
@@ -621,7 +621,17 @@ main > article.pixel-border,
 
     .section-title {
         font-size: 16px;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
+    }
+
+    .category-tabs {
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .tab-button {
+        padding: 10px 14px;
+        font-size: 10px;
     }
 
     .projects-grid, .blog-posts {
