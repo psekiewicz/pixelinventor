@@ -125,30 +125,28 @@ ul, ol {
 .pixel-button {
     font-family: 'Press Start 2P', cursive;
     display: inline-block;
-    padding: 12px 24px;
-    background-color: var(--pixel-purple);
+    padding: 14px 28px;
+    background: linear-gradient(180deg, var(--pixel-purple-light) 0%, var(--pixel-purple) 100%);
     color: white;
     text-decoration: none;
     border: none;
-    border-bottom: 4px solid var(--pixel-purple-dark);
-    border-right: 4px solid var(--pixel-purple-dark);
-    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 4px 0 var(--pixel-purple-dark), 0 6px 12px rgba(0, 0, 0, 0.3);
+    font-size: 12px;
     text-align: center;
-    transition: all 0.1s;
+    transition: all 0.15s ease;
     position: relative;
     cursor: pointer;
 }
 
 .pixel-button:hover {
-    transform: translate(2px, 2px);
-    border-bottom: 2px solid var(--pixel-purple-dark);
-    border-right: 2px solid var(--pixel-purple-dark);
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--pixel-purple-dark), 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .pixel-button:active {
-    transform: translate(4px, 4px);
-    border-bottom: 0;
-    border-right: 0;
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--pixel-purple-dark), 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .pixel-button:focus-visible {
