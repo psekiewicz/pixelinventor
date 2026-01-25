@@ -54,26 +54,27 @@
 }
 
 .chip {
-  border: 4px solid var(--pixel-border-color, #ffffff);
-  background: transparent;
+  border: 2px solid var(--pixel-border-color, #7c4dff);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-color, #ffffff);
-  padding: 10px 14px;
+  padding: 10px 16px;
   min-height: 44px;
   font-family: 'Press Start 2P', cursive;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.15s ease;
   display: inline-flex;
   align-items: center;
 }
 
 .chip:hover {
-  background: rgba(124, 77, 255, 0.3);
-  transform: translateY(-1px);
+  background: rgba(124, 77, 255, 0.2);
+  border-color: var(--pixel-purple-light, #7c4dff);
 }
 
 .chip.active {
-  background: var(--pixel-purple, #7a3cff);
+  background: var(--pixel-purple, #5e2ca5);
+  border-color: var(--pixel-purple, #5e2ca5);
 }
 
 .chip:focus-visible {

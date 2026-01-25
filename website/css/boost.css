@@ -110,9 +110,17 @@ select:focus-visible{
 /* --- Tags: nicer pills, still pixel vibe --- */
 .tag{
   border-radius: var(--radius-pill);
-  padding: 4px 10px;
-  font-size: 12px;
-  border: 1px solid rgba(124, 77, 255, 0.35);
+  padding: 5px 12px;
+  font-size: 11px;
+  background: rgba(124, 77, 255, 0.15);
+  border: 1px solid rgba(124, 77, 255, 0.3);
+  color: #c8c8ff;
+  transition: all var(--transition-fast);
+}
+
+.tag:hover {
+  background: rgba(124, 77, 255, 0.25);
+  border-color: rgba(124, 77, 255, 0.5);
 }
 
 /* --- Post/Project page readability (less “wide wall of text”) --- */
@@ -158,22 +166,34 @@ select:focus-visible{
 /* --- Filter/search UI (if present) --- */
 .filter-bar{
   background: rgba(255,255,255,0.02);
-  border: 2px solid rgba(124, 77, 255, 0.25);
+  border: 2px solid rgba(124, 77, 255, 0.2);
   border-radius: var(--radius-2);
-  padding: 12px;
+  padding: 16px;
 }
 
 .search-input{
   border-radius: var(--radius-1);
+  border-width: 2px;
 }
 
 .chip{
   border-radius: var(--radius-pill);
-  transition: transform .08s ease;
+  transition: all var(--transition-fast);
+  border-width: 2px;
+}
+
+.chip:hover{
+  transform: translateY(-1px);
 }
 
 .chip:active{
   transform: translateY(1px);
+}
+
+.chip.active {
+  background: var(--pixel-purple);
+  border-color: var(--pixel-purple);
+  box-shadow: 0 2px 8px rgba(94, 44, 165, 0.4);
 }
 
 /* --- Reduce motion for users who want it --- */
