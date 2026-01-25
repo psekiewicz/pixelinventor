@@ -61,11 +61,15 @@
     line-height: 1.8;
 }
 
+.project-description h3:first-child {
+    margin-top: 8px;
+}
+
 .project-description h3 {
     font-family: 'Press Start 2P', cursive;
     font-size: 16px;
     color: var(--pixel-purple-light);
-    margin: 32px 0 16px;
+    margin: 40px 0 16px;
 }
 
 .project-description h4 {
@@ -174,10 +178,11 @@
 
 /* Navigation */
 .project-navigation {
-    display: flex;
-    justify-content: space-between;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     margin-top: 32px;
     padding-top: 20px;
     border-top: 1px solid rgba(124, 77, 255, 0.2);
@@ -187,40 +192,30 @@
     flex: 0 0 auto;
 }
 
-.prev-project {
-    text-align: left;
-}
-
-.back-to-projects {
-    text-align: center;
-}
-
-.next-project {
-    text-align: right;
-}
-
 .project-navigation .nav-link {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
-    gap: 6px;
-    padding: 8px 12px;
+    gap: 5px;
+    padding: 6px 10px !important;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(124, 77, 255, 0.25);
+    border: 1px solid rgba(124, 77, 255, 0.25) !important;
     border-radius: 4px;
-    font-size: 10px;
+    font-size: 9px !important;
     font-family: 'Press Start 2P', cursive;
     color: var(--text-color);
     text-decoration: none;
     transition: all 0.15s ease;
+    white-space: nowrap;
 }
 
 .project-navigation .nav-link:hover {
     background: rgba(124, 77, 255, 0.15);
     border-color: var(--pixel-purple);
+    transform: none;
 }
 
 .project-navigation .nav-link i {
-    font-size: 10px;
+    font-size: 9px;
 }
 
 /* Responsive */
@@ -259,22 +254,18 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .project-navigation {
-        flex-direction: column;
+        flex-direction: column !important;
         align-items: stretch;
-        gap: 8px;
-    }
-
-    .prev-project, .next-project, .back-to-projects {
-        width: 100%;
-        text-align: center;
+        gap: 6px;
     }
 
     .project-navigation .nav-link {
         width: 100%;
         justify-content: center;
-        padding: 10px 14px;
+        padding: 8px 12px !important;
+        font-size: 9px !important;
     }
 }
 
