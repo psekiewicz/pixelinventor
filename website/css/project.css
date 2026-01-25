@@ -69,7 +69,7 @@
     font-family: 'Press Start 2P', cursive;
     font-size: 16px;
     color: var(--pixel-purple-light);
-    margin: 40px 0 16px;
+    margin: 48px 0 20px;
 }
 
 .project-description h4 {
@@ -254,7 +254,7 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 380px) {
     .project-navigation {
         flex-direction: column !important;
         align-items: stretch;
