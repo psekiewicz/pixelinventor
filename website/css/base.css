@@ -179,16 +179,17 @@ ul, ol {
 
 @media (max-width: 480px) {
     html {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .pixel-button.small {
         padding: 12px 16px;
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .tag {
         min-height: 44px;
         padding: 8px 14px;
+        font-size: 11px;
     }
 }

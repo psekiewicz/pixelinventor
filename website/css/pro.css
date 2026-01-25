@@ -150,7 +150,7 @@
   }
 
   .search-input {
-    font-size: 10px;
+    font-size: 12px;
     padding: 12px 10px;
   }
 
@@ -163,7 +163,7 @@
 
   .chip {
     flex-shrink: 0;
-    font-size: 10px;
+    font-size: 11px;
     padding: 12px 14px;
     min-height: 48px;
   }
@@ -171,5 +171,6 @@
   .mini-link {
     padding: 12px 14px;
     min-height: 44px;
+    font-size: 11px;
   }
 }

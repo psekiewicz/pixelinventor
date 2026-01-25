@@ -514,6 +514,11 @@ footer.pixel-border p:last-child {
     transform: translateY(-2px);
 }
 
+.theme-button:focus-visible {
+    outline: 3px solid var(--pixel-yellow);
+    outline-offset: 2px;
+}
+
 /* Category tabs for project filtering */
 .category-tabs {
     display: flex;
