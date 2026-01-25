@@ -159,36 +159,62 @@
 .post-navigation {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 2px solid rgba(124, 77, 255, 0.3);
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 2px solid rgba(124, 77, 255, 0.2);
 }
 
 .post-nav-prev, .post-nav-next, .post-nav-back {
     flex: 1;
-    text-align: center;
+    min-width: 120px;
 }
 
 .post-nav-prev {
     text-align: left;
 }
 
+.post-nav-back {
+    text-align: center;
+}
+
 .post-nav-next {
     text-align: right;
 }
 
+.post-navigation .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(124, 77, 255, 0.2);
+    border-radius: 6px;
+    font-size: 11px;
+    transition: all 0.15s ease;
+}
+
+.post-navigation .nav-link:hover {
+    background: rgba(124, 77, 255, 0.15);
+    border-color: var(--pixel-purple);
+    transform: translateY(-2px);
+}
+
 .post-question {
-    font-size: 16px;
-    color: var(--pixel-blue);
-    margin: 40px 0 20px;
-    padding: 15px;
-    background-color: rgba(124, 77, 255, 0.1);
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 32px 0 16px;
+    padding: 16px;
+    background-color: rgba(124, 77, 255, 0.08);
     border-radius: 8px;
     font-style: italic;
+    opacity: 0.9;
 }
 
 .nav-link.disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
 }
@@ -196,33 +222,38 @@
 /* Responsive */
 @media (max-width: 768px) {
     .post-title {
-        font-size: 20px;
-    }
-    
-    .post-intro {
-        font-size: 16px;
-    }
-    
-    .post-content h3 {
         font-size: 18px;
     }
-    
-    .post-content h4 {
+
+    .post-intro {
+        font-size: 14px;
+        padding: 14px 16px;
+    }
+
+    .post-content h3 {
         font-size: 14px;
     }
-    
+
+    .post-content h4 {
+        font-size: 12px;
+    }
+
+    .post-content p {
+        font-size: 14px;
+    }
+
     .post-navigation {
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        align-items: stretch;
+        gap: 12px;
     }
-    
+
     .post-nav-prev, .post-nav-next, .post-nav-back {
         width: 100%;
         text-align: center;
     }
-    
-    .nav-link {
+
+    .post-navigation .nav-link {
         width: 100%;
         justify-content: center;
     }
@@ -230,9 +261,9 @@
 
 @media (max-width: 480px) {
     .post-title {
-        font-size: 18px;
+        font-size: 16px;
     }
-    
+
     .post-metadata {
         flex-direction: column;
         gap: 10px;

@@ -90,23 +90,30 @@ ul, ol {
 
 .nav-link {
     font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    color: var(--pixel-blue);
+    font-size: 11px;
+    color: var(--text-color);
     text-decoration: none;
-    padding: 8px 12px;
+    padding: 10px 14px;
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-    transition: all 0.2s;
+    border: 2px solid rgba(124, 77, 255, 0.2);
+    border-radius: 6px;
+    transition: all 0.15s ease;
     display: inline-flex;
     align-items: center;
 }
 
 .nav-link i {
-    margin: 0 8px;
+    margin: 0 6px;
+    color: var(--pixel-blue);
 }
 
 .nav-link:hover {
-    background-color: var(--pixel-purple);
+    background-color: rgba(124, 77, 255, 0.15);
+    border-color: var(--pixel-purple);
+    transform: translateY(-2px);
+}
+
+.nav-link:hover i {
     color: white;
 }
 
