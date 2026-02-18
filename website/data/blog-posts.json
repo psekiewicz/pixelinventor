@@ -1,5 +1,21 @@
 [
   {
+    "id": "claude-code",
+    "title": "Claude Code - mój nowy pomocnik w programowaniu",
+    "excerpt": "Jak Claude Code pomaga mi rozwijać stronę PixelInventor prosto z terminala?",
+    "thumbnail": "/img/blog/claude-code-cat.svg",
+    "date": "2026-02-18",
+    "tags": [
+      "Claude Code",
+      "AI",
+      "Programowanie",
+      "Narzędzia"
+    ],
+    "url": "/blog/2026-02-18-claude-code.html",
+    "media": [],
+    "content": []
+  },
+  {
     "id": "ai-experiences",
     "title": "Moje pierwsze doświadczenia z AI",
     "excerpt": "Jak wykorzystuję sztuczną inteligencję w swoich projektach?",
