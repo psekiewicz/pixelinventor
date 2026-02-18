@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ai-music",
+    "title": "Melodie AI",
+    "description": "Muzyka do gier",
+    "thumbnail": "/img/projects/ai-music.jpg",
+    "date": "2025-01-05",
+    "tags": [
+      "Chiptune",
+      "Suno",
+      "Muzyka"
+    ],
+    "category": "music",
+    "url": "/projects/20250105-ai-music.html",
+    "links": [],
+    "media": []
+  }
+]
