@@ -249,20 +249,6 @@ h1, h2, h3 { font-family: "Press Start 2P", cursive; line-height: 1.5; }
   color: var(--text-dim);
 }
 
-/* --- Badge --- */
-.badge {
-  display: inline-block;
-  font-family: "Press Start 2P", cursive;
-  font-size: 8px;
-  padding: 3px 8px;
-  border-radius: 4px;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
-.badge-new { background: var(--yellow); color: #111; }
-.badge-wip { background: var(--green); color: #111; }
-
 /* --- Stuff detail page --- */
 .stuff-detail h2 {
   font-size: 16px;
@@ -484,23 +470,56 @@ h1, h2, h3 { font-family: "Press Start 2P", cursive; line-height: 1.5; }
 
 .error-page p { font-size: 16px; margin-bottom: 24px; }
 
-/* --- Dev banner --- */
-.dev-banner {
-  background: rgba(255, 204, 0, 0.08);
-  border: 2px solid var(--yellow);
-  border-radius: 6px;
-  padding: 10px 16px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-family: "Press Start 2P", cursive;
-  font-size: 9px;
-  color: var(--yellow);
-  animation: pulse-border 2s infinite;
+/* --- Blog post --- */
+.blog-post-header { margin-bottom: 20px; }
+
+.blog-post-header h2 {
+  font-size: 16px;
+  color: var(--purple);
+  margin-bottom: 8px;
 }
 
-@keyframes pulse-border {
-  0%, 100% { border-color: var(--yellow); }
-  50% { border-color: rgba(255, 204, 0, 0.3); }
+.blog-post-date {
+  font-size: 12px;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.blog-post-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.blog-tag {
+  font-family: "Press Start 2P", cursive;
+  font-size: 7px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--purple-glow);
+  border: 1px solid rgba(124, 77, 255, 0.3);
+  color: var(--text-dim);
+}
+
+.blog-post-image {
+  margin-bottom: 20px;
+  border: 2px solid rgba(124, 77, 255, 0.3);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.blog-post-content p { margin-bottom: 16px; }
+.blog-post-content h3 {
+  font-size: 13px;
+  color: var(--yellow);
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.blog-post-content ul {
+  margin-bottom: 16px;
+  padding-left: 20px;
+}
+
+.blog-post-content li {
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 /* --- Responsive --- */

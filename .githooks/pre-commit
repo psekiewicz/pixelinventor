@@ -1,0 +1,142 @@
+#!/bin/bash
+# Pre-commit hook: lint HTML/CSS before committing
+# Validates only staged files under website/
+
+set -e
+
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+errors=0
+warnings=0
+
+# Get staged files
+staged_html=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.html$' || true)
+staged_css=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.css$' || true)
+staged_all=$(git diff --cached --name-only --diff-filter=ACM || true)
+
+# --- HTML checks ---
+for file in $staged_html; do
+  [ -f "$file" ] || continue
+  content=$(cat "$file")
+
+  # Check: DOCTYPE present
+  if ! echo "$content" | head -1 | grep -qi '<!doctype html>'; then
+    echo -e "${RED}ERROR${NC} $file: missing <!DOCTYPE html>"
+    errors=$((errors + 1))
+  fi
+
+  # Check: lang attribute on <html>
+  if ! echo "$content" | grep -q '<html lang='; then
+    echo -e "${RED}ERROR${NC} $file: <html> missing lang attribute"
+    errors=$((errors + 1))
+  fi
+
+  # Check: meta charset
+  if ! echo "$content" | grep -qi 'charset'; then
+    echo -e "${RED}ERROR${NC} $file: missing charset declaration"
+    errors=$((errors + 1))
+  fi
+
+  # Check: meta viewport
+  if ! echo "$content" | grep -qi 'viewport'; then
+    echo -e "${RED}ERROR${NC} $file: missing viewport meta tag"
+    errors=$((errors + 1))
+  fi
+
+  # Check: <title> tag
+  if ! echo "$content" | grep -qi '<title>'; then
+    echo -e "${RED}ERROR${NC} $file: missing <title> tag"
+    errors=$((errors + 1))
+  fi
+
+  # Check: references to non-existent local CSS/JS files
+  for ref in $(echo "$content" | grep -oP '(?:href|src)="(/[^"]*\.(?:css|js))"' | grep -oP '"/[^"]*"' | tr -d '"'); do
+    local_path="website${ref}"
+    if [ ! -f "$local_path" ]; then
+      echo -e "${RED}ERROR${NC} $file: references missing file $ref"
+      errors=$((errors + 1))
+    fi
+  done
+
+  # Check: references to non-existent local images
+  for ref in $(echo "$content" | grep -oP 'src="(/[^"]*\.(?:png|jpg|jpeg|gif|svg|webp))"' | grep -oP '"/[^"]*"' | tr -d '"'); do
+    local_path="website${ref}"
+    if [ ! -f "$local_path" ]; then
+      echo -e "${RED}ERROR${NC} $file: references missing image $ref"
+      errors=$((errors + 1))
+    fi
+  done
+
+  # Check: no href="#" dead links
+  if echo "$content" | grep -qP 'href="#"'; then
+    echo -e "${YELLOW}WARN${NC}  $file: contains href=\"#\" (dead link)"
+    warnings=$((warnings + 1))
+  fi
+
+  # Check: no TODO/FIXME/HACK comments
+  if echo "$content" | grep -qiP '<!--.*\b(TODO|FIXME|HACK)\b'; then
+    echo -e "${YELLOW}WARN${NC}  $file: contains TODO/FIXME comment"
+    warnings=$((warnings + 1))
+  fi
+
+  # Check: consistent favicon reference
+  if echo "$content" | grep -q 'favicon.png'; then
+    echo -e "${RED}ERROR${NC} $file: references favicon.png (should be favicon.svg)"
+    errors=$((errors + 1))
+  fi
+done
+
+# --- CSS checks ---
+for file in $staged_css; do
+  [ -f "$file" ] || continue
+  content=$(cat "$file")
+
+  # Check: no empty rule blocks
+  if echo "$content" | grep -Pzo '\{[\s]*\}' > /dev/null 2>&1; then
+    echo -e "${YELLOW}WARN${NC}  $file: contains empty CSS rule block"
+    warnings=$((warnings + 1))
+  fi
+
+  # Check: no !important (except in reduced-motion, which is OK)
+  important_count=$(echo "$content" | grep -c '!important' || true)
+  reduced_motion_important=$(echo "$content" | sed -n '/prefers-reduced-motion/,/}/p' | grep -c '!important' || true)
+  unexpected=$((important_count - reduced_motion_important))
+  if [ "$unexpected" -gt 0 ]; then
+    echo -e "${YELLOW}WARN${NC}  $file: contains $unexpected !important outside reduced-motion"
+    warnings=$((warnings + 1))
+  fi
+done
+
+# --- General checks ---
+for file in $staged_all; do
+  [ -f "$file" ] || continue
+
+  # Check: no trailing whitespace
+  if grep -Pn '\s+$' "$file" > /dev/null 2>&1; then
+    count=$(grep -Pc '\s+$' "$file" || true)
+    echo -e "${YELLOW}WARN${NC}  $file: $count lines with trailing whitespace"
+    warnings=$((warnings + 1))
+  fi
+
+  # Check: file ends with newline
+  if [ -s "$file" ] && [ "$(tail -c 1 "$file" | xxd -p)" != "0a" ]; then
+    echo -e "${YELLOW}WARN${NC}  $file: no trailing newline"
+    warnings=$((warnings + 1))
+  fi
+done
+
+# --- Summary ---
+echo ""
+if [ $errors -gt 0 ]; then
+  echo -e "${RED}Commit blocked: $errors error(s), $warnings warning(s)${NC}"
+  exit 1
+elif [ $warnings -gt 0 ]; then
+  echo -e "${YELLOW}Commit OK with $warnings warning(s)${NC}"
+  exit 0
+else
+  echo -e "${GREEN}All checks passed${NC}"
+  exit 0
+fi
