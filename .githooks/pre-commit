@@ -83,8 +83,8 @@ for file in $staged_html; do
   fi
 
   # Check: consistent favicon reference
-  if echo "$content" | grep -q 'favicon.png'; then
-    echo -e "${RED}ERROR${NC} $file: references favicon.png (should be favicon.svg)"
+  if echo "$content" | grep -q 'favicon.svg'; then
+    echo -e "${RED}ERROR${NC} $file: references favicon.svg (should be favicon.png)"
     errors=$((errors + 1))
   fi
 done
