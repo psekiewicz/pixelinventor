@@ -14,6 +14,11 @@ docker run --rm -p 8080:80 pixelinventor:local
 ```
 Otwórz: `http://localhost:8080`
 
+Wspólny nagłówek, nawigacja, stopka i karty projektów są w `website/_partials/` i wstawiane przez Nginx SSI
+(`<!--# include virtual="..." -->`), więc stronę trzeba oglądać przez Nginx, a nie otwierając pliki z dysku.
+
+Lint przed commitem: `git config core.hooksPath .githooks`
+
 ## Jak działa deploy
 - push na `test` → buduje obraz `:dev` i aktualizuje DEV na VPS
 - push/merge na `main` → buduje obraz `:prod` i aktualizuje PROD na VPS

@@ -30,22 +30,10 @@
 <body>
   <div class="container">
 
-    <header class="box site-header">
-      <h1 class="site-title">Pixel<span>Inventor</span></h1>
-      <p class="site-tagline">Robię gry i inne rzeczy</p>
-    </header>
-
-    <nav class="box site-nav">
-      <ul>
-        <li><a href="/">Start</a></li>
-        <li><a href="/stuff.html">Moje rzeczy</a></li>
-        <li><a href="/log.html">Log</a></li>
-        <li><a href="/about.html">O mnie</a></li>
-      </ul>
-    </nav>
+<!--# include virtual="/_partials/header.html?page=log" -->
 
     <main>
-      <a href="/" class="back-link">&larr; Wróć na start</a>
+      <a href="/log.html" class="back-link">&larr; Wróć do logu</a>
 
       <article class="box blog-post">
         <header class="blog-post-header">
@@ -106,9 +94,7 @@
       </article>
     </main>
 
-    <footer class="box site-footer">
-      <p>&copy; 2025 PixelInventor</p>
-    </footer>
+<!--# include virtual="/_partials/footer.html" -->
 
   </div>
 </body>

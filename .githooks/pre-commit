@@ -13,7 +13,8 @@ errors=0
 warnings=0
 
 # Get staged files
-staged_html=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.html$' || true)
+# Partials (SSI fragments) are not full documents, skip document-level checks
+staged_html=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.html$' | grep -v '/_partials/' || true)
 staged_css=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.css$' || true)
 staged_all=$(git diff --cached --name-only --diff-filter=ACM || true)
 
@@ -122,7 +123,7 @@ for file in $staged_all; do
   fi
 
   # Check: file ends with newline
-  if [ -s "$file" ] && [ "$(tail -c 1 "$file" | xxd -p)" != "0a" ]; then
+  if [ -s "$file" ] && [ -n "$(tail -c 1 "$file")" ]; then
     echo -e "${YELLOW}WARN${NC}  $file: no trailing newline"
     warnings=$((warnings + 1))
   fi
