@@ -114,6 +114,8 @@ done
 # --- General checks ---
 for file in $staged_all; do
   [ -f "$file" ] || continue
+  # Skip binary files (fonts, images)
+  grep -Iq . "$file" || continue
 
   # Check: no trailing whitespace
   if grep -Pn '\s+$' "$file" > /dev/null 2>&1; then
