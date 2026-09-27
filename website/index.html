@@ -9,15 +9,12 @@
   <link rel="preload" href="/fonts/pixelify-sans-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-  <div class="container">
+<body class="page-home">
 
-    <!-- partial:header page=start -->
-    <header class="box site-header">
-      <div class="brand">
-        <a href="/" class="logo">Pixel<span>Inventor</span></a>
-        <p class="site-tagline">Robię gry i inne rzeczy</p>
-      </div>
+  <!-- partial:header page=start -->
+  <div class="hud-wrap">
+    <header class="hud">
+      <a href="/" class="logo">Pixel<span>Inventor</span></a>
 
       <nav class="site-nav" aria-label="Główna nawigacja">
         <ul>
@@ -27,55 +24,186 @@
           <li><a href="/about.html">O mnie</a></li>
         </ul>
       </nav>
+
+      <div class="hud-stats" role="img" aria-label="Poziom 12, 70% do następnego poziomu, 3 życia">
+        <span class="hud-lvl">LVL 12</span>
+        <span class="hud-xp"><span></span></span>
+        <span class="hud-hearts">♥♥♥</span>
+      </div>
     </header>
-    <!-- /partial:header -->
+  </div>
+  <!-- /partial:header -->
 
-    <main>
-      <section class="box hero">
-        <div class="hero-text">
-          <h2><span>Cześć!</span></h2>
-          <p>Jestem PixelInventor. Robię gry w Unity, tworzę pixel art, eksperymentuję z muzyką i uczę się programowania. Ta strona to mój warsztat — wszystko co tworzę ląduje tutaj.</p>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-art stars" aria-hidden="true"></div>
+        <svg class="hero-art sun" width="88" height="88" viewBox="0 0 8 8" aria-hidden="true"><rect x="2" y="0" width="4" height="1" fill="currentColor"/><rect x="1" y="1" width="6" height="1" fill="currentColor"/><rect x="0" y="2" width="8" height="4" fill="currentColor"/><rect x="1" y="6" width="6" height="1" fill="currentColor"/><rect x="2" y="7" width="4" height="1" fill="currentColor"/></svg>
+        <div class="hero-art cloud cloud-1" aria-hidden="true"></div>
+        <div class="hero-art cloud cloud-2" aria-hidden="true"></div>
+        <svg class="hero-art hills" viewBox="0 0 160 30" preserveAspectRatio="none" aria-hidden="true">
+          <rect class="hill-back" x="10" y="18" width="40" height="12"/><rect class="hill-back" x="16" y="14" width="28" height="4"/><rect class="hill-back" x="22" y="10" width="16" height="4"/><rect class="hill-back" x="26" y="7" width="8" height="3"/>
+          <rect class="hill-back" x="70" y="16" width="60" height="14"/><rect class="hill-back" x="78" y="12" width="44" height="4"/><rect class="hill-back" x="88" y="8" width="24" height="4"/><rect class="hill-back" x="94" y="5" width="12" height="3"/>
+          <rect class="hill-back" x="130" y="20" width="30" height="10"/><rect class="hill-back" x="136" y="16" width="18" height="4"/><rect class="hill-back" x="142" y="13" width="8" height="3"/>
+          <rect class="hill-front" x="0" y="24" width="30" height="6"/><rect class="hill-front" x="4" y="21" width="18" height="3"/>
+          <rect class="hill-front" x="40" y="25" width="40" height="5"/><rect class="hill-front" x="46" y="22" width="24" height="3"/>
+          <rect class="hill-front" x="100" y="24" width="50" height="6"/><rect class="hill-front" x="108" y="21" width="30" height="3"/>
+          <rect class="hill-front" x="150" y="25" width="10" height="5"/>
+        </svg>
+        <div class="hero-art qblock" aria-hidden="true">!</div>
+        <svg class="hero-art coin coin-1" viewBox="0 0 7 9" aria-hidden="true"><rect x="2" y="0" width="3" height="1" fill="#1f1a24"/><rect x="1" y="1" width="5" height="7" fill="#1f1a24"/><rect x="0" y="2" width="7" height="5" fill="#1f1a24"/><rect x="2" y="1" width="3" height="7" fill="#f5b82e"/><rect x="1" y="2" width="5" height="5" fill="#f5b82e"/><rect x="3" y="2" width="1" height="5" fill="#c98f12"/><rect x="2" y="8" width="3" height="1" fill="#1f1a24"/></svg>
+        <svg class="hero-art coin coin-2" viewBox="0 0 7 9" aria-hidden="true"><rect x="2" y="0" width="3" height="1" fill="#1f1a24"/><rect x="1" y="1" width="5" height="7" fill="#1f1a24"/><rect x="0" y="2" width="7" height="5" fill="#1f1a24"/><rect x="2" y="1" width="3" height="7" fill="#f5b82e"/><rect x="1" y="2" width="5" height="5" fill="#f5b82e"/><rect x="3" y="2" width="1" height="5" fill="#c98f12"/><rect x="2" y="8" width="3" height="1" fill="#1f1a24"/></svg>
+        <svg class="hero-art coin coin-3" viewBox="0 0 7 9" aria-hidden="true"><rect x="2" y="0" width="3" height="1" fill="#1f1a24"/><rect x="1" y="1" width="5" height="7" fill="#1f1a24"/><rect x="0" y="2" width="7" height="5" fill="#1f1a24"/><rect x="2" y="1" width="3" height="7" fill="#f5b82e"/><rect x="1" y="2" width="5" height="5" fill="#f5b82e"/><rect x="3" y="2" width="1" height="5" fill="#c98f12"/><rect x="2" y="8" width="3" height="1" fill="#1f1a24"/></svg>
+        <svg class="hero-art coin coin-4" viewBox="0 0 7 9" aria-hidden="true"><rect x="2" y="0" width="3" height="1" fill="#1f1a24"/><rect x="1" y="1" width="5" height="7" fill="#1f1a24"/><rect x="0" y="2" width="7" height="5" fill="#1f1a24"/><rect x="2" y="1" width="3" height="7" fill="#f5b82e"/><rect x="1" y="2" width="5" height="5" fill="#f5b82e"/><rect x="3" y="2" width="1" height="5" fill="#c98f12"/><rect x="2" y="8" width="3" height="1" fill="#1f1a24"/></svg>
 
-          <div class="hud" aria-label="Poziom 12, 70% do następnego poziomu">
-            <span class="hud-lvl">LVL 12</span>
-            <span class="hud-xp" aria-hidden="true"><span></span></span>
-            <span class="hud-hearts" aria-hidden="true">♥♥♥</span>
+        <div class="hero-copy">
+          <span class="player-tag">★ PLAYER 1 ★</span>
+          <h1 class="hero-title">Cześć!</h1>
+          <div class="dialog">
+            <span class="dialog-name">PixelInventor</span>
+            <p>Robię gry w Unity, tworzę pixel art, eksperymentuję z muzyką i uczę się programowania. Ta strona to mój warsztat — wszystko co tworzę ląduje tutaj.</p>
+          </div>
+          <div class="hero-actions">
+            <a href="/stuff.html" class="btn btn-start">Start</a>
+            <a href="/log.html" class="btn btn-yellow">Czytaj (B)log</a>
           </div>
         </div>
+      </div>
+      <div class="hero-art hero-ground ground" aria-hidden="true"></div>
+    </section>
 
-        <img class="hero-sprite" src="/img/robot.svg" alt="Pixelowy robot-wynalazca z żarówką" width="180" height="240">
-      </section>
+    <ul class="ticker" aria-label="Co nowego">
+      <li><b>NOWE:</b> <a href="/stuff/ai-music/">Melodie AI — muzyka do gier z Suno</a></li>
+      <li><b>(B)LOG:</b> <a href="/blog/2026-02-18-claude-code.html">Claude Code - mój nowy pomocnik w programowaniu</a></li>
+      <li><b>W TOKU:</b> Unity + C#</li>
+    </ul>
 
-      <section class="box">
-        <h2 class="section-title">Ostatnie rzeczy</h2>
+    <div class="container stack">
+      <section>
+        <div class="section-head">
+          <div>
+            <p class="kicker">Moje rzeczy</p>
+            <h2 class="section-title big">Projekty</h2>
+          </div>
+          <a href="/stuff.html" class="more">Wszystkie rzeczy →</a>
+        </div>
+
         <div class="stuff-grid">
-
           <!-- partial:stuff-cards -->
-          <a href="/stuff/ai-music/" class="stuff-card">
-            <div class="thumb">
-              <span class="badge">Nowe!</span>
-              <div class="placeholder">🎵</div>
+          <a href="/stuff/ai-music/" class="cart">
+            <div class="cart-label">
+              <div class="thumb">
+                <span class="badge">Nowe!</span>
+                <span class="cart-tag">Muzyka</span>
+                <svg width="84" height="84" viewBox="0 0 8 8" aria-hidden="true"><rect x="4" y="1" width="1" height="5" fill="#fffaf0"/><rect x="5" y="1" width="2" height="1" fill="#fffaf0"/><rect x="6" y="2" width="1" height="1" fill="#fffaf0"/><rect x="2" y="5" width="3" height="2" fill="#fffaf0"/></svg>
+              </div>
+              <div class="cart-body">
+                <h3>Melodie AI</h3>
+                <p class="date">5 stycznia 2025</p>
+                <p class="desc">Muzyka do gier zrobiona z Suno</p>
+              </div>
             </div>
-            <h3>Melodie AI</h3>
-            <p class="date">5 stycznia 2025</p>
-            <p class="desc">Muzyka do gier zrobiona z Suno</p>
+            <div class="cart-foot"><span>PIXELINVENTOR</span><span>▶ SPRAWDŹ</span></div>
           </a>
           <!-- /partial:stuff-cards -->
 
-        </div>
+          <div class="cart cart-locked">
+            <div class="cart-label">
+              <svg width="48" height="48" viewBox="0 0 8 8" aria-hidden="true"><rect x="2" y="0" width="4" height="1" fill="#8a8494"/><rect x="1" y="1" width="1" height="3" fill="#8a8494"/><rect x="6" y="1" width="1" height="3" fill="#8a8494"/><rect x="0" y="3" width="8" height="5" fill="#f5b82e"/><rect x="3" y="5" width="2" height="2" fill="#1f1a24"/></svg>
+              <strong>ZABLOKOWANE</strong>
+              <span>Wkrótce</span>
+            </div>
+            <div class="cart-foot"><span>Projekt wkrótce</span><span>???</span></div>
+          </div>
 
-        <div class="section-actions">
-          <a href="/stuff.html" class="btn">Wszystkie rzeczy</a>
+          <div class="cart cart-locked">
+            <div class="cart-label">
+              <svg width="48" height="48" viewBox="0 0 8 8" aria-hidden="true"><rect x="2" y="0" width="4" height="1" fill="#8a8494"/><rect x="1" y="1" width="1" height="3" fill="#8a8494"/><rect x="6" y="1" width="1" height="3" fill="#8a8494"/><rect x="0" y="3" width="8" height="5" fill="#f5b82e"/><rect x="3" y="5" width="2" height="2" fill="#1f1a24"/></svg>
+              <strong>ZABLOKOWANE</strong>
+              <span>Wkrótce</span>
+            </div>
+            <div class="cart-foot"><span>Projekt wkrótce</span><span>???</span></div>
+          </div>
         </div>
       </section>
-    </main>
 
-    <!-- partial:footer -->
-    <footer class="site-footer">
-      <p>&copy; 2026 PixelInventor</p>
-    </footer>
-    <!-- /partial:footer -->
+      <div class="home-grid">
+        <section class="panel">
+          <p class="kicker">Czym się zajmuję</p>
+          <h2 class="section-title">/skill</h2>
+          <ul class="skills">
+            <li>
+              <span class="skill-icon skill-games"><svg width="46" height="37" viewBox="0 0 10 8" aria-hidden="true"><rect x="0" y="1" width="10" height="5" fill="#1f1a24"/><rect x="0" y="6" width="3" height="1" fill="#1f1a24"/><rect x="7" y="6" width="3" height="1" fill="#1f1a24"/><rect x="2" y="2" width="1" height="3" fill="#fffaf0"/><rect x="1" y="3" width="3" height="1" fill="#fffaf0"/><rect x="7" y="2" width="1" height="1" fill="#e0492c"/><rect x="8" y="3" width="1" height="1" fill="#f5b82e"/></svg></span>
+              <strong>Gry</strong>
+              <span>Unity + C#<br>(uczy się)</span>
+            </li>
+            <li>
+              <span class="skill-icon skill-art"><svg width="44" height="44" viewBox="0 0 8 8" aria-hidden="true"><rect x="1" y="1" width="3" height="3" fill="#e0492c"/><rect x="4" y="1" width="3" height="3" fill="#f5b82e"/><rect x="1" y="4" width="3" height="3" fill="#2a9d8f"/><rect x="4" y="4" width="3" height="3" fill="#3d6fd9"/></svg></span>
+              <strong>Pixel art</strong>
+              <span>Słaby, ale nadal<br>lepszy niż AI</span>
+            </li>
+            <li>
+              <span class="skill-icon skill-music"><svg width="44" height="44" viewBox="0 0 8 8" aria-hidden="true"><rect x="4" y="1" width="1" height="5" fill="#1f1a24"/><rect x="5" y="1" width="2" height="1" fill="#1f1a24"/><rect x="6" y="2" width="1" height="1" fill="#1f1a24"/><rect x="2" y="5" width="3" height="2" fill="#1f1a24"/></svg></span>
+              <strong>Muzyka</strong>
+              <span>Czeka, aż tata<br>kupi mu w końcu<br>Ableton</span>
+            </li>
+            <li>
+              <span class="skill-icon skill-code"><svg width="44" height="44" viewBox="0 0 8 8" aria-hidden="true"><rect x="2" y="2" width="1" height="1" fill="#f5b82e"/><rect x="1" y="3" width="1" height="2" fill="#f5b82e"/><rect x="2" y="5" width="1" height="1" fill="#f5b82e"/><rect x="4" y="2" width="1" height="2" fill="#fffaf0"/><rect x="3" y="4" width="1" height="2" fill="#fffaf0"/><rect x="5" y="2" width="1" height="1" fill="#f5b82e"/><rect x="6" y="3" width="1" height="2" fill="#f5b82e"/><rect x="5" y="5" width="1" height="1" fill="#f5b82e"/></svg></span>
+              <strong>Kod</strong>
+              <span>Html, Python,<br>uczy się C#</span>
+            </li>
+          </ul>
+        </section>
 
-  </div>
+        <section class="panel">
+          <p class="kicker">Log</p>
+          <h2 class="section-title">Dziennik zadań</h2>
+          <ul class="quests">
+            <li class="quest done">
+              <span class="quest-body">
+                <span class="quest-status">Ukończone · 18 lutego 2026</span>
+                <a href="/blog/2026-02-18-claude-code.html" class="quest-title">Claude Code - mój nowy pomocnik w programowaniu</a>
+              </span>
+            </li>
+            <li class="quest done">
+              <span class="quest-body">
+                <span class="quest-status">Ukończone · dawno temu</span>
+                <span class="quest-title">Nauczyć się Pythona</span>
+              </span>
+            </li>
+            <li class="quest">
+              <span class="quest-body">
+                <span class="quest-status">W toku</span>
+                <span class="quest-title">Robić gry w Unity na poważnie</span>
+              </span>
+            </li>
+            <li class="quest">
+              <span class="quest-body">
+                <span class="quest-status">W toku</span>
+                <span class="quest-title">Tworzyć muzykę</span>
+              </span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- partial:footer -->
+  <footer class="site-footer">
+    <div class="ground" aria-hidden="true"></div>
+    <div class="underground">
+      <span class="underground-logo">Pixel<span>Inventor</span></span>
+      <nav aria-label="Stopka">
+        <a href="/">Start</a>
+        <a href="/stuff.html">Projekty</a>
+        <a href="/log.html">Log</a>
+        <a href="/about.html">O mnie</a>
+      </nav>
+      <small>&copy; 2026 PixelInventor</small>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+
 </body>
 </html>

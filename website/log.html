@@ -4,20 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log - PixelInventor</title>
-  <meta name="description" content="Co ostatnio robiłem — krótkie wpisy z warsztatu.">
+  <meta name="description" content="Co ostatnio robiłem. Krótko i na temat.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preload" href="/fonts/pixelify-sans-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="container">
 
-    <!-- partial:header page=log -->
-    <header class="box site-header">
-      <div class="brand">
-        <a href="/" class="logo">Pixel<span>Inventor</span></a>
-        <p class="site-tagline">Robię gry i inne rzeczy</p>
-      </div>
+  <!-- partial:header page=log -->
+  <div class="hud-wrap">
+    <header class="hud">
+      <a href="/" class="logo">Pixel<span>Inventor</span></a>
 
       <nav class="site-nav" aria-label="Główna nawigacja">
         <ul>
@@ -27,29 +24,49 @@
           <li><a href="/about.html">O mnie</a></li>
         </ul>
       </nav>
+
+      <div class="hud-stats" role="img" aria-label="Poziom 12, 70% do następnego poziomu, 3 życia">
+        <span class="hud-lvl">LVL 12</span>
+        <span class="hud-xp"><span></span></span>
+        <span class="hud-hearts">♥♥♥</span>
+      </div>
     </header>
-    <!-- /partial:header -->
-
-    <main>
-      <section class="box">
-        <h2 class="section-title">Log</h2>
-        <p class="lead">Co ostatnio robiłem. Krótko i na temat.</p>
-
-        <article class="log-entry">
-          <p class="date">18 lutego 2026</p>
-          <h3><a href="/blog/2026-02-18-claude-code.html">Claude Code - mój nowy pomocnik w programowaniu</a></h3>
-          <p>Jak Claude Code pomaga mi rozwijać tę stronę prosto z terminala.</p>
-        </article>
-
-      </section>
-    </main>
-
-    <!-- partial:footer -->
-    <footer class="site-footer">
-      <p>&copy; 2026 PixelInventor</p>
-    </footer>
-    <!-- /partial:footer -->
-
   </div>
+  <!-- /partial:header -->
+
+  <main class="container">
+    <section class="panel">
+      <p class="kicker">(B)log</p>
+      <h1 class="section-title big">Dziennik zadań</h1>
+      <p class="lead">Co ostatnio robiłem. Krótko i na temat.</p>
+
+      <ul class="quests log-list">
+        <li class="quest done">
+          <span class="quest-body">
+            <span class="quest-status">18 lutego 2026</span>
+            <a href="/blog/2026-02-18-claude-code.html" class="quest-title">Claude Code - mój nowy pomocnik w programowaniu</a>
+            <p>Jak Claude Code pomaga mi rozwijać tę stronę prosto z terminala.</p>
+          </span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- partial:footer -->
+  <footer class="site-footer">
+    <div class="ground" aria-hidden="true"></div>
+    <div class="underground">
+      <span class="underground-logo">Pixel<span>Inventor</span></span>
+      <nav aria-label="Stopka">
+        <a href="/">Start</a>
+        <a href="/stuff.html">Projekty</a>
+        <a href="/log.html">Log</a>
+        <a href="/about.html">O mnie</a>
+      </nav>
+      <small>&copy; 2026 PixelInventor</small>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+
 </body>
 </html>

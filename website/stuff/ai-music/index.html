@@ -9,14 +9,11 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="container">
 
-    <!-- partial:header page=stuff -->
-    <header class="box site-header">
-      <div class="brand">
-        <a href="/" class="logo">Pixel<span>Inventor</span></a>
-        <p class="site-tagline">Robię gry i inne rzeczy</p>
-      </div>
+  <!-- partial:header page=stuff -->
+  <div class="hud-wrap">
+    <header class="hud">
+      <a href="/" class="logo">Pixel<span>Inventor</span></a>
 
       <nav class="site-nav" aria-label="Główna nawigacja">
         <ul>
@@ -26,13 +23,20 @@
           <li><a href="/about.html">O mnie</a></li>
         </ul>
       </nav>
-    </header>
-    <!-- /partial:header -->
 
-    <main>
+      <div class="hud-stats" role="img" aria-label="Poziom 12, 70% do następnego poziomu, 3 życia">
+        <span class="hud-lvl">LVL 12</span>
+        <span class="hud-xp"><span></span></span>
+        <span class="hud-hearts">♥♥♥</span>
+      </div>
+    </header>
+  </div>
+  <!-- /partial:header -->
+
+  <main class="container">
       <a href="/stuff.html" class="back-link">&larr; Wróć do rzeczy</a>
 
-      <article class="box stuff-detail">
+      <article class="panel stuff-detail">
         <h2>Melodie AI</h2>
         <p class="meta">5 stycznia 2025 &middot; Muzyka</p>
 
@@ -40,14 +44,23 @@
 
         <p>Chciałem mieć muzykę do swoich gier, ale nie umiem jeszcze grać na żadnym instrumencie. Suno pozwala opisać jaki klimat chcesz i generuje utwory. Wybrałem te które najbardziej pasują do gier platformowych.</p>
       </article>
-    </main>
+  </main>
 
-    <!-- partial:footer -->
-    <footer class="site-footer">
-      <p>&copy; 2026 PixelInventor</p>
-    </footer>
-    <!-- /partial:footer -->
+  <!-- partial:footer -->
+  <footer class="site-footer">
+    <div class="ground" aria-hidden="true"></div>
+    <div class="underground">
+      <span class="underground-logo">Pixel<span>Inventor</span></span>
+      <nav aria-label="Stopka">
+        <a href="/">Start</a>
+        <a href="/stuff.html">Projekty</a>
+        <a href="/log.html">Log</a>
+        <a href="/about.html">O mnie</a>
+      </nav>
+      <small>&copy; 2026 PixelInventor</small>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
 
-  </div>
 </body>
 </html>
