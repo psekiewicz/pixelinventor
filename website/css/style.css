@@ -90,6 +90,10 @@
   --blue: #3d6fd9;
   --on-accent: #fffaf0;
   --highlight: var(--yellow);
+  --grass: #5cb85c;
+  --grass-dark: #3f8f3f;
+  --dirt: #8b5a2b;
+  --dirt-dark: #6b4220;
   --font-pixel: "Pixelify Sans", "Courier New", monospace;
   --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
   --border: 3px solid var(--ink);
@@ -124,7 +128,7 @@ body {
   background-size: 18px 18px;
   color: var(--ink);
   line-height: 1.65;
-  min-height: 100vh;
+  overflow-x: clip;
 }
 
 img {
@@ -153,9 +157,14 @@ h1, h2, h3 { font-family: var(--font-pixel); font-weight: 700; line-height: 1.2;
 /* --- Layout --- */
 .container {
   max-width: var(--max-width);
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 28px 20px 12px;
+  padding: 28px 20px 0;
+  display: flex;
+  flex-direction: column;
 }
+
+main { flex: 1; }
 
 /* --- Pixel box --- */
 .box {
@@ -252,12 +261,42 @@ h1, h2, h3 { font-family: var(--font-pixel); font-weight: 700; line-height: 1.2;
 /* --- Footer --- */
 .site-footer {
   text-align: center;
-  padding: 8px 0 28px;
+  padding-top: 8px;
   font-size: 14px;
   color: var(--muted);
 }
 
+/* Platformer ground: full-bleed pixel grass + dirt */
+.site-footer::after {
+  content: "";
+  display: block;
+  height: 40px;
+  width: 100vw;
+  margin: 20px 0 0 calc(50% - 50vw);
+  background:
+    repeating-linear-gradient(90deg, var(--grass) 0 8px, transparent 8px 24px) 0 0 / 100% 8px no-repeat,
+    linear-gradient(var(--grass), var(--grass)) 0 8px / 100% 8px no-repeat,
+    repeating-linear-gradient(90deg, var(--grass-dark) 0 8px, transparent 8px 16px) 0 16px / 100% 4px no-repeat,
+    radial-gradient(circle at 4px 8px, var(--dirt-dark) 2px, transparent 2.5px) 0 16px / 24px 24px repeat-x,
+    radial-gradient(circle at 16px 18px, var(--dirt-dark) 2px, transparent 2.5px) 0 16px / 24px 24px repeat-x,
+    linear-gradient(var(--dirt), var(--dirt)) 0 16px / 100% 24px no-repeat;
+}
+
 /* --- Hero (index) --- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero-text { flex: 1; }
+
+.hero-sprite {
+  width: 180px;
+  flex-shrink: 0;
+  filter: drop-shadow(5px 5px 0 rgba(0, 0, 0, 0.18));
+}
+
 .hero h2 {
   font-size: 44px;
   margin-bottom: 18px;
@@ -269,6 +308,48 @@ h1, h2, h3 { font-family: var(--font-pixel); font-weight: 700; line-height: 1.2;
 }
 
 .hero p { font-size: 19px; max-width: 60ch; }
+
+.hud {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.hud-lvl {
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  font-size: 17px;
+  background: var(--ink);
+  color: var(--yellow);
+  padding: 2px 10px;
+}
+
+.hud-xp {
+  width: 180px;
+  height: 18px;
+  border: var(--border);
+  background: var(--bg);
+  padding: 2px;
+}
+
+.hud-xp span {
+  display: block;
+  height: 100%;
+  width: 70%;
+  background: repeating-linear-gradient(90deg, var(--teal) 0 10px, transparent 10px 12px);
+  animation: xp-fill 1.2s steps(12) both;
+}
+
+@keyframes xp-fill { from { width: 0; } }
+
+.hud-hearts {
+  color: var(--red);
+  font-size: 22px;
+  letter-spacing: 3px;
+  line-height: 1;
+}
 
 /* --- Section titles --- */
 .section-title {
@@ -326,6 +407,7 @@ h1, h2, h3 { font-family: var(--font-pixel); font-weight: 700; line-height: 1.2;
 .stuff-card:hover h3 { color: var(--red-ink); }
 
 .stuff-card .thumb {
+  position: relative;
   aspect-ratio: 16/10;
   background: var(--teal);
   border-bottom: var(--border);
@@ -345,6 +427,24 @@ h1, h2, h3 { font-family: var(--font-pixel); font-weight: 700; line-height: 1.2;
 .stuff-card:nth-child(4n+4) .thumb { background-color: var(--red); }
 
 .stuff-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.stuff-card .badge {
+  position: absolute;
+  top: 10px;
+  right: -4px;
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  font-size: 15px;
+  background: var(--yellow);
+  color: #1f1a24;
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--shadow);
+  padding: 0 8px;
+  transform: rotate(6deg);
+  animation: wiggle 2.4s steps(1) infinite;
+}
+
+@keyframes wiggle { 50% { transform: rotate(-4deg); } }
 
 .stuff-card .thumb .placeholder {
   font-size: 54px;
@@ -635,6 +735,8 @@ h1, h2, h3 { font-family: var(--font-pixel); font-weight: 700; line-height: 1.2;
   .site-nav ul { justify-content: space-between; gap: 2px; }
   .site-nav a { font-size: 15px; padding: 4px 6px; }
   .logo { font-size: 26px; }
+  .hero { flex-direction: column-reverse; align-items: flex-start; }
+  .hero-sprite { width: 120px; align-self: center; }
   .hero h2 { font-size: 34px; }
   .section-title { font-size: 22px; }
   .stuff-grid { grid-template-columns: 1fr; }

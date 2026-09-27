@@ -18,7 +18,7 @@ Statyczna strona pixelinventor.com (HTML + CSS, bez JS i bez builda), serwowana 
 - Treść strony po polsku.
 - Nowa podstrona: skopiuj istniejącą, użyj `<!--# include virtual="/_partials/header.html?page=..." -->`
   i `<!--# include virtual="/_partials/footer.html" -->` zamiast wklejać nawigację/stopkę.
-- Nowy projekt: dodaj kartę w `_partials/stuff-cards.html` (pojawi się na Start i w Moich rzeczach).
+- Nowy projekt: dodaj kartę na początku `_partials/stuff-cards.html` (pojawi się na Start i w Moich rzeczach) i przenieś do niej naklejkę `<span class="badge">Nowe!</span>`.
 - Nowy wpis blogowy: plik w `website/blog/RRRR-MM-DD-slug.html` + wpis `log-entry` w `log.html`.
 - Favicon to `/favicon.png` (nie `.svg`).
 - Design: jasne „papierowe” tło, obrys 3px, twarde cienie bez rozmycia i bez zaokrągleń. Pixelify Sans tylko w dużych rozmiarach (≥17px); daty i drobne etykiety fontem tekstowym.
