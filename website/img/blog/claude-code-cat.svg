@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" shape-rendering="crispEdges">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#1a1a2e"/>
+
+  <!-- Cat ears -->
+  <rect x="7" y="5" width="2" height="1" fill="#ff9f43"/>
+  <rect x="8" y="4" width="2" height="1" fill="#ff9f43"/>
+  <rect x="9" y="3" width="1" height="1" fill="#ff9f43"/>
+  <rect x="22" y="5" width="2" height="1" fill="#ff9f43"/>
+  <rect x="21" y="4" width="2" height="1" fill="#ff9f43"/>
+  <rect x="22" y="3" width="1" height="1" fill="#ff9f43"/>
+
+  <!-- Inner ears -->
+  <rect x="8" y="5" width="1" height="1" fill="#ffcccc"/>
+  <rect x="9" y="4" width="1" height="1" fill="#ffcccc"/>
+  <rect x="22" y="4" width="1" height="1" fill="#ffcccc"/>
+  <rect x="23" y="5" width="1" height="1" fill="#ffcccc"/>
+
+  <!-- Head outline and fill -->
+  <rect x="7" y="6" width="18" height="10" fill="#ff9f43"/>
+  <rect x="8" y="5" width="16" height="1" fill="#ff9f43"/>
+  <rect x="6" y="8" width="1" height="6" fill="#ff9f43"/>
+  <rect x="25" y="8" width="1" height="6" fill="#ff9f43"/>
+
+  <!-- Eyes -->
+  <rect x="11" y="9" width="2" height="3" fill="#2d3436"/>
+  <rect x="19" y="9" width="2" height="3" fill="#2d3436"/>
+  <!-- Eye shine -->
+  <rect x="11" y="9" width="1" height="1" fill="#ffffff"/>
+  <rect x="19" y="9" width="1" height="1" fill="#ffffff"/>
+
+  <!-- Nose -->
+  <rect x="15" y="12" width="2" height="1" fill="#ff6b6b"/>
+
+  <!-- Mouth -->
+  <rect x="14" y="13" width="1" height="1" fill="#2d3436"/>
+  <rect x="17" y="13" width="1" height="1" fill="#2d3436"/>
+  <rect x="15" y="14" width="2" height="1" fill="#2d3436"/>
+
+  <!-- Whiskers -->
+  <rect x="4" y="11" width="3" height="1" fill="#dfe6e9"/>
+  <rect x="4" y="13" width="3" height="1" fill="#dfe6e9"/>
+  <rect x="25" y="11" width="3" height="1" fill="#dfe6e9"/>
+  <rect x="25" y="13" width="3" height="1" fill="#dfe6e9"/>
+
+  <!-- Body -->
+  <rect x="9" y="16" width="14" height="8" fill="#ff9f43"/>
+  <rect x="8" y="17" width="1" height="6" fill="#ff9f43"/>
+  <rect x="23" y="17" width="1" height="6" fill="#ff9f43"/>
+
+  <!-- Belly -->
+  <rect x="13" y="17" width="6" height="5" fill="#ffeaa7"/>
+
+  <!-- Paws -->
+  <rect x="9" y="24" width="3" height="2" fill="#ff9f43"/>
+  <rect x="20" y="24" width="3" height="2" fill="#ff9f43"/>
+  <rect x="9" y="25" width="3" height="1" fill="#ffeaa7"/>
+  <rect x="20" y="25" width="3" height="1" fill="#ffeaa7"/>
+
+  <!-- Laptop -->
+  <rect x="11" y="21" width="10" height="3" fill="#636e72"/>
+  <rect x="12" y="21" width="8" height="2" fill="#74b9ff"/>
+  <!-- Code on screen -->
+  <rect x="13" y="21" width="3" height="1" fill="#00ff88"/>
+  <rect x="13" y="22" width="5" height="1" fill="#ff7675"/>
+  <!-- Laptop base -->
+  <rect x="10" y="24" width="12" height="1" fill="#636e72"/>
+
+  <!-- Tail -->
+  <rect x="24" y="20" width="2" height="1" fill="#ff9f43"/>
+  <rect x="25" y="19" width="2" height="1" fill="#ff9f43"/>
+  <rect x="26" y="18" width="2" height="1" fill="#ff9f43"/>
+  <rect x="27" y="17" width="2" height="1" fill="#ff9f43"/>
+  <rect x="27" y="16" width="2" height="2" fill="#ff9f43"/>
+
+  <!-- Stars/sparkles decoration -->
+  <rect x="3" y="3" width="1" height="1" fill="#ffeaa7"/>
+  <rect x="28" y="5" width="1" height="1" fill="#ffeaa7"/>
+  <rect x="2" y="20" width="1" height="1" fill="#74b9ff"/>
+  <rect x="29" y="25" width="1" height="1" fill="#74b9ff"/>
+</svg>

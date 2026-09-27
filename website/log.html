@@ -6,50 +6,29 @@
   <title>Log - PixelInventor</title>
   <meta name="description" content="Co ostatnio robiłem — krótkie wpisy z warsztatu.">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/pixelify-sans-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="container">
 
-    <header class="box site-header">
-      <h1 class="site-title">Pixel<span>Inventor</span></h1>
-      <p class="site-tagline">Robię gry i inne rzeczy</p>
-    </header>
-
-    <nav class="box site-nav">
-      <ul>
-        <li><a href="/">Start</a></li>
-        <li><a href="/stuff.html">Moje rzeczy</a></li>
-        <li><a href="/log.html" class="active">Log</a></li>
-        <li><a href="/about.html">O mnie</a></li>
-      </ul>
-    </nav>
+<!--# include virtual="/_partials/header.html?page=log" -->
 
     <main>
       <section class="box">
         <h2 class="section-title">Log</h2>
-        <p style="text-align: center; margin-bottom: 24px; color: var(--text-dim);">Co ostatnio robiłem. Krótko i na temat.</p>
+        <p class="lead">Co ostatnio robiłem. Krótko i na temat.</p>
 
-        <!-- Nowe wpisy dodawaj na górze. Format:
-        <div class="log-entry">
-          <p class="date">29.03.2026</p>
-          <h3>Tytuł</h3>
-          <p>Co zrobiłem, 2-3 zdania.</p>
-        </div>
-        -->
-
-        <div class="empty">
-          <div class="icon">📝</div>
-          <p>Jeszcze nic tu nie ma. Pierwszy wpis pojawi się wkrótce!</p>
-        </div>
+        <article class="log-entry">
+          <p class="date">18 lutego 2026</p>
+          <h3><a href="/blog/2026-02-18-claude-code.html">Claude Code - mój nowy pomocnik w programowaniu</a></h3>
+          <p>Jak Claude Code pomaga mi rozwijać tę stronę prosto z terminala.</p>
+        </article>
 
       </section>
     </main>
 
-    <footer class="box site-footer">
-      <p>&copy; 2025 PixelInventor</p>
-    </footer>
+<!--# include virtual="/_partials/footer.html" -->
 
   </div>
 </body>

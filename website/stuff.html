@@ -6,51 +6,28 @@
   <title>Moje rzeczy - PixelInventor</title>
   <meta name="description" content="Gry, pixel art, muzyka, eksperymenty — wszystko co tworzę.">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/pixelify-sans-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="container">
 
-    <header class="box site-header">
-      <h1 class="site-title">Pixel<span>Inventor</span></h1>
-      <p class="site-tagline">Robię gry i inne rzeczy</p>
-    </header>
-
-    <nav class="box site-nav">
-      <ul>
-        <li><a href="/">Start</a></li>
-        <li><a href="/stuff.html" class="active">Moje rzeczy</a></li>
-        <li><a href="/log.html">Log</a></li>
-        <li><a href="/about.html">O mnie</a></li>
-      </ul>
-    </nav>
+<!--# include virtual="/_partials/header.html?page=stuff" -->
 
     <main>
       <section class="box">
         <h2 class="section-title">Moje rzeczy</h2>
-        <p style="text-align: center; margin-bottom: 24px; color: var(--text-dim);">Gry, pixel art, muzyka, eksperymenty — wszystko w jednym miejscu.</p>
+        <p class="lead">Gry, pixel art, muzyka, eksperymenty — wszystko w jednym miejscu.</p>
 
         <div class="stuff-grid">
 
-          <a href="/stuff/ai-music/" class="stuff-card">
-            <div class="thumb">
-              <div class="placeholder">🎵</div>
-            </div>
-            <h3>Melodie AI</h3>
-            <p class="date">5 stycznia 2025</p>
-            <p class="desc">Muzyka do gier zrobiona z Suno</p>
-          </a>
-
-          <!-- Nowe rzeczy dodawaj tutaj. Skopiuj blok stuff-card powyżej. -->
+<!--# include virtual="/_partials/stuff-cards.html" -->
 
         </div>
       </section>
     </main>
 
-    <footer class="box site-footer">
-      <p>&copy; 2025 PixelInventor</p>
-    </footer>
+<!--# include virtual="/_partials/footer.html" -->
 
   </div>
 </body>

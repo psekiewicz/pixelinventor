@@ -6,56 +6,45 @@
   <title>PixelInventor</title>
   <meta name="description" content="Robię gry, pixel art i eksperymenty. Witaj w moim warsztacie.">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/pixelify-sans-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="container">
 
-    <header class="box site-header">
-      <h1 class="site-title">Pixel<span>Inventor</span></h1>
-      <p class="site-tagline">Robię gry i inne rzeczy</p>
-    </header>
-
-    <nav class="box site-nav">
-      <ul>
-        <li><a href="/" class="active">Start</a></li>
-        <li><a href="/stuff.html">Moje rzeczy</a></li>
-        <li><a href="/log.html">Log</a></li>
-        <li><a href="/about.html">O mnie</a></li>
-      </ul>
-    </nav>
+<!--# include virtual="/_partials/header.html?page=start" -->
 
     <main>
       <section class="box hero">
-        <h2>Cześć!</h2>
-        <p>Jestem PixelInventor. Robię gry w Unity, tworzę pixel art, eksperymentuję z muzyką i uczę się programowania. Ta strona to mój warsztat — wszystko co tworzę ląduje tutaj.</p>
+        <div class="hero-text">
+          <h2><span>Cześć!</span></h2>
+          <p>Jestem PixelInventor. Robię gry w Unity, tworzę pixel art, eksperymentuję z muzyką i uczę się programowania. Ta strona to mój warsztat — wszystko co tworzę ląduje tutaj.</p>
+
+          <div class="hud" aria-label="Poziom 12, 70% do następnego poziomu">
+            <span class="hud-lvl">LVL 12</span>
+            <span class="hud-xp" aria-hidden="true"><span></span></span>
+            <span class="hud-hearts" aria-hidden="true">♥♥♥</span>
+          </div>
+        </div>
+
+        <img class="hero-sprite" src="/img/robot.svg" alt="Pixelowy robot-wynalazca z żarówką" width="180" height="240">
       </section>
 
       <section class="box">
         <h2 class="section-title">Ostatnie rzeczy</h2>
         <div class="stuff-grid">
 
-          <a href="/stuff/ai-music/" class="stuff-card">
-            <div class="thumb">
-              <div class="placeholder">🎵</div>
-            </div>
-            <h3>Melodie AI</h3>
-            <p class="date">5 stycznia 2025</p>
-            <p class="desc">Muzyka do gier zrobiona z Suno</p>
-          </a>
+<!--# include virtual="/_partials/stuff-cards.html" -->
 
         </div>
 
-        <div style="text-align: center; margin-top: 24px;">
+        <div class="section-actions">
           <a href="/stuff.html" class="btn">Wszystkie rzeczy</a>
         </div>
       </section>
     </main>
 
-    <footer class="box site-footer">
-      <p>&copy; 2025 PixelInventor</p>
-    </footer>
+<!--# include virtual="/_partials/footer.html" -->
 
   </div>
 </body>
