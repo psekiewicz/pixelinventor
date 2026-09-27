@@ -13,10 +13,23 @@ errors=0
 warnings=0
 
 # Get staged files
-# Partials (SSI fragments) are not full documents, skip document-level checks
-staged_html=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.html$' | grep -v '/_partials/' || true)
+# Partials are fragments, not full documents: only check pages under website/
+staged_html=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^website/.*\.html$' || true)
 staged_css=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.css$' || true)
 staged_all=$(git diff --cached --name-only --diff-filter=ACM || true)
+
+# --- Partials in sync (partials/ -> website/*.html) ---
+if [ -n "$(git diff --cached --name-only --diff-filter=ACM | grep -E '^(partials/|website/.*\.html$)')" ]; then
+  if command -v python3 >/dev/null 2>&1; then
+    if ! python3 scripts/build.py --check; then
+      echo -e "${RED}ERROR${NC} strony nie mają aktualnych partiali: uruchom python3 scripts/build.py i dodaj zmiany"
+      errors=$((errors + 1))
+    fi
+  else
+    echo -e "${YELLOW}WARN${NC}  brak python3, nie sprawdzono partiali"
+    warnings=$((warnings + 1))
+  fi
+fi
 
 # --- HTML checks ---
 for file in $staged_html; do

@@ -12,7 +12,23 @@
 <body>
   <div class="container">
 
-<!--# include virtual="/_partials/header.html?page=stuff" -->
+    <!-- partial:header page=stuff -->
+    <header class="box site-header">
+      <div class="brand">
+        <a href="/" class="logo">Pixel<span>Inventor</span></a>
+        <p class="site-tagline">Robię gry i inne rzeczy</p>
+      </div>
+
+      <nav class="site-nav" aria-label="Główna nawigacja">
+        <ul>
+          <li><a href="/">Start</a></li>
+          <li><a href="/stuff.html" class="active" aria-current="page">Moje rzeczy</a></li>
+          <li><a href="/log.html">Log</a></li>
+          <li><a href="/about.html">O mnie</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- /partial:header -->
 
     <main>
       <section class="box">
@@ -21,13 +37,27 @@
 
         <div class="stuff-grid">
 
-<!--# include virtual="/_partials/stuff-cards.html" -->
+          <!-- partial:stuff-cards -->
+          <a href="/stuff/ai-music/" class="stuff-card">
+            <div class="thumb">
+              <span class="badge">Nowe!</span>
+              <div class="placeholder">🎵</div>
+            </div>
+            <h3>Melodie AI</h3>
+            <p class="date">5 stycznia 2025</p>
+            <p class="desc">Muzyka do gier zrobiona z Suno</p>
+          </a>
+          <!-- /partial:stuff-cards -->
 
         </div>
       </section>
     </main>
 
-<!--# include virtual="/_partials/footer.html" -->
+    <!-- partial:footer -->
+    <footer class="site-footer">
+      <p>&copy; 2026 PixelInventor</p>
+    </footer>
+    <!-- /partial:footer -->
 
   </div>
 </body>
