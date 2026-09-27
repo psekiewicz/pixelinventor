@@ -20,9 +20,9 @@ Statyczna strona pixelinventor.com (HTML + CSS, bez JS i bez builda), serwowana 
 - Pliki w `website/` muszą być kompletnym statycznym HTML — serwer (dev/prod) NIE obsługuje SSI.
 - Treści między znacznikami `partial` nie edytuj ręcznie: zmieniaj plik w `partials/` i uruchom `python3 scripts/build.py`.
 - Nowa podstrona: skopiuj istniejącą, zmień `page=` w znaczniku headera i uruchom `python3 scripts/build.py`.
-- Nowy projekt: dodaj kartę na początku `partials/stuff-cards.html` (pojawi się na Start i w Moich rzeczach) i przenieś do niej naklejkę `<span class="badge">Nowe!</span>`.
-- Nowy wpis blogowy: plik w `website/blog/RRRR-MM-DD-slug.html` + wpis `log-entry` w `log.html`.
+- Nowy projekt: dodaj kartridż (`<a class="cart">`) na początku `partials/stuff-cards.html` (pojawi się na Start i w Moich rzeczach), przenieś do niego naklejkę `<span class="badge">Nowe!</span>` i usuń jeden zablokowany slot (`cart-locked`) z `index.html`.
+- Nowy wpis blogowy: plik w `website/blog/RRRR-MM-DD-slug.html` + zadanie `<li class="quest done">` na początku listy w `log.html` (i w „Dzienniku zadań” na `index.html`).
 - Favicon to `/favicon.png` (nie `.svg`).
-- Design: jasne „papierowe” tło, obrys 3px, twarde cienie bez rozmycia i bez zaokrągleń. Pixelify Sans tylko w dużych rozmiarach (≥17px); daty i drobne etykiety fontem tekstowym.
+- Design: gra retro — strona główna to ekran tytułowy (niebo, wzgórza, trawa), nagłówek to ciemny pasek HUD, stopka to „podziemie”. Obrys 3px, twarde cienie bez rozmycia i bez zaokrągleń. Tryb nocny (gwiazdy, księżyc) przez `prefers-color-scheme`. Bez stylów inline (`style=""` blokuje CSP) — wszystko w `style.css`.
 - Bez zewnętrznych zasobów: CSP w `default.conf` pozwala tylko na `'self'` dla skryptów, stylów i fontów.
 - Pre-commit lint: `git config core.hooksPath .githooks`.

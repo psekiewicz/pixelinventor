@@ -4,20 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moje rzeczy - PixelInventor</title>
-  <meta name="description" content="Gry, pixel art, muzyka, eksperymenty — wszystko co tworzę.">
+  <meta name="description" content="Gry, pixel art, muzyka i eksperymenty PixelInventora.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preload" href="/fonts/pixelify-sans-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="container">
 
-    <!-- partial:header page=stuff -->
-    <header class="box site-header">
-      <div class="brand">
-        <a href="/" class="logo">Pixel<span>Inventor</span></a>
-        <p class="site-tagline">Robię gry i inne rzeczy</p>
-      </div>
+  <!-- partial:header page=stuff -->
+  <div class="hud-wrap">
+    <header class="hud">
+      <a href="/" class="logo">Pixel<span>Inventor</span></a>
 
       <nav class="site-nav" aria-label="Główna nawigacja">
         <ul>
@@ -27,38 +24,72 @@
           <li><a href="/about.html">O mnie</a></li>
         </ul>
       </nav>
+
+      <div class="hud-stats" role="img" aria-label="Poziom 12, 70% do następnego poziomu, 3 życia">
+        <span class="hud-lvl">LVL 12</span>
+        <span class="hud-xp"><span></span></span>
+        <span class="hud-hearts">♥♥♥</span>
+      </div>
     </header>
-    <!-- /partial:header -->
-
-    <main>
-      <section class="box">
-        <h2 class="section-title">Moje rzeczy</h2>
-        <p class="lead">Gry, pixel art, muzyka, eksperymenty — wszystko w jednym miejscu.</p>
-
-        <div class="stuff-grid">
-
-          <!-- partial:stuff-cards -->
-          <a href="/stuff/ai-music/" class="stuff-card">
-            <div class="thumb">
-              <span class="badge">Nowe!</span>
-              <div class="placeholder">🎵</div>
-            </div>
-            <h3>Melodie AI</h3>
-            <p class="date">5 stycznia 2025</p>
-            <p class="desc">Muzyka do gier zrobiona z Suno</p>
-          </a>
-          <!-- /partial:stuff-cards -->
-
-        </div>
-      </section>
-    </main>
-
-    <!-- partial:footer -->
-    <footer class="site-footer">
-      <p>&copy; 2026 PixelInventor</p>
-    </footer>
-    <!-- /partial:footer -->
-
   </div>
+  <!-- /partial:header -->
+
+  <main class="container">
+    <section>
+      <div class="section-head">
+        <div>
+          <p class="kicker">Moje rzeczy</p>
+          <h1 class="section-title big">Projekty</h1>
+          <p class="lead">Gry, pixel art, muzyka, eksperymenty — wszystko w jednym miejscu.</p>
+        </div>
+      </div>
+
+      <div class="stuff-grid">
+        <!-- partial:stuff-cards -->
+          <a href="/stuff/ai-music/" class="cart">
+            <div class="cart-label">
+              <div class="thumb">
+                <span class="badge">Nowe!</span>
+                <span class="cart-tag">Muzyka</span>
+                <svg width="84" height="84" viewBox="0 0 8 8" aria-hidden="true"><rect x="4" y="1" width="1" height="5" fill="#fffaf0"/><rect x="5" y="1" width="2" height="1" fill="#fffaf0"/><rect x="6" y="2" width="1" height="1" fill="#fffaf0"/><rect x="2" y="5" width="3" height="2" fill="#fffaf0"/></svg>
+              </div>
+              <div class="cart-body">
+                <h3>Melodie AI</h3>
+                <p class="date">5 stycznia 2025</p>
+                <p class="desc">Muzyka do gier zrobiona z Suno</p>
+              </div>
+            </div>
+            <div class="cart-foot"><span>PIXELINVENTOR</span><span>▶ SPRAWDŹ</span></div>
+          </a>
+        <!-- /partial:stuff-cards -->
+
+        <div class="cart cart-locked">
+          <div class="cart-label">
+            <svg width="48" height="48" viewBox="0 0 8 8" aria-hidden="true"><rect x="2" y="0" width="4" height="1" fill="#8a8494"/><rect x="1" y="1" width="1" height="3" fill="#8a8494"/><rect x="6" y="1" width="1" height="3" fill="#8a8494"/><rect x="0" y="3" width="8" height="5" fill="#f5b82e"/><rect x="3" y="5" width="2" height="2" fill="#1f1a24"/></svg>
+            <strong>ZABLOKOWANE</strong>
+            <span>Następny projekt odblokuje ten poziom</span>
+          </div>
+          <div class="cart-foot"><span>Projekt wkrótce</span><span>???</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- partial:footer -->
+  <footer class="site-footer">
+    <div class="ground" aria-hidden="true"></div>
+    <div class="underground">
+      <span class="underground-logo">Pixel<span>Inventor</span></span>
+      <nav aria-label="Stopka">
+        <a href="/">Start</a>
+        <a href="/stuff.html">Projekty</a>
+        <a href="/log.html">Log</a>
+        <a href="/about.html">O mnie</a>
+      </nav>
+      <small>&copy; 2026 PixelInventor</small>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+
 </body>
 </html>
