@@ -14,8 +14,8 @@ docker run --rm -p 8080:80 pixelinventor:local
 ```
 Otwórz: `http://localhost:8080`
 
-Wspólny nagłówek, nawigacja, stopka i karty projektów są w `website/_partials/` i wstawiane przez Nginx SSI
-(`<!--# include virtual="..." -->`), więc stronę trzeba oglądać przez Nginx, a nie otwierając pliki z dysku.
+Wspólny nagłówek, nawigacja, stopka i karty projektów są w `partials/`. Po ich zmianie uruchom
+`python3 scripts/build.py` — skrypt wklei je do wszystkich stron w `website/` (pre-commit pilnuje, żeby były aktualne).
 
 Lint przed commitem: `git config core.hooksPath .githooks`
 

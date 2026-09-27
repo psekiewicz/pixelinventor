@@ -12,7 +12,23 @@
 <body>
   <div class="container">
 
-<!--# include virtual="/_partials/header.html?page=about" -->
+    <!-- partial:header page=about -->
+    <header class="box site-header">
+      <div class="brand">
+        <a href="/" class="logo">Pixel<span>Inventor</span></a>
+        <p class="site-tagline">Robię gry i inne rzeczy</p>
+      </div>
+
+      <nav class="site-nav" aria-label="Główna nawigacja">
+        <ul>
+          <li><a href="/">Start</a></li>
+          <li><a href="/stuff.html">Moje rzeczy</a></li>
+          <li><a href="/log.html">Log</a></li>
+          <li><a href="/about.html" class="active" aria-current="page">O mnie</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- /partial:header -->
 
     <main>
       <section class="box about">
@@ -63,7 +79,11 @@
       </section>
     </main>
 
-<!--# include virtual="/_partials/footer.html" -->
+    <!-- partial:footer -->
+    <footer class="site-footer">
+      <p>&copy; 2026 PixelInventor</p>
+    </footer>
+    <!-- /partial:footer -->
 
   </div>
 </body>
