@@ -8,43 +8,39 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/term.js" defer></script>
 </head>
 <body>
-<div class="container">
-
-  <header class="site-header">
-    <a href="/" class="brand">
-      <img src="/favicon.png" alt="" width="40" height="40">
-      <span>
-        <span class="brand-name">PixelInventor</span>
-        <span class="brand-tagline">Robię gry i inne rzeczy</span>
-      </span>
-    </a>
-    <nav class="site-nav" aria-label="Menu">
-      <a href="/">Start</a>
-      <a href="/stuff.html">Moje rzeczy</a>
-      <a href="/log.html" aria-current="page">Log</a>
-      <a href="/about.html">O mnie</a>
-    </nav>
-  </header>
-
-  <main>
-    <h1 class="page-title">Log</h1>
-    <p class="lede page-lede">Co ostatnio robiłem. Krótko i na temat.</p>
-
-    <div class="empty">
-      <strong>Pusto (na razie)</strong>
-      <p>Jeszcze nic tu nie ma. Pierwszy wpis pojawi się wkrótce!</p>
+  <main class="term">
+    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <span class="cmd">head -n 2 log.txt</span></p>
+    <div class="out">
+      <h1>Log</h1>
+      <p>Co ostatnio robiłem. Krótko i na temat.</p>
     </div>
+
+    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <span class="cmd">tail log.txt</span></p>
+    <div class="out">
+      <p class="comment"># Jeszcze nic tu nie ma. Pierwszy wpis pojawi się wkrótce!</p>
+    </div>
+
+    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <span class="cursor"></span></p>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 PixelInventor &middot; <a href="https://github.com/psekiewicz">github.com/psekiewicz</a></p>
+    </footer>
   </main>
 
-  <footer class="site-footer">
-    <span>&copy; 2025 PixelInventor</span>
-    <a href="https://github.com/psekiewicz">GitHub</a>
-  </footer>
-
-</div>
+  <div class="tmux">
+    <span class="session" aria-hidden="true">[pixel]</span>
+    <nav aria-label="Menu">
+      <a href="/">0:start</a>
+      <a href="/stuff.html">1:rzeczy</a>
+      <a href="/log.html" aria-current="page">2:log</a>
+      <a href="/about.html">3:o-mnie</a>
+    </nav>
+    <span class="clock" aria-hidden="true">"warsztat"</span>
+  </div>
 </body>
 </html>

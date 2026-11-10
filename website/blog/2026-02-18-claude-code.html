@@ -26,42 +26,24 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/term.js" defer></script>
 </head>
 <body>
-<div class="container">
+  <main class="term">
+    <p class="prompt"><span class="u">pixel@warsztat</span>:<span class="p">~/blog</span>$ <a href="/">cd ~</a></p>
 
-  <header class="site-header">
-    <a href="/" class="brand">
-      <img src="/favicon.png" alt="" width="40" height="40">
-      <span>
-        <span class="brand-name">PixelInventor</span>
-        <span class="brand-tagline">Robię gry i inne rzeczy</span>
-      </span>
-    </a>
-    <nav class="site-nav" aria-label="Menu">
-      <a href="/">Start</a>
-      <a href="/stuff.html">Moje rzeczy</a>
-      <a href="/log.html">Log</a>
-      <a href="/about.html">O mnie</a>
-    </nav>
-  </header>
-
-  <main>
-    <a href="/" class="back-link">&larr; Start</a>
-
-    <article>
-      <header class="article-header">
-        <h1>Claude Code — mój nowy pomocnik w programowaniu</h1>
-        <p class="meta"><time datetime="2026-02-18">18 lutego 2026</time> &middot; <span class="tags">Claude Code, AI, Programowanie, Narzędzia</span></p>
-      </header>
+    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~/blog</span>$ <span class="cmd">less 2026-02-18-claude-code.md</span></p>
+    <article class="out prose">
+      <h1>Claude Code — mój nowy pomocnik w programowaniu</h1>
+      <p class="meta"><time datetime="2026-02-18">2026-02-18</time> &middot; <span class="tags">#claude-code #ai #programowanie #narzędzia</span></p>
 
       <figure class="figure">
-        <img src="/img/blog/claude-code-cat.svg" alt="Pixel art kotek programista z Claude Code" width="320" height="320">
+        <img src="/img/blog/claude-code-cat.svg" alt="Pixel art kotek programista z Claude Code" width="256" height="256">
+        <figcaption>[obrazek: kotek-programista.svg]</figcaption>
       </figure>
 
-      <div class="prose">
     <p>Pamiętacie mój pierwszy wpis o tym, jak stworzyłem tę stronę z pomocą Claude 3.7? Od tamtego czasu sporo się zmieniło! Odkryłem coś, co przeniosło moją pracę na zupełnie nowy poziom - <strong>Claude Code</strong>. To narzędzie, które działa bezpośrednio w terminalu i pomaga mi programować jak prawdziwy profesjonalista.</p>
 
     <h2>Czym jest Claude Code?</h2>
@@ -100,15 +82,26 @@
     <p>Claude Code to dla mnie game-changer. Dzięki niemu mogę skupić się na tym, co chcę stworzyć, zamiast zmagać się z tym, jak to zrobić technicznie. To idealny kompan dla każdego, kto uczy się programowania i chce tworzyć fajne projekty. Jeśli już próbowaliście pracy z AI w przeglądarce, to Claude Code to następny poziom - zdecydowanie polecam spróbować!</p>
 
     <p><em>A Wy używacie jakichś narzędzi AI do programowania? Może też macie doświadczenia z Claude Code? Dajcie znać, jestem ciekaw Waszych opinii!</em></p>
-      </div>
+
+      <p class="less-end" aria-hidden="true">(END)</p>
     </article>
+
+    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~/blog</span>$ <span class="cursor"></span></p>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 PixelInventor &middot; <a href="https://github.com/psekiewicz">github.com/psekiewicz</a></p>
+    </footer>
   </main>
 
-  <footer class="site-footer">
-    <span>&copy; 2025 PixelInventor</span>
-    <a href="https://github.com/psekiewicz">GitHub</a>
-  </footer>
-
-</div>
+  <div class="tmux">
+    <span class="session" aria-hidden="true">[pixel]</span>
+    <nav aria-label="Menu">
+      <a href="/">0:start</a>
+      <a href="/stuff.html">1:rzeczy</a>
+      <a href="/log.html">2:log</a>
+      <a href="/about.html">3:o-mnie</a>
+    </nav>
+    <span class="clock" aria-hidden="true">"warsztat"</span>
+  </div>
 </body>
 </html>

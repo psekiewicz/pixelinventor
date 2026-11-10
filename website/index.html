@@ -8,57 +8,64 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/term.js" defer></script>
 </head>
 <body>
-<div class="container">
+  <main class="term">
+    <h1 class="visually-hidden">PixelInventor</h1>
+    <pre class="logo logo-wide" aria-hidden="true"> ____  _          _ ___                      _
+|  _ \(_)_  _____| |_ _|_ ____   _____ _ __ | |_ ___  _ __
+| |_) | \ \/ / _ \ || || '_ \ \ / / _ \ '_ \| __/ _ \| '__|
+|  __/| |&gt;  &lt;  __/ || || | | \ V /  __/ | | | || (_) | |
+|_|   |_/_/\_\___|_|___|_| |_|\_/ \___|_| |_|\__\___/|_|</pre>
+    <pre class="logo logo-narrow" aria-hidden="true"> ___ _         _ ___                 _
+| _ (_)_ _____| |_ _|_ ___ _____ _ _| |_ ___ _ _
+|  _/ \ \ / -_) || || ' \ V / -_) ' \  _/ _ \ '_|
+|_| |_/_\_\___|_|___|_||_\_/\___|_||_\__\___/_|</pre>
+    <p class="motd">Robię gry i inne rzeczy. <b>warsztat v2026</b> &middot; ostatnie logowanie: <span data-last-login>dziś</span> z tty1</p>
 
-  <header class="site-header">
-    <a href="/" class="brand">
-      <img src="/favicon.png" alt="" width="40" height="40">
-      <span>
-        <span class="brand-name">PixelInventor</span>
-        <span class="brand-tagline">Robię gry i inne rzeczy</span>
-      </span>
-    </a>
-    <nav class="site-nav" aria-label="Menu">
-      <a href="/" aria-current="page">Start</a>
-      <a href="/stuff.html">Moje rzeczy</a>
-      <a href="/log.html">Log</a>
-      <a href="/about.html">O mnie</a>
-    </nav>
-  </header>
+    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <span class="cmd">cat witaj.txt</span></p>
+    <div class="out">
+      <h2>Cześć!</h2>
+      <p>Jestem PixelInventor. Robię gry w Unity, tworzę pixel art, eksperymentuję z muzyką i uczę się programowania. Ta strona to mój warsztat — wszystko co tworzę ląduje tutaj.</p>
+    </div>
 
-  <main>
-    <section class="intro">
-      <h1 class="page-title">Cześć!</h1>
-      <p class="lede">Jestem PixelInventor. Robię gry w Unity, tworzę pixel art, eksperymentuję z muzyką i uczę się programowania. Ta strona to mój warsztat — wszystko co tworzę ląduje tutaj.</p>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <h2>Ostatnie rzeczy</h2>
-        <a href="/stuff.html">Wszystkie &rarr;</a>
-      </div>
-      <ul class="things">
-      <li>
-        <a href="/stuff/ai-music/" class="thing">
-          <time datetime="2025-01-05">05.01.2025</time>
-          <span class="thing-title">Melodie AI</span>
-          <span class="thing-kind">muzyka</span>
-          <span class="thing-desc">Muzyka do gier zrobiona z Suno</span>
-        </a>
-      </li>
+    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <span class="cmd">ls -l rzeczy/ | head</span></p>
+    <div class="out">
+      <h2 class="visually-hidden">Ostatnie rzeczy</h2>
+      <p class="comment">razem 1</p>
+      <ul class="ls">
+        <li>
+          <span class="perm">drwxr-xr-x</span>
+          <span class="own">pixel</span>
+          <time datetime="2025-01-05">2025-01-05</time>
+          <a href="/stuff/ai-music/">melodie-ai/</a>
+          <span class="comment"># Melodie AI — muzyka do gier zrobiona z Suno</span>
+        </li>
       </ul>
-    </section>
+    </div>
+
+    <p class="prompt"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <a href="/stuff.html">cd rzeczy/</a></p>
+    <p class="comment"># wszystkie rzeczy &uarr; kliknij komendę</p>
+
+    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <span class="cursor"></span></p>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 PixelInventor &middot; <a href="https://github.com/psekiewicz">github.com/psekiewicz</a></p>
+    </footer>
   </main>
 
-  <footer class="site-footer">
-    <span>&copy; 2025 PixelInventor</span>
-    <a href="https://github.com/psekiewicz">GitHub</a>
-  </footer>
-
-</div>
+  <div class="tmux">
+    <span class="session" aria-hidden="true">[pixel]</span>
+    <nav aria-label="Menu">
+      <a href="/" aria-current="page">0:start</a>
+      <a href="/stuff.html">1:rzeczy</a>
+      <a href="/log.html">2:log</a>
+      <a href="/about.html">3:o-mnie</a>
+    </nav>
+    <span class="clock" aria-hidden="true">"warsztat"</span>
+  </div>
 </body>
 </html>
