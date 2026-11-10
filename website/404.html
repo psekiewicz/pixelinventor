@@ -5,16 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - PixelInventor</title>
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="box error-page">
-      <h2>404</h2>
-      <p>Tej strony nie ma. Może jeszcze nie istnieje?</p>
-      <a href="/" class="btn">Wróć na start</a>
-    </div>
-  </div>
+<div class="container">
+
+  <header class="site-header">
+    <a href="/" class="brand">
+      <img src="/favicon.png" alt="" width="40" height="40">
+      <span>
+        <span class="brand-name">PixelInventor</span>
+        <span class="brand-tagline">Robię gry i inne rzeczy</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Menu">
+      <a href="/">Start</a>
+      <a href="/stuff.html">Moje rzeczy</a>
+      <a href="/log.html">Log</a>
+      <a href="/about.html">O mnie</a>
+    </nav>
+  </header>
+
+  <main class="error-page">
+    <h1 class="page-title">404</h1>
+    <p>Tej strony nie ma. Może jeszcze nie istnieje?</p>
+    <a href="/" class="btn">&larr; Wróć na start</a>
+  </main>
+
+  <footer class="site-footer">
+    <span>&copy; 2025 PixelInventor</span>
+    <a href="https://github.com/psekiewicz">GitHub</a>
+  </footer>
+
+</div>
 </body>
 </html>

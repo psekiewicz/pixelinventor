@@ -6,57 +6,59 @@
   <title>PixelInventor</title>
   <meta name="description" content="Robię gry, pixel art i eksperymenty. Witaj w moim warsztacie.">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <header class="box site-header">
-      <h1 class="site-title">Pixel<span>Inventor</span></h1>
-      <p class="site-tagline">Robię gry i inne rzeczy</p>
-    </header>
-
-    <nav class="box site-nav">
-      <ul>
-        <li><a href="/" class="active">Start</a></li>
-        <li><a href="/stuff.html">Moje rzeczy</a></li>
-        <li><a href="/log.html">Log</a></li>
-        <li><a href="/about.html">O mnie</a></li>
-      </ul>
+  <header class="site-header">
+    <a href="/" class="brand">
+      <img src="/favicon.png" alt="" width="40" height="40">
+      <span>
+        <span class="brand-name">PixelInventor</span>
+        <span class="brand-tagline">Robię gry i inne rzeczy</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Menu">
+      <a href="/" aria-current="page">Start</a>
+      <a href="/stuff.html">Moje rzeczy</a>
+      <a href="/log.html">Log</a>
+      <a href="/about.html">O mnie</a>
     </nav>
+  </header>
 
-    <main>
-      <section class="box hero">
-        <h2>Cześć!</h2>
-        <p>Jestem PixelInventor. Robię gry w Unity, tworzę pixel art, eksperymentuję z muzyką i uczę się programowania. Ta strona to mój warsztat — wszystko co tworzę ląduje tutaj.</p>
-      </section>
+  <main>
+    <section class="intro">
+      <h1 class="page-title">Cześć!</h1>
+      <p class="lede">Jestem PixelInventor. Robię gry w Unity, tworzę pixel art, eksperymentuję z muzyką i uczę się programowania. Ta strona to mój warsztat — wszystko co tworzę ląduje tutaj.</p>
+    </section>
 
-      <section class="box">
-        <h2 class="section-title">Ostatnie rzeczy</h2>
-        <div class="stuff-grid">
+    <section>
+      <div class="section-head">
+        <h2>Ostatnie rzeczy</h2>
+        <a href="/stuff.html">Wszystkie &rarr;</a>
+      </div>
+      <ul class="things">
+      <li>
+        <a href="/stuff/ai-music/" class="thing">
+          <time datetime="2025-01-05">05.01.2025</time>
+          <span class="thing-title">Melodie AI</span>
+          <span class="thing-kind">muzyka</span>
+          <span class="thing-desc">Muzyka do gier zrobiona z Suno</span>
+        </a>
+      </li>
+      </ul>
+    </section>
+  </main>
 
-          <a href="/stuff/ai-music/" class="stuff-card">
-            <div class="thumb">
-              <div class="placeholder">🎵</div>
-            </div>
-            <h3>Melodie AI</h3>
-            <p class="date">5 stycznia 2025</p>
-            <p class="desc">Muzyka do gier zrobiona z Suno</p>
-          </a>
+  <footer class="site-footer">
+    <span>&copy; 2025 PixelInventor</span>
+    <a href="https://github.com/psekiewicz">GitHub</a>
+  </footer>
 
-        </div>
-
-        <div style="text-align: center; margin-top: 24px;">
-          <a href="/stuff.html" class="btn">Wszystkie rzeczy</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="box site-footer">
-      <p>&copy; 2025 PixelInventor</p>
-    </footer>
-
-  </div>
+</div>
 </body>
 </html>

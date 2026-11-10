@@ -24,92 +24,91 @@
 
   <link rel="canonical" href="https://pixelinventor.com/blog/2026-02-18-claude-code.html">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <header class="box site-header">
-      <h1 class="site-title">Pixel<span>Inventor</span></h1>
-      <p class="site-tagline">Robię gry i inne rzeczy</p>
-    </header>
-
-    <nav class="box site-nav">
-      <ul>
-        <li><a href="/">Start</a></li>
-        <li><a href="/stuff.html">Moje rzeczy</a></li>
-        <li><a href="/log.html">Log</a></li>
-        <li><a href="/about.html">O mnie</a></li>
-      </ul>
+  <header class="site-header">
+    <a href="/" class="brand">
+      <img src="/favicon.png" alt="" width="40" height="40">
+      <span>
+        <span class="brand-name">PixelInventor</span>
+        <span class="brand-tagline">Robię gry i inne rzeczy</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Menu">
+      <a href="/">Start</a>
+      <a href="/stuff.html">Moje rzeczy</a>
+      <a href="/log.html">Log</a>
+      <a href="/about.html">O mnie</a>
     </nav>
+  </header>
 
-    <main>
-      <a href="/" class="back-link">&larr; Wróć na start</a>
+  <main>
+    <a href="/" class="back-link">&larr; Start</a>
 
-      <article class="box blog-post">
-        <header class="blog-post-header">
-          <h2>Claude Code - mój nowy pomocnik w programowaniu</h2>
-          <p class="blog-post-date">18 lutego 2026</p>
-          <div class="blog-post-tags">
-            <span class="blog-tag">Claude Code</span>
-            <span class="blog-tag">AI</span>
-            <span class="blog-tag">Programowanie</span>
-            <span class="blog-tag">Narzędzia</span>
-          </div>
-        </header>
+    <article>
+      <header class="article-header">
+        <h1>Claude Code — mój nowy pomocnik w programowaniu</h1>
+        <p class="meta"><time datetime="2026-02-18">18 lutego 2026</time> &middot; <span class="tags">Claude Code, AI, Programowanie, Narzędzia</span></p>
+      </header>
 
-        <div class="blog-post-image">
-          <img src="/img/blog/claude-code-cat.svg" alt="Pixel art kotek programista z Claude Code">
-        </div>
+      <figure class="figure">
+        <img src="/img/blog/claude-code-cat.svg" alt="Pixel art kotek programista z Claude Code" width="320" height="320">
+      </figure>
 
-        <div class="blog-post-content">
-          <p>Pamiętacie mój pierwszy wpis o tym, jak stworzyłem tę stronę z pomocą Claude 3.7? Od tamtego czasu sporo się zmieniło! Odkryłem coś, co przeniosło moją pracę na zupełnie nowy poziom - <strong>Claude Code</strong>. To narzędzie, które działa bezpośrednio w terminalu i pomaga mi programować jak prawdziwy profesjonalista.</p>
+      <div class="prose">
+    <p>Pamiętacie mój pierwszy wpis o tym, jak stworzyłem tę stronę z pomocą Claude 3.7? Od tamtego czasu sporo się zmieniło! Odkryłem coś, co przeniosło moją pracę na zupełnie nowy poziom - <strong>Claude Code</strong>. To narzędzie, które działa bezpośrednio w terminalu i pomaga mi programować jak prawdziwy profesjonalista.</p>
 
-          <h3>Czym jest Claude Code?</h3>
-          <p>Claude Code to narzędzie od Anthropic, które działa w wierszu poleceń (terminalu). Zamiast kopiować kod z przeglądarki i wklejać go do edytora, mogę po prostu rozmawiać z AI prosto z terminala. Claude Code widzi moje pliki, rozumie strukturę projektu i może bezpośrednio edytować kod. To jak mieć doświadczonego programistę siedzącego obok mnie i patrzącego na ten sam ekran!</p>
+    <h2>Czym jest Claude Code?</h2>
+    <p>Claude Code to narzędzie od Anthropic, które działa w wierszu poleceń (terminalu). Zamiast kopiować kod z przeglądarki i wklejać go do edytora, mogę po prostu rozmawiać z AI prosto z terminala. Claude Code widzi moje pliki, rozumie strukturę projektu i może bezpośrednio edytować kod. To jak mieć doświadczonego programistę siedzącego obok mnie i patrzącego na ten sam ekran!</p>
 
-          <h3>Jak Claude Code pomaga mi w pracy nad stroną?</h3>
-          <p>Praca nad stroną PixelInventor stała się o wiele szybsza. Wcześniej, gdy chciałem zmienić coś na stronie, musiałem ręcznie szukać odpowiednich plików, otwierać je w edytorze i samodzielnie wprowadzać zmiany. Teraz wystarczy, że powiem Claude Code, co chcę zrobić, a on sam:</p>
-          <ul>
-            <li><strong>Znajduje odpowiednie pliki</strong> - nie muszę pamiętać, gdzie jest każdy plik w projekcie</li>
-            <li><strong>Edytuje wiele plików naraz</strong> - na przykład zmiana nazwy strony we wszystkich plikach HTML zajmuje mu sekundy</li>
-            <li><strong>Commituje i pushuje zmiany</strong> - obsługuje gita za mnie, łącznie z pisaniem dobrych opisów commitów</li>
-            <li><strong>Debuguje problemy</strong> - gdy coś nie działa, analizuje kod i znajduje przyczynę</li>
-          </ul>
+    <h2>Jak Claude Code pomaga mi w pracy nad stroną?</h2>
+    <p>Praca nad stroną PixelInventor stała się o wiele szybsza. Wcześniej, gdy chciałem zmienić coś na stronie, musiałem ręcznie szukać odpowiednich plików, otwierać je w edytorze i samodzielnie wprowadzać zmiany. Teraz wystarczy, że powiem Claude Code, co chcę zrobić, a on sam:</p>
+    <ul>
+      <li><strong>Znajduje odpowiednie pliki</strong> - nie muszę pamiętać, gdzie jest każdy plik w projekcie</li>
+      <li><strong>Edytuje wiele plików naraz</strong> - na przykład zmiana nazwy strony we wszystkich plikach HTML zajmuje mu sekundy</li>
+      <li><strong>Commituje i pushuje zmiany</strong> - obsługuje gita za mnie, łącznie z pisaniem dobrych opisów commitów</li>
+      <li><strong>Debuguje problemy</strong> - gdy coś nie działa, analizuje kod i znajduje przyczynę</li>
+    </ul>
 
-          <h3>Konkretny przykład - zmiana nazwy strony</h3>
-          <p>Ostatnio chciałem zmienić nazwę strony we wszystkich miejscach. Normalnie musiałbym ręcznie przejść przez każdy plik HTML i zmienić tytuły, meta tagi, nagłówki... Claude Code zrobił to sam w kilka sekund! Przeszukał cały projekt, znalazł wszystkie wystąpienia starej nazwy i zamienił je na nową. To by mi zajęło pewnie pół godziny, a Claude Code zrobił to błyskawicznie.</p>
+    <h2>Konkretny przykład - zmiana nazwy strony</h2>
+    <p>Ostatnio chciałem zmienić nazwę strony we wszystkich miejscach. Normalnie musiałbym ręcznie przejść przez każdy plik HTML i zmienić tytuły, meta tagi, nagłówki... Claude Code zrobił to sam w kilka sekund! Przeszukał cały projekt, znalazł wszystkie wystąpienia starej nazwy i zamienił je na nową. To by mi zajęło pewnie pół godziny, a Claude Code zrobił to błyskawicznie.</p>
 
-          <h3>Terminal vs przeglądarka - co się zmieniło?</h3>
-          <p>Kiedy tworzyłem tę stronę z Claude 3.7 w przeglądarce, musiałem kopiować i wklejać każdy fragment kodu. To działało, ale było trochę jak gra w "podaj dalej" - ja mówię co chcę, AI generuje kod, ja kopiuję, wklejam, sprawdzam, i tak w kółko.</p>
-          <p>Z Claude Code ten proces jest o wiele płynniejszy. AI widzi mój cały projekt, rozumie kontekst i może bezpośrednio wprowadzać zmiany. Mogę powiedzieć "dodaj nowy wpis na blogu" i Claude Code sam stworzy plik HTML, zaktualizuje listę postów i zadba o to, żeby wszystko było spójne ze stylem strony. Dokładnie tak jak powstał ten wpis, który właśnie czytasz!</p>
+    <h2>Terminal vs przeglądarka - co się zmieniło?</h2>
+    <p>Kiedy tworzyłem tę stronę z Claude 3.7 w przeglądarce, musiałem kopiować i wklejać każdy fragment kodu. To działało, ale było trochę jak gra w "podaj dalej" - ja mówię co chcę, AI generuje kod, ja kopiuję, wklejam, sprawdzam, i tak w kółko.</p>
+    <p>Z Claude Code ten proces jest o wiele płynniejszy. AI widzi mój cały projekt, rozumie kontekst i może bezpośrednio wprowadzać zmiany. Mogę powiedzieć "dodaj nowy wpis na blogu" i Claude Code sam stworzy plik HTML, zaktualizuje listę postów i zadba o to, żeby wszystko było spójne ze stylem strony. Dokładnie tak jak powstał ten wpis, który właśnie czytasz!</p>
 
-          <h3>Co mnie najbardziej zaskoczyło?</h3>
-          <p>Najbardziej zaskoczył mnie fakt, że Claude Code naprawdę rozumie strukturę mojego projektu. Gdy proszę go o zmianę, on nie zmienia tylko jednego pliku - sprawdza, czy ta zmiana powinna być wprowadzona też w innych miejscach. Na przykład, gdy dodaję nowy wpis na blogu, automatycznie aktualizuje plik JSON z listą wpisów, tworzy plik HTML z odpowiednimi meta tagami i dba o SEO. To tak, jakby znał mój projekt lepiej niż ja sam!</p>
+    <h2>Co mnie najbardziej zaskoczyło?</h2>
+    <p>Najbardziej zaskoczył mnie fakt, że Claude Code naprawdę rozumie strukturę mojego projektu. Gdy proszę go o zmianę, on nie zmienia tylko jednego pliku - sprawdza, czy ta zmiana powinna być wprowadzona też w innych miejscach. Na przykład, gdy dodaję nowy wpis na blogu, automatycznie aktualizuje plik JSON z listą wpisów, tworzy plik HTML z odpowiednimi meta tagami i dba o SEO. To tak, jakby znał mój projekt lepiej niż ja sam!</p>
 
-          <h3>Moje ulubione zastosowania</h3>
-          <p>Oto rzeczy, do których najczęściej używam Claude Code:</p>
-          <ul>
-            <li><strong>Pisanie nowych wpisów na bloga</strong> - jak ten, który teraz czytasz!</li>
-            <li><strong>Poprawianie stylów CSS</strong> - gdy chcę zmienić wygląd jakiegoś elementu</li>
-            <li><strong>Zarządzanie gitem</strong> - commitowanie, pushowanie, mergowanie branchy</li>
-            <li><strong>Szukanie bugów</strong> - gdy coś nie działa jak powinno</li>
-            <li><strong>Nauka programowania</strong> - mogę pytać "dlaczego to działa w ten sposób?" i dostaję świetne wyjaśnienia</li>
-          </ul>
+    <h2>Moje ulubione zastosowania</h2>
+    <p>Oto rzeczy, do których najczęściej używam Claude Code:</p>
+    <ul>
+      <li><strong>Pisanie nowych wpisów na bloga</strong> - jak ten, który teraz czytasz!</li>
+      <li><strong>Poprawianie stylów CSS</strong> - gdy chcę zmienić wygląd jakiegoś elementu</li>
+      <li><strong>Zarządzanie gitem</strong> - commitowanie, pushowanie, mergowanie branchy</li>
+      <li><strong>Szukanie bugów</strong> - gdy coś nie działa jak powinno</li>
+      <li><strong>Nauka programowania</strong> - mogę pytać "dlaczego to działa w ten sposób?" i dostaję świetne wyjaśnienia</li>
+    </ul>
 
-          <h3>Podsumowanie</h3>
-          <p>Claude Code to dla mnie game-changer. Dzięki niemu mogę skupić się na tym, co chcę stworzyć, zamiast zmagać się z tym, jak to zrobić technicznie. To idealny kompan dla każdego, kto uczy się programowania i chce tworzyć fajne projekty. Jeśli już próbowaliście pracy z AI w przeglądarce, to Claude Code to następny poziom - zdecydowanie polecam spróbować!</p>
+    <h2>Podsumowanie</h2>
+    <p>Claude Code to dla mnie game-changer. Dzięki niemu mogę skupić się na tym, co chcę stworzyć, zamiast zmagać się z tym, jak to zrobić technicznie. To idealny kompan dla każdego, kto uczy się programowania i chce tworzyć fajne projekty. Jeśli już próbowaliście pracy z AI w przeglądarce, to Claude Code to następny poziom - zdecydowanie polecam spróbować!</p>
 
-          <p><em>A Wy używacie jakichś narzędzi AI do programowania? Może też macie doświadczenia z Claude Code? Dajcie znać, jestem ciekaw Waszych opinii!</em></p>
-        </div>
-      </article>
-    </main>
+    <p><em>A Wy używacie jakichś narzędzi AI do programowania? Może też macie doświadczenia z Claude Code? Dajcie znać, jestem ciekaw Waszych opinii!</em></p>
+      </div>
+    </article>
+  </main>
 
-    <footer class="box site-footer">
-      <p>&copy; 2025 PixelInventor</p>
-    </footer>
+  <footer class="site-footer">
+    <span>&copy; 2025 PixelInventor</span>
+    <a href="https://github.com/psekiewicz">GitHub</a>
+  </footer>
 
-  </div>
+</div>
 </body>
 </html>

@@ -6,79 +6,70 @@
   <title>O mnie - PixelInventor</title>
   <meta name="description" content="Kim jestem i co lubię robić.">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <header class="box site-header">
-      <h1 class="site-title">Pixel<span>Inventor</span></h1>
-      <p class="site-tagline">Robię gry i inne rzeczy</p>
-    </header>
-
-    <nav class="box site-nav">
-      <ul>
-        <li><a href="/">Start</a></li>
-        <li><a href="/stuff.html">Moje rzeczy</a></li>
-        <li><a href="/log.html">Log</a></li>
-        <li><a href="/about.html" class="active">O mnie</a></li>
-      </ul>
+  <header class="site-header">
+    <a href="/" class="brand">
+      <img src="/favicon.png" alt="" width="40" height="40">
+      <span>
+        <span class="brand-name">PixelInventor</span>
+        <span class="brand-tagline">Robię gry i inne rzeczy</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Menu">
+      <a href="/">Start</a>
+      <a href="/stuff.html">Moje rzeczy</a>
+      <a href="/log.html">Log</a>
+      <a href="/about.html" aria-current="page">O mnie</a>
     </nav>
+  </header>
 
-    <main>
-      <section class="box about">
-        <h2 class="section-title">O mnie</h2>
+  <main>
+    <h1 class="page-title">O mnie</h1>
 
-        <p>Cześć! Jestem PixelInventor. Mam 12 lat i najbardziej na świecie lubię robić gry.</p>
+    <div class="prose">
+      <p class="lede">Cześć! Jestem PixelInventor. Mam 12 lat i najbardziej na świecie lubię robić gry.</p>
 
-        <p>Zacząłem od Scratcha, potem poznałem HTML i CSS, a teraz uczę się C# w Unity i chcę się nauczyć Pythona. Lubię też tworzyć pixel art i robić muzykę (na razie z pomocą AI, ale kiedyś może sam).</p>
+      <p>Zacząłem od Scratcha, potem poznałem HTML i CSS, a teraz uczę się C# w Unity i chcę się nauczyć Pythona. Lubię też tworzyć pixel art i robić muzykę (na razie z pomocą AI, ale kiedyś może sam).</p>
 
-        <p>Ta strona to mój warsztat — wrzucam tu wszystko co tworzę. Nie musi być skończone, nie musi być idealne. Ważne że jest moje.</p>
+      <p>Ta strona to mój warsztat — wrzucam tu wszystko co tworzę. Nie musi być skończone, nie musi być idealne. Ważne że jest moje.</p>
 
-        <h3>Moja droga</h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <p class="year">2017</p>
-            <p>Pierwszy kontakt z komputerem. Minecraft (no dobra, głównie patrzyłem jak inni grają).</p>
-          </div>
-          <div class="timeline-item">
-            <p class="year">2020</p>
-            <p>Pierwsza animacja w Scratch.</p>
-          </div>
-          <div class="timeline-item">
-            <p class="year">2021</p>
-            <p>HTML, CSS, JavaScript — zacząłem budować strony.</p>
-          </div>
-          <div class="timeline-item">
-            <p class="year">2022</p>
-            <p>Odkryłem pixel art.</p>
-          </div>
-          <div class="timeline-item">
-            <p class="year">2023</p>
-            <p>Python, eksperymenty z AI.</p>
-          </div>
-          <div class="timeline-item">
-            <p class="year">2024</p>
-            <p>Pierwsza własna strona w internecie!</p>
-          </div>
-          <div class="timeline-item">
-            <p class="year">2025</p>
-            <p>Unity, C#, tworzenie gier na poważnie.</p>
-          </div>
-        </div>
+      <h2>Moja droga</h2>
+      <dl class="timeline">
+        <dt>2017</dt>
+        <dd>Pierwszy kontakt z komputerem. Minecraft (no dobra, głównie patrzyłem jak inni grają).</dd>
+        <dt>2020</dt>
+        <dd>Pierwsza animacja w Scratch.</dd>
+        <dt>2021</dt>
+        <dd>HTML, CSS, JavaScript — zacząłem budować strony.</dd>
+        <dt>2022</dt>
+        <dd>Odkryłem pixel art.</dd>
+        <dt>2023</dt>
+        <dd>Python, eksperymenty z AI.</dd>
+        <dt>2024</dt>
+        <dd>Pierwsza własna strona w internecie!</dd>
+        <dt>2025</dt>
+        <dd>Unity, C#, tworzenie gier na poważnie.</dd>
+      </dl>
 
-        <h3>Linki</h3>
-        <div class="links">
-          <a href="https://github.com/psekiewicz">GitHub</a>
-        </div>
-      </section>
-    </main>
+      <h2>Linki</h2>
+      <ul>
+        <li><a href="https://github.com/psekiewicz">GitHub</a></li>
+      </ul>
+    </div>
+  </main>
 
-    <footer class="box site-footer">
-      <p>&copy; 2025 PixelInventor</p>
-    </footer>
+  <footer class="site-footer">
+    <span>&copy; 2025 PixelInventor</span>
+    <a href="https://github.com/psekiewicz">GitHub</a>
+  </footer>
 
-  </div>
+</div>
 </body>
 </html>
