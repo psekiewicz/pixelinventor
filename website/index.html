@@ -4,68 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PixelInventor</title>
-  <meta name="description" content="Robię gry, pixel art i eksperymenty. Witaj w moim warsztacie.">
+  <meta name="description" content="Robię gry w Unity, rysuję pixel art i czasem robię muzykę. Tu wrzucam wszystko, co zrobię.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/term.js" defer></script>
 </head>
 <body>
-  <main class="term">
-    <h1 class="visually-hidden">PixelInventor</h1>
-    <pre class="logo logo-wide" aria-hidden="true"> ____  _          _ ___                      _
-|  _ \(_)_  _____| |_ _|_ ____   _____ _ __ | |_ ___  _ __
-| |_) | \ \/ / _ \ || || '_ \ \ / / _ \ '_ \| __/ _ \| '__|
-|  __/| |&gt;  &lt;  __/ || || | | \ V /  __/ | | | || (_) | |
-|_|   |_/_/\_\___|_|___|_| |_|\_/ \___|_| |_|\__\___/|_|</pre>
-    <pre class="logo logo-narrow" aria-hidden="true"> ___ _         _ ___                 _
-| _ (_)_ _____| |_ _|_ ___ _____ _ _| |_ ___ _ _
-|  _/ \ \ / -_) || || ' \ V / -_) ' \  _/ _ \ '_|
-|_| |_/_\_\___|_|___|_||_\_/\___|_||_\__\___/_|</pre>
-    <p class="motd">Robię gry i inne rzeczy. <b>warsztat v2026</b> &middot; ostatnie logowanie: <span data-last-login>dziś</span> z tty1</p>
+<div class="room">
 
-    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <span class="cmd">cat witaj.txt</span></p>
-    <div class="out">
-      <h2>Cześć!</h2>
-      <p>Jestem PixelInventor. Robię gry w Unity, tworzę pixel art, eksperymentuję z muzyką i uczę się programowania. Ta strona to mój warsztat — wszystko co tworzę ląduje tutaj.</p>
-    </div>
+  <header class="site-header">
+    <a href="/" class="brand">
+      <span class="brand-name">PixelInventor</span>
+      <span class="brand-tagline">Robię gry i inne rzeczy</span>
+    </a>
+    <nav class="shelf" aria-label="Menu">
+      <a href="/" class="cart" aria-current="page"><span>START</span></a>
+      <a href="/stuff.html" class="cart"><span>RZECZY</span></a>
+      <a href="/log.html" class="cart"><span>LOG</span></a>
+      <a href="/about.html" class="cart"><span>O MNIE</span></a>
+    </nav>
+  </header>
 
-    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <span class="cmd">ls -l rzeczy/ | head</span></p>
-    <div class="out">
-      <h2 class="visually-hidden">Ostatnie rzeczy</h2>
-      <p class="comment">razem 1</p>
-      <ul class="ls">
+  <div class="monitor">
+    <img class="monitor-cat" src="/img/art/cat.svg" alt="" width="16" height="16">
+    <main class="screen">
+      <h1>Cześć!</h1>
+      <p class="lede">Jestem PixelInventor. Robię gry w Unity, rysuję pixel art i czasem robię muzykę. Cały czas uczę się programować. Co zrobię, to ląduje tutaj.</p>
+
+      <h2>Ostatnio zrobione</h2>
+      <ul class="games">
         <li>
-          <span class="perm">drwxr-xr-x</span>
-          <span class="own">pixel</span>
-          <time datetime="2025-01-05">2025-01-05</time>
-          <a href="/stuff/ai-music/">melodie-ai/</a>
-          <span class="comment"># Melodie AI — muzyka do gier zrobiona z Suno</span>
+          <a href="/stuff/ai-music/" class="game">
+            <img src="/img/art/cover-melodie-ai.svg" alt="" width="48" height="36">
+            <span class="game-title">Melodie AI</span>
+            <span class="game-meta"><time datetime="2025-01-05">5.01.2025</time> &middot; muzyka</span>
+            <span class="game-desc">Muzyka do moich gier, zrobiona w Suno.</span>
+          </a>
         </li>
       </ul>
+      <a href="/stuff.html" class="more">Wszystkie rzeczy &rarr;</a>
+    </main>
+    <div class="bezel" aria-hidden="true">
+      <span class="led"></span>
+      <span>PIXELINVENTOR</span>
+      <span class="model">PI-486 COLOR</span>
+      <span class="knob"></span>
+      <span class="knob"></span>
     </div>
-
-    <p class="prompt"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <a href="/stuff.html">cd rzeczy/</a></p>
-    <p class="comment"># wszystkie rzeczy &uarr; kliknij komendę</p>
-
-    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~</span>$ <span class="cursor"></span></p>
-
-    <footer class="site-footer">
-      <p>&copy; 2025 PixelInventor &middot; <a href="https://github.com/psekiewicz">github.com/psekiewicz</a></p>
-    </footer>
-  </main>
-
-  <div class="tmux">
-    <span class="session" aria-hidden="true">[pixel]</span>
-    <nav aria-label="Menu">
-      <a href="/" aria-current="page">0:start</a>
-      <a href="/stuff.html">1:rzeczy</a>
-      <a href="/log.html">2:log</a>
-      <a href="/about.html">3:o-mnie</a>
-    </nav>
-    <span class="clock" aria-hidden="true">"warsztat"</span>
   </div>
+  <div class="stand" aria-hidden="true"></div>
+
+  <div class="desk">
+    <div class="desk-top" aria-hidden="true">
+      <div class="desk-items">
+        <img class="console" src="/img/art/console.svg" alt="" width="32" height="15" style="--w: 32">
+        <img class="controller" src="/img/art/controller.svg" alt="" width="24" height="11" style="--w: 24">
+        <img class="plant" src="/img/art/plant.svg" alt="" width="14" height="20" style="--w: 14">
+      </div>
+    </div>
+    <footer class="desk-front site-footer">
+      <span>&copy; 2025 PixelInventor</span>
+      <a href="https://github.com/psekiewicz">GitHub</a>
+    </footer>
+  </div>
+  <div class="floor"></div>
+
+</div>
 </body>
 </html>

@@ -4,41 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Melodie AI - PixelInventor</title>
+  <meta name="description" content="Muzyka do moich gier, zrobiona w Suno.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=Jersey+10&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/term.js" defer></script>
 </head>
 <body>
-  <main class="term">
-    <p class="prompt"><span class="u">pixel@warsztat</span>:<span class="p">~/rzeczy/melodie-ai</span>$ <a href="/stuff.html">cd ..</a></p>
+<div class="room">
 
-    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~/rzeczy/melodie-ai</span>$ <span class="cmd">cat README.md</span></p>
-    <div class="out prose">
-      <h1>Melodie AI</h1>
-      <p class="meta"><time datetime="2025-01-05">2025-01-05</time> &middot; <span class="tags">muzyka</span></p>
-      <p>Muzyka do gier zrobiona z pomocą Suno AI. Styl chiptune — takie dźwięki jak w starych grach na konsolę.</p>
-      <p>Chciałem mieć muzykę do swoich gier, ale nie umiem jeszcze grać na żadnym instrumencie. Suno pozwala opisać jaki klimat chcesz i generuje utwory. Wybrałem te które najbardziej pasują do gier platformowych.</p>
-    </div>
-
-    <p class="prompt" aria-hidden="true"><span class="u">pixel@warsztat</span>:<span class="p">~/rzeczy/melodie-ai</span>$ <span class="cursor"></span></p>
-
-    <footer class="site-footer">
-      <p>&copy; 2025 PixelInventor &middot; <a href="https://github.com/psekiewicz">github.com/psekiewicz</a></p>
-    </footer>
-  </main>
-
-  <div class="tmux">
-    <span class="session" aria-hidden="true">[pixel]</span>
-    <nav aria-label="Menu">
-      <a href="/">0:start</a>
-      <a href="/stuff.html" aria-current="page">1:rzeczy</a>
-      <a href="/log.html">2:log</a>
-      <a href="/about.html">3:o-mnie</a>
+  <header class="site-header">
+    <a href="/" class="brand">
+      <span class="brand-name">PixelInventor</span>
+      <span class="brand-tagline">Robię gry i inne rzeczy</span>
+    </a>
+    <nav class="shelf" aria-label="Menu">
+      <a href="/" class="cart"><span>START</span></a>
+      <a href="/stuff.html" class="cart" aria-current="page"><span>RZECZY</span></a>
+      <a href="/log.html" class="cart"><span>LOG</span></a>
+      <a href="/about.html" class="cart"><span>O MNIE</span></a>
     </nav>
-    <span class="clock" aria-hidden="true">"warsztat"</span>
+  </header>
+
+  <div class="monitor">
+    <img class="monitor-cat" src="/img/art/cat.svg" alt="" width="16" height="16">
+    <main class="screen">
+      <a href="/stuff.html" class="back-link">&larr; Moje rzeczy</a>
+      <article class="prose">
+        <h1>Melodie AI</h1>
+        <p class="meta"><time datetime="2025-01-05">5 stycznia 2025</time> &middot; <span class="tag">muzyka</span></p>
+        <figure class="figure">
+          <img src="/img/art/cover-melodie-ai.svg" alt="Okładka: nuty nad kolorowym equalizerem" width="48" height="36">
+        </figure>
+        <p>Potrzebowałem muzyki do swoich gier, a na żadnym instrumencie jeszcze nie gram. Więc spróbowałem Suno. Wpisujesz, jaki ma być klimat, a ono robi utwór.</p>
+        <p>Chciałem chiptune, czyli takie piszczące dźwięki jak w starych grach na konsole. Zostawiłem te utwory, które najlepiej pasują do platformówek.</p>
+      </article>
+    </main>
+    <div class="bezel" aria-hidden="true">
+      <span class="led"></span>
+      <span>PIXELINVENTOR</span>
+      <span class="model">PI-486 COLOR</span>
+      <span class="knob"></span>
+      <span class="knob"></span>
+    </div>
   </div>
+  <div class="stand" aria-hidden="true"></div>
+
+  <div class="desk">
+    <div class="desk-top" aria-hidden="true">
+      <div class="desk-items">
+        <img class="console" src="/img/art/console.svg" alt="" width="32" height="15" style="--w: 32">
+        <img class="controller" src="/img/art/controller.svg" alt="" width="24" height="11" style="--w: 24">
+        <img class="plant" src="/img/art/plant.svg" alt="" width="14" height="20" style="--w: 14">
+      </div>
+    </div>
+    <footer class="desk-front site-footer">
+      <span>&copy; 2025 PixelInventor</span>
+      <a href="https://github.com/psekiewicz">GitHub</a>
+    </footer>
+  </div>
+  <div class="floor"></div>
+
+</div>
 </body>
 </html>
