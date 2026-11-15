@@ -2,17 +2,16 @@
 
 /* --- Variables --- */
 :root {
-  --bg: #0a0a1a;
-  --card-bg: #151525;
-  --purple: #7c4dff;
-  --purple-dark: #5e2ca5;
-  --purple-glow: rgba(124, 77, 255, 0.15);
+  --bg: #070C26;
+  --card-bg: #180E59;
+  --purple: #3711BF;
+  --purple-dark: #280D8C;
   --blue: #4da6ff;
   --yellow: #ffcc00;
   --green: #00cc66;
-  --text: #f0f0f0;
-  --text-dim: rgba(240, 240, 240, 0.6);
-  --border: #7c4dff;
+  --text: #F24B4B;
+  --text-dim: #3711BF;
+  --border: #F24B4B;
   --max-width: 800px;
 }
 
@@ -38,7 +37,6 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  image-rendering: pixelated;
 }
 
 a { color: var(--blue); text-decoration: none; transition: color 0.15s; }
@@ -415,7 +413,7 @@ h1, h2, h3 { font-family: "Press Start 2P", cursive; line-height: 1.5; }
 .links a {
   font-size: 13px;
   padding: 10px 18px;
-  background: var(--purple-glow);
+  background: var(--card-bg);
   border: 2px solid rgba(124, 77, 255, 0.3);
   border-radius: 6px;
   color: var(--text);
@@ -492,7 +490,7 @@ h1, h2, h3 { font-family: "Press Start 2P", cursive; line-height: 1.5; }
   font-size: 7px;
   padding: 4px 8px;
   border-radius: 4px;
-  background: var(--purple-glow);
+  background: var(--card-bg);
   border: 1px solid rgba(124, 77, 255, 0.3);
   color: var(--text-dim);
 }
